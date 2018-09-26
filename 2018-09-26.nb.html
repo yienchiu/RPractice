@@ -267,8 +267,51 @@ as.factor(student$入學年)-&gt;student$入學年</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmFjdG9yKHN0dWRlbnQk6Lqr6auY57Sa6LedLFxuICAgICAgIGxldmVscz1jKFwiKDAsMTUwXVwiLFwiKDE1MCwxNTVdXCIsIFwiKDE1NSwxNjBdXCIsIFwiKDE2MCwxNjVdXCIgLFwiKDE2NSwxNzBdXCIsIFwiKDE3MCwxNzVdXCIgLFwiKDE3NSwxODBdXCIgLFwiKDE4MCwxODVdXCIsIFwiKDE4NSwyMDBdXCIpLFxuICAgICAgIG9yZGVyZWQ9VFJVRSkgLT4gc3R1ZGVudCTouqvpq5jntJrot51cbmBgYCJ9 -->
+<pre class="r"><code>factor(student$身高級距,
+       levels=c(&quot;(0,150]&quot;,&quot;(150,155]&quot;, &quot;(155,160]&quot;, &quot;(160,165]&quot; ,&quot;(165,170]&quot;, &quot;(170,175]&quot; ,&quot;(175,180]&quot; ,&quot;(180,185]&quot;, &quot;(185,200]&quot;),
+       ordered=TRUE) -&gt; student$身高級距</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVpZ2h0TGV2ZWxzIDwtIGMoXCIoMCwxNTBdXCIsXCIoMTUwLDE1NV1cIiwgXCIoMTU1LDE2MF1cIiwgXCIoMTYwLDE2NV1cIiAsXCIoMTY1LDE3MF1cIiwgXCIoMTcwLDE3NV1cIiAsXCIoMTc1LDE4MF1cIiAsXCIoMTgwLDE4NV1cIiwgXCIoMTg1LDIwMF1cIilcbmZhY3RvcihzdHVkZW50JOi6q+mrmOe0mui3nSxcbiAgICAgICBsZXZlbHM9aGVpZ2h0TGV2ZWxzLFxuICAgICAgIG9yZGVyZWQ9VFJVRSkgLT4gc3R1ZGVudCTouqvpq5jntJrot51cbmBgYCJ9 -->
+<pre class="r"><code>heightLevels &lt;- c(&quot;(0,150]&quot;,&quot;(150,155]&quot;, &quot;(155,160]&quot;, &quot;(160,165]&quot; ,&quot;(165,170]&quot;, &quot;(170,175]&quot; ,&quot;(175,180]&quot; ,&quot;(180,185]&quot;, &quot;(185,200]&quot;)
+factor(student$身高級距,
+       levels=heightLevels,
+       ordered=TRUE) -&gt; student$身高級距</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYTwtXCIyMDE3LTAxLTMxXCJcbmBgYCJ9 -->
+<pre class="r"><code>a&lt;-&quot;2017-01-31&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShsdWJyaWRhdGUpXG5hIDwtIHltZChcIjIwMTctMDEtMzFcIikgXG5iIDwtIHltZF9obXMoXCIyMDE3LTAxLTMxIDIwOjExOjU5XCIpXG5gYGAifQ== -->
+<pre class="r"><code>library(lubridate)
+a &lt;- ymd(&quot;2017-01-31&quot;) 
+b &lt;- ymd_hms(&quot;2017-01-31 20:11:59&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA8LSB5bWQoXCIyMDE3LzAxLzMxXCIpIFxuYiA8LSB5bWRfaG1zKFwiMjAxNy0wMS0zMSAyOjUzOjAwcG1cIilcbmBgYCJ9 -->
+<pre class="r"><code>a &lt;- ymd(&quot;2017/01/31&quot;) 
+b &lt;- ymd_hms(&quot;2017-01-31 2:53:00pm&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMDktMjYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmE8LTUNCmEyPC01TA0KYVZlY3RvcjwtYyg1LDYsNykNCmEyVmVjdG9yPC1jKDVMLDZMLDdMKQ0KYjwtIuS9oOWlvSINCmJWZWN0b3I8LWMoIuS9oOWlvSIsIkhvdyBhcmUgeW91PyIpDQpiMjwtJ+S9oOWlvScNCmIzPC0iJ+S9oOWlvSciDQpiNDwtJyLkvaDlpb0iJw0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMQ0KbnVtMjwtMTAwDQpudW0xK251bTINCmBgYA0KDQpgYGB7cn0NCmFWZWN0b3ItYQ0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMS41NjgNCm51bTI8LTIuMTIxDQpyb3VuZChudW0xLGRpZ2l0cyA9IDIpLT5yb3VuZE51bTENCmBgYA0KDQpgYGB7cn0NCnJvdW5kKDIuMzg3NSxkaWdpdHM9MikNCnJvdW5kKDEuNDc3MSkNCmBgYA0KYGBge3J9DQpsaWJyYXJ5KHJlYWRyKQ0Kc3R1ZGVudCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS9zdHVkZW50LmNzdiIpDQpsaWJyYXJ5KGRwbHlyKQ0KbGlicmFyeShtYWdyaXR0cikNCnN0dWRlbnQgJTw+JSBtdXRhdGUoDQogIOi6q+mrmOe0mui3nT1jdXQo6Lqr6auYLGMoMCwxNTAsMTU1LDE2MCwxNjUsMTcwLDE3NSwxODAsMTg1LDIwMCkpKQ0KYGBgDQpgYGB7cn0NCnN0dWRlbnQk5Ye655Sf5ZywDQpgYGANCg0KYGBge3J9DQpsZXZlbHMoc3R1ZGVudCTlh7rnlJ/lnLApDQpgYGANCg0KYGBge3J9DQp0YWJsZShzdHVkZW50JOWHuueUn+WcsCkNCmBgYA0KDQpgYGB7cn0NCmFzLmZhY3RvcihzdHVkZW50JOWHuueUn+WcsCkgLT4gc3R1ZGVudCTlh7rnlJ/lnLANCmBgYA0KYGBge3J9DQphcy5mYWN0b3Ioc3R1ZGVudCTmgKfliKUpLT5zdHVkZW50JOaAp+WIpQ0KYXMuZmFjdG9yKHN0dWRlbnQk5YWl5a245bm0KS0+c3R1ZGVudCTlhaXlrbjlubQNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMDktMjYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmE8LTUNCmEyPC01TA0KYVZlY3RvcjwtYyg1LDYsNykNCmEyVmVjdG9yPC1jKDVMLDZMLDdMKQ0KYjwtIuS9oOWlvSINCmJWZWN0b3I8LWMoIuS9oOWlvSIsIkhvdyBhcmUgeW91PyIpDQpiMjwtJ+S9oOWlvScNCmIzPC0iJ+S9oOWlvSciDQpiNDwtJyLkvaDlpb0iJw0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMQ0KbnVtMjwtMTAwDQpudW0xK251bTINCmBgYA0KDQpgYGB7cn0NCmFWZWN0b3ItYQ0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMS41NjgNCm51bTI8LTIuMTIxDQpyb3VuZChudW0xLGRpZ2l0cyA9IDIpLT5yb3VuZE51bTENCmBgYA0KDQpgYGB7cn0NCnJvdW5kKDIuMzg3NSxkaWdpdHM9MikNCnJvdW5kKDEuNDc3MSkNCmBgYA0KYGBge3J9DQpsaWJyYXJ5KHJlYWRyKQ0Kc3R1ZGVudCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS9zdHVkZW50LmNzdiIpDQpsaWJyYXJ5KGRwbHlyKQ0KbGlicmFyeShtYWdyaXR0cikNCnN0dWRlbnQgJTw+JSBtdXRhdGUoDQogIOi6q+mrmOe0mui3nT1jdXQo6Lqr6auYLGMoMCwxNTAsMTU1LDE2MCwxNjUsMTcwLDE3NSwxODAsMTg1LDIwMCkpKQ0KYGBgDQpgYGB7cn0NCnN0dWRlbnQk5Ye655Sf5ZywDQpgYGANCg0KYGBge3J9DQpsZXZlbHMoc3R1ZGVudCTlh7rnlJ/lnLApDQpgYGANCg0KYGBge3J9DQp0YWJsZShzdHVkZW50JOWHuueUn+WcsCkNCmBgYA0KDQpgYGB7cn0NCmFzLmZhY3RvcihzdHVkZW50JOWHuueUn+WcsCkgLT4gc3R1ZGVudCTlh7rnlJ/lnLANCmBgYA0KYGBge3J9DQphcy5mYWN0b3Ioc3R1ZGVudCTmgKfliKUpLT5zdHVkZW50JOaAp+WIpQ0KYXMuZmFjdG9yKHN0dWRlbnQk5YWl5a245bm0KS0+c3R1ZGVudCTlhaXlrbjlubQNCmBgYA0KDQpgYGB7cn0NCmZhY3RvcihzdHVkZW50JOi6q+mrmOe0mui3nSwNCiAgICAgICBsZXZlbHM9YygiKDAsMTUwXSIsIigxNTAsMTU1XSIsICIoMTU1LDE2MF0iLCAiKDE2MCwxNjVdIiAsIigxNjUsMTcwXSIsICIoMTcwLDE3NV0iICwiKDE3NSwxODBdIiAsIigxODAsMTg1XSIsICIoMTg1LDIwMF0iKSwNCiAgICAgICBvcmRlcmVkPVRSVUUpIC0+IHN0dWRlbnQk6Lqr6auY57Sa6LedDQpgYGANCg0KYGBge3J9DQpoZWlnaHRMZXZlbHMgPC0gYygiKDAsMTUwXSIsIigxNTAsMTU1XSIsICIoMTU1LDE2MF0iLCAiKDE2MCwxNjVdIiAsIigxNjUsMTcwXSIsICIoMTcwLDE3NV0iICwiKDE3NSwxODBdIiAsIigxODAsMTg1XSIsICIoMTg1LDIwMF0iKQ0KZmFjdG9yKHN0dWRlbnQk6Lqr6auY57Sa6LedLA0KICAgICAgIGxldmVscz1oZWlnaHRMZXZlbHMsDQogICAgICAgb3JkZXJlZD1UUlVFKSAtPiBzdHVkZW50JOi6q+mrmOe0mui3nQ0KYGBgDQoNCmBgYHtyfQ0KYTwtIjIwMTctMDEtMzEiDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5KGx1YnJpZGF0ZSkNCmEgPC0geW1kKCIyMDE3LTAxLTMxIikgDQpiIDwtIHltZF9obXMoIjIwMTctMDEtMzEgMjA6MTE6NTkiKQ0KYGBgDQoNCmBgYHtyfQ0KYSA8LSB5bWQoIjIwMTcvMDEvMzEiKSANCmIgPC0geW1kX2htcygiMjAxNy0wMS0zMSAyOjUzOjAwcG0iKQ0KYGBgDQoNCg==</div>
 
 
 
