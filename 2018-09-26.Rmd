@@ -43,4 +43,19 @@ library(magrittr)
 student %<>% mutate(
   身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
 ```
+```{r}
+student$出生地
+```
+
+```{r}
+levels(student$出生地)
+```
+
+```{r}
+table(student$出生地)
+```
+
+```{r}
+as.factor(student$出生地) -> student$出生地
+```
 
