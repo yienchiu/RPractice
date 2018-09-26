@@ -58,4 +58,8 @@ table(student$出生地)
 ```{r}
 as.factor(student$出生地) -> student$出生地
 ```
+```{r}
+as.factor(student$性別)->student$性別
+as.factor(student$入學年)->student$入學年
+```
 
