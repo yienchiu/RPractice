@@ -3,3 +3,31 @@ title: "2018-09-26"
 output: html_notebook
 ---
 
+```{r}
+a<-5
+a2<-5L
+aVector<-c(5,6,7)
+a2Vector<-c(5L,6L,7L)
+b<-"你好"
+bVector<-c("你好","How are you?")
+b2<-'你好'
+b3<-"'你好'"
+b4<-'"你好"'
+```
+
+```{r}
+num1<-1
+num2<-100
+num1+num2
+```
+
+```{r}
+aVector-a
+```
+
+```{r}
+num1<-1.568
+num2<-2.121
+round(num1,digits = 2)->roundNum1
+```
+
