@@ -217,8 +217,26 @@ round(num1,digits = 2)-&gt;roundNum1</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm91bmQoMi4zODc1LGRpZ2l0cz0yKVxucm91bmQoMS40NzcxKVxuYGBgIn0= -->
+<pre class="r"><code>round(2.3875,digits=2)
+round(1.4771)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbnN0dWRlbnQgPC0gcmVhZF9jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vdHBlbWFydGluL2NvdXJzZS0xMDctMS1wcm9ncmFtbWluZy1mb3ItZGF0YS1zY2llbmNlL21hc3Rlci9kYXRhL3N0dWRlbnQuY3N2XCIpXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShtYWdyaXR0cilcbnN0dWRlbnQgJTw+JSBtdXRhdGUoXG4gIOi6q+mrmOe0mui3nT1jdXQo6Lqr6auYLGMoMCwxNTAsMTU1LDE2MCwxNjUsMTcwLDE3NSwxODAsMTg1LDIwMCkpKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+student &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv&quot;)
+library(dplyr)
+library(magrittr)
+student %&lt;&gt;% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMDktMjYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmE8LTUNCmEyPC01TA0KYVZlY3RvcjwtYyg1LDYsNykNCmEyVmVjdG9yPC1jKDVMLDZMLDdMKQ0KYjwtIuS9oOWlvSINCmJWZWN0b3I8LWMoIuS9oOWlvSIsIkhvdyBhcmUgeW91PyIpDQpiMjwtJ+S9oOWlvScNCmIzPC0iJ+S9oOWlvSciDQpiNDwtJyLkvaDlpb0iJw0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMQ0KbnVtMjwtMTAwDQpudW0xK251bTINCmBgYA0KDQpgYGB7cn0NCmFWZWN0b3ItYQ0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMS41NjgNCm51bTI8LTIuMTIxDQpyb3VuZChudW0xLGRpZ2l0cyA9IDIpLT5yb3VuZE51bTENCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIjIwMTgtMDktMjYiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmE8LTUNCmEyPC01TA0KYVZlY3RvcjwtYyg1LDYsNykNCmEyVmVjdG9yPC1jKDVMLDZMLDdMKQ0KYjwtIuS9oOWlvSINCmJWZWN0b3I8LWMoIuS9oOWlvSIsIkhvdyBhcmUgeW91PyIpDQpiMjwtJ+S9oOWlvScNCmIzPC0iJ+S9oOWlvSciDQpiNDwtJyLkvaDlpb0iJw0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMQ0KbnVtMjwtMTAwDQpudW0xK251bTINCmBgYA0KDQpgYGB7cn0NCmFWZWN0b3ItYQ0KYGBgDQoNCmBgYHtyfQ0KbnVtMTwtMS41NjgNCm51bTI8LTIuMTIxDQpyb3VuZChudW0xLGRpZ2l0cyA9IDIpLT5yb3VuZE51bTENCmBgYA0KDQpgYGB7cn0NCnJvdW5kKDIuMzg3NSxkaWdpdHM9MikNCnJvdW5kKDEuNDc3MSkNCmBgYA0KYGBge3J9DQpsaWJyYXJ5KHJlYWRyKQ0Kc3R1ZGVudCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS9zdHVkZW50LmNzdiIpDQpsaWJyYXJ5KGRwbHlyKQ0KbGlicmFyeShtYWdyaXR0cikNCnN0dWRlbnQgJTw+JSBtdXRhdGUoDQogIOi6q+mrmOe0mui3nT1jdXQo6Lqr6auYLGMoMCwxNTAsMTU1LDE2MCwxNjUsMTcwLDE3NSwxODAsMTg1LDIwMCkpKQ0KYGBgDQoNCg==</div>
 
 
 

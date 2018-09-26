@@ -31,3 +31,16 @@ num2<-2.121
 round(num1,digits = 2)->roundNum1
 ```
 
+```{r}
+round(2.3875,digits=2)
+round(1.4771)
+```
+```{r}
+library(readr)
+student <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv")
+library(dplyr)
+library(magrittr)
+student %<>% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
+```
+
