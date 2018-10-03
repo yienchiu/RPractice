@@ -22,3 +22,20 @@ studentID$學號
 str_sub(studentID$學號,5,6)
 ```
 
+```{r}
+str_c(letters,LETTERS)
+str_c(letters,LETTERS,sep="-")
+str_c("lowercase: ", letters, ", capital: ", LETTERS)
+```
+
+```{r}
+str_c("Letter: ", letters)
+str_c("Letter", letters, sep = ": ")
+str_c(letters, " is for", "...")
+str_c(letters[-26], " comes before ", letters[-1])
+
+str_c(letters, collapse = "")
+str_c(letters, collapse = ", ")
+
+```
+
