@@ -213,16 +213,68 @@ str_c(&quot;lowercase: &quot;, letters, &quot;, capital: &quot;, LETTERS)</code>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MoXCJMZXR0ZXI6IFwiLCBsZXR0ZXJzKVxuc3RyX2MoXCJMZXR0ZXJcIiwgbGV0dGVycywgc2VwID0gXCI6IFwiKVxuc3RyX2MobGV0dGVycywgXCIgaXMgZm9yXCIsIFwiLi4uXCIpXG5zdHJfYyhsZXR0ZXJzWy0yNl0sIFwiIGNvbWVzIGJlZm9yZSBcIiwgbGV0dGVyc1stMV0pXG5cbnN0cl9jKGxldHRlcnMsIGNvbGxhcHNlID0gXCJcIilcbnN0cl9jKGxldHRlcnMsIGNvbGxhcHNlID0gXCIsIFwiKVxuXG5gYGAifQ== -->
-<pre class="r"><code>str_c(&quot;Letter: &quot;, letters)
-str_c(&quot;Letter&quot;, letters, sep = &quot;: &quot;)
-str_c(letters, &quot; is for&quot;, &quot;...&quot;)
-str_c(letters[-26], &quot; comes before &quot;, letters[-1])
-
-str_c(letters, collapse = &quot;&quot;)
-str_c(letters, collapse = &quot;, &quot;)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MoXCJMZXR0ZXI6IFwiLCBsZXR0ZXJzKVxuYGBgIn0= -->
+<pre class="r"><code>str_c(&quot;Letter: &quot;, letters)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIkxldHRlcjogYVwiIFwiTGV0dGVyOiBiXCIgXCJMZXR0ZXI6IGNcIiBcIkxldHRlcjogZFwiXG4gWzVdIFwiTGV0dGVyOiBlXCIgXCJMZXR0ZXI6IGZcIiBcIkxldHRlcjogZ1wiIFwiTGV0dGVyOiBoXCJcbiBbOV0gXCJMZXR0ZXI6IGlcIiBcIkxldHRlcjogalwiIFwiTGV0dGVyOiBrXCIgXCJMZXR0ZXI6IGxcIlxuWzEzXSBcIkxldHRlcjogbVwiIFwiTGV0dGVyOiBuXCIgXCJMZXR0ZXI6IG9cIiBcIkxldHRlcjogcFwiXG5bMTddIFwiTGV0dGVyOiBxXCIgXCJMZXR0ZXI6IHJcIiBcIkxldHRlcjogc1wiIFwiTGV0dGVyOiB0XCJcblsyMV0gXCJMZXR0ZXI6IHVcIiBcIkxldHRlcjogdlwiIFwiTGV0dGVyOiB3XCIgXCJMZXR0ZXI6IHhcIlxuWzI1XSBcIkxldHRlcjogeVwiIFwiTGV0dGVyOiB6XCJcbiJ9 -->
+<pre><code> [1] &quot;Letter: a&quot; &quot;Letter: b&quot; &quot;Letter: c&quot; &quot;Letter: d&quot;
+ [5] &quot;Letter: e&quot; &quot;Letter: f&quot; &quot;Letter: g&quot; &quot;Letter: h&quot;
+ [9] &quot;Letter: i&quot; &quot;Letter: j&quot; &quot;Letter: k&quot; &quot;Letter: l&quot;
+[13] &quot;Letter: m&quot; &quot;Letter: n&quot; &quot;Letter: o&quot; &quot;Letter: p&quot;
+[17] &quot;Letter: q&quot; &quot;Letter: r&quot; &quot;Letter: s&quot; &quot;Letter: t&quot;
+[21] &quot;Letter: u&quot; &quot;Letter: v&quot; &quot;Letter: w&quot; &quot;Letter: x&quot;
+[25] &quot;Letter: y&quot; &quot;Letter: z&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MoXCJMZXR0ZXJcIiwgbGV0dGVycywgc2VwID0gXCI6IFwiKVxuYGBgIn0= -->
+<pre class="r"><code>str_c(&quot;Letter&quot;, letters, sep = &quot;: &quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIkxldHRlcjogYVwiIFwiTGV0dGVyOiBiXCIgXCJMZXR0ZXI6IGNcIiBcIkxldHRlcjogZFwiXG4gWzVdIFwiTGV0dGVyOiBlXCIgXCJMZXR0ZXI6IGZcIiBcIkxldHRlcjogZ1wiIFwiTGV0dGVyOiBoXCJcbiBbOV0gXCJMZXR0ZXI6IGlcIiBcIkxldHRlcjogalwiIFwiTGV0dGVyOiBrXCIgXCJMZXR0ZXI6IGxcIlxuWzEzXSBcIkxldHRlcjogbVwiIFwiTGV0dGVyOiBuXCIgXCJMZXR0ZXI6IG9cIiBcIkxldHRlcjogcFwiXG5bMTddIFwiTGV0dGVyOiBxXCIgXCJMZXR0ZXI6IHJcIiBcIkxldHRlcjogc1wiIFwiTGV0dGVyOiB0XCJcblsyMV0gXCJMZXR0ZXI6IHVcIiBcIkxldHRlcjogdlwiIFwiTGV0dGVyOiB3XCIgXCJMZXR0ZXI6IHhcIlxuWzI1XSBcIkxldHRlcjogeVwiIFwiTGV0dGVyOiB6XCJcbiJ9 -->
+<pre><code> [1] &quot;Letter: a&quot; &quot;Letter: b&quot; &quot;Letter: c&quot; &quot;Letter: d&quot;
+ [5] &quot;Letter: e&quot; &quot;Letter: f&quot; &quot;Letter: g&quot; &quot;Letter: h&quot;
+ [9] &quot;Letter: i&quot; &quot;Letter: j&quot; &quot;Letter: k&quot; &quot;Letter: l&quot;
+[13] &quot;Letter: m&quot; &quot;Letter: n&quot; &quot;Letter: o&quot; &quot;Letter: p&quot;
+[17] &quot;Letter: q&quot; &quot;Letter: r&quot; &quot;Letter: s&quot; &quot;Letter: t&quot;
+[21] &quot;Letter: u&quot; &quot;Letter: v&quot; &quot;Letter: w&quot; &quot;Letter: x&quot;
+[25] &quot;Letter: y&quot; &quot;Letter: z&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MobGV0dGVycywgXCIgaXMgZm9yXCIsIFwiLi4uXCIpXG5gYGAifQ== -->
+<pre class="r"><code>str_c(letters, &quot; is for&quot;, &quot;...&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcImEgaXMgZm9yLi4uXCIgXCJiIGlzIGZvci4uLlwiIFwiYyBpcyBmb3IuLi5cIiBcImQgaXMgZm9yLi4uXCJcbiBbNV0gXCJlIGlzIGZvci4uLlwiIFwiZiBpcyBmb3IuLi5cIiBcImcgaXMgZm9yLi4uXCIgXCJoIGlzIGZvci4uLlwiXG4gWzldIFwiaSBpcyBmb3IuLi5cIiBcImogaXMgZm9yLi4uXCIgXCJrIGlzIGZvci4uLlwiIFwibCBpcyBmb3IuLi5cIlxuWzEzXSBcIm0gaXMgZm9yLi4uXCIgXCJuIGlzIGZvci4uLlwiIFwibyBpcyBmb3IuLi5cIiBcInAgaXMgZm9yLi4uXCJcblsxN10gXCJxIGlzIGZvci4uLlwiIFwiciBpcyBmb3IuLi5cIiBcInMgaXMgZm9yLi4uXCIgXCJ0IGlzIGZvci4uLlwiXG5bMjFdIFwidSBpcyBmb3IuLi5cIiBcInYgaXMgZm9yLi4uXCIgXCJ3IGlzIGZvci4uLlwiIFwieCBpcyBmb3IuLi5cIlxuWzI1XSBcInkgaXMgZm9yLi4uXCIgXCJ6IGlzIGZvci4uLlwiXG4ifQ== -->
+<pre><code> [1] &quot;a is for...&quot; &quot;b is for...&quot; &quot;c is for...&quot; &quot;d is for...&quot;
+ [5] &quot;e is for...&quot; &quot;f is for...&quot; &quot;g is for...&quot; &quot;h is for...&quot;
+ [9] &quot;i is for...&quot; &quot;j is for...&quot; &quot;k is for...&quot; &quot;l is for...&quot;
+[13] &quot;m is for...&quot; &quot;n is for...&quot; &quot;o is for...&quot; &quot;p is for...&quot;
+[17] &quot;q is for...&quot; &quot;r is for...&quot; &quot;s is for...&quot; &quot;t is for...&quot;
+[21] &quot;u is for...&quot; &quot;v is for...&quot; &quot;w is for...&quot; &quot;x is for...&quot;
+[25] &quot;y is for...&quot; &quot;z is for...&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MobGV0dGVyc1stMjZdLCBcIiBjb21lcyBiZWZvcmUgXCIsIGxldHRlcnNbLTFdKVxuYGBgIn0= -->
+<pre class="r"><code>str_c(letters[-26], &quot; comes before &quot;, letters[-1])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcImEgY29tZXMgYmVmb3JlIGJcIiBcImIgY29tZXMgYmVmb3JlIGNcIiBcImMgY29tZXMgYmVmb3JlIGRcIlxuIFs0XSBcImQgY29tZXMgYmVmb3JlIGVcIiBcImUgY29tZXMgYmVmb3JlIGZcIiBcImYgY29tZXMgYmVmb3JlIGdcIlxuIFs3XSBcImcgY29tZXMgYmVmb3JlIGhcIiBcImggY29tZXMgYmVmb3JlIGlcIiBcImkgY29tZXMgYmVmb3JlIGpcIlxuWzEwXSBcImogY29tZXMgYmVmb3JlIGtcIiBcImsgY29tZXMgYmVmb3JlIGxcIiBcImwgY29tZXMgYmVmb3JlIG1cIlxuWzEzXSBcIm0gY29tZXMgYmVmb3JlIG5cIiBcIm4gY29tZXMgYmVmb3JlIG9cIiBcIm8gY29tZXMgYmVmb3JlIHBcIlxuWzE2XSBcInAgY29tZXMgYmVmb3JlIHFcIiBcInEgY29tZXMgYmVmb3JlIHJcIiBcInIgY29tZXMgYmVmb3JlIHNcIlxuWzE5XSBcInMgY29tZXMgYmVmb3JlIHRcIiBcInQgY29tZXMgYmVmb3JlIHVcIiBcInUgY29tZXMgYmVmb3JlIHZcIlxuWzIyXSBcInYgY29tZXMgYmVmb3JlIHdcIiBcIncgY29tZXMgYmVmb3JlIHhcIiBcInggY29tZXMgYmVmb3JlIHlcIlxuWzI1XSBcInkgY29tZXMgYmVmb3JlIHpcIlxuIn0= -->
+<pre><code> [1] &quot;a comes before b&quot; &quot;b comes before c&quot; &quot;c comes before d&quot;
+ [4] &quot;d comes before e&quot; &quot;e comes before f&quot; &quot;f comes before g&quot;
+ [7] &quot;g comes before h&quot; &quot;h comes before i&quot; &quot;i comes before j&quot;
+[10] &quot;j comes before k&quot; &quot;k comes before l&quot; &quot;l comes before m&quot;
+[13] &quot;m comes before n&quot; &quot;n comes before o&quot; &quot;o comes before p&quot;
+[16] &quot;p comes before q&quot; &quot;q comes before r&quot; &quot;r comes before s&quot;
+[19] &quot;s comes before t&quot; &quot;t comes before u&quot; &quot;u comes before v&quot;
+[22] &quot;v comes before w&quot; &quot;w comes before x&quot; &quot;x comes before y&quot;
+[25] &quot;y comes before z&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MobGV0dGVycywgY29sbGFwc2UgPSBcIlwiKVxuYGBgIn0= -->
+<pre class="r"><code>str_c(letters, collapse = &quot;&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXpcIlxuIn0= -->
+<pre><code>[1] &quot;abcdefghijklmnopqrstuvwxyz&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MobGV0dGVycywgY29sbGFwc2UgPSBcIiwgXCIpXG5gYGAifQ== -->
+<pre class="r"><code>str_c(letters, collapse = &quot;, &quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiYSwgYiwgYywgZCwgZSwgZiwgZywgaCwgaSwgaiwgaywgbCwgbSwgbiwgbywgcCwgcSwgciwgcywgdCwgdSwgdiwgdywgeCwgeSwgelwiXG4ifQ== -->
+<pre><code>[1] &quot;a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -235,15 +287,26 @@ githubData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/gith
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2l0aHViRGF0YVtjKDIsMyw0KSxdIC0+IHNhbXBsZUdpdGh1Ylxuc3RyX2Moc2FtcGxlR2l0aHViJGBHaXRIdWIgdXNlcm5hbWVgLFxuICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgcmVwbyBuYW1lYClcbnN0cl9jKFwiaHR0cHM6Ly9naXRodWIuY29tL1wiLFxuICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgdXNlcm5hbWVgLFxuICAgICAgXCIvXCIsXG4gICAgICBzYW1wbGVHaXRodWIkYEdpdEh1YiByZXBvIG5hbWVgKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2l0aHViRGF0YVtjKDIsMyw0KSxdIC0+IHNhbXBsZUdpdGh1Ylxuc3RyX2Moc2FtcGxlR2l0aHViJGBHaXRIdWIgdXNlcm5hbWVgLFxuICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgcmVwbyBuYW1lYClcbmBgYCJ9 -->
 <pre class="r"><code>githubData[c(2,3,4),] -&gt; sampleGithub
 str_c(sampleGithub$`GitHub username`,
-      sampleGithub$`GitHub repo name`)
-str_c(&quot;https://github.com/&quot;,
+      sampleGithub$`GitHub repo name`)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwic2hpaGhhbkNoaXVpbmNsYXNzUHJhY3RpY2VcIiBcIllpeHVhbld1dWRhdGEtc2NpZW5jZVwiICAgICBcblszXSBcInN1bm56ZW5naW5DbGFzcy1QcmFjdGljZVwiICBcbiJ9 -->
+<pre><code>[1] &quot;shihhanChiuinclassPractice&quot; &quot;YixuanWuudata-science&quot;     
+[3] &quot;sunnzenginClass-Practice&quot;  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2MoXCJodHRwczovL2dpdGh1Yi5jb20vXCIsXG4gICAgICBzYW1wbGVHaXRodWIkYEdpdEh1YiB1c2VybmFtZWAsXG4gICAgICBcIi9cIixcbiAgICAgIHNhbXBsZUdpdGh1YiRgR2l0SHViIHJlcG8gbmFtZWApXG5gYGAifQ== -->
+<pre class="r"><code>str_c(&quot;https://github.com/&quot;,
       sampleGithub$`GitHub username`,
       &quot;/&quot;,
       sampleGithub$`GitHub repo name`)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiaHR0cHM6Ly9naXRodWIuY29tL3NoaWhoYW5DaGl1L2luY2xhc3NQcmFjdGljZVwiXG5bMl0gXCJodHRwczovL2dpdGh1Yi5jb20vWWl4dWFuV3V1L2RhdGEtc2NpZW5jZVwiICAgICBcblszXSBcImh0dHBzOi8vZ2l0aHViLmNvbS9zdW5uemVuZy9pbkNsYXNzLVByYWN0aWNlXCIgIFxuIn0= -->
+<pre><code>[1] &quot;https://github.com/shihhanChiu/inclassPractice&quot;
+[2] &quot;https://github.com/YixuanWuu/data-science&quot;     
+[3] &quot;https://github.com/sunnzeng/inClass-Practice&quot;  </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -804,10 +867,19 @@ str_split(fruits, &quot; and &quot;)</code></pre>
 [2,] &quot;pineapples&quot; &quot;mangos&quot;  &quot;guavas&quot; &quot;&quot;       </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxu5rCR5ZyL5bm05pyIPC1jKFwiMDk5LzAxXCIsXCIwOTkvMDJcIixcIjA5OS8wM1wiKVxuc3RyX2MoMSlcbmBgYCJ9 -->
+<pre class="r"><code>民國年月&lt;-c(&quot;099/01&quot;,&quot;099/02&quot;,&quot;099/03&quot;)
+str_c(1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMVwiXG4ifQ== -->
+<pre><code>[1] &quot;1&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAnMjAxOC0xMC0wMycKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9Cmh3IDwtICJIYWRsZXkgV2lja2hhbSIKCnN0cl9zdWIoaHcsIDEsIDYpCnN0cl9zdWIoaHcsIGVuZCA9IDYpCnN0cl9zdWIoaHcsIDgsIDE0KQpzdHJfc3ViKGh3LCA4KQpzdHJfc3ViKGh3LCBjKDEsIDgpLCBjKDYsIDE0KSkKCmBgYAoKYGBge3J9CmxpYnJhcnkocmVhZHIpCmxpYnJhcnkoc3RyaW5ncikKc3R1ZGVudElEIDwtIHJlYWRfY3N2KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vdHBlbWFydGluL2dpdGh1Yi1kYXRhL21hc3Rlci9zdHVkZW50SUQuY3N2IikKc3R1ZGVudElEJOWtuOiZnwpzdHJfc3ViKHN0dWRlbnRJRCTlrbjomZ8sNSw2KS0+YWEKdGFibGUoYWEpCmBgYAoKYGBge3J9CnN0cl9jKGxldHRlcnMsTEVUVEVSUykKc3RyX2MobGV0dGVycyxMRVRURVJTLHNlcD0iLSIpCnN0cl9jKCJsb3dlcmNhc2U6ICIsIGxldHRlcnMsICIsIGNhcGl0YWw6ICIsIExFVFRFUlMpCmBgYAoKYGBge3J9CnN0cl9jKCJMZXR0ZXI6ICIsIGxldHRlcnMpCnN0cl9jKCJMZXR0ZXIiLCBsZXR0ZXJzLCBzZXAgPSAiOiAiKQpzdHJfYyhsZXR0ZXJzLCAiIGlzIGZvciIsICIuLi4iKQpzdHJfYyhsZXR0ZXJzWy0yNl0sICIgY29tZXMgYmVmb3JlICIsIGxldHRlcnNbLTFdKQoKc3RyX2MobGV0dGVycywgY29sbGFwc2UgPSAiIikKc3RyX2MobGV0dGVycywgY29sbGFwc2UgPSAiLCAiKQoKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKZ2l0aHViRGF0YSA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9naXRodWItZGF0YS9tYXN0ZXIvZ2l0aHViRGF0YS5jc3YiKQpgYGAKCmBgYHtyfQpnaXRodWJEYXRhW2MoMiwzLDQpLF0gLT4gc2FtcGxlR2l0aHViCnN0cl9jKHNhbXBsZUdpdGh1YiRgR2l0SHViIHVzZXJuYW1lYCwKICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgcmVwbyBuYW1lYCkKc3RyX2MoImh0dHBzOi8vZ2l0aHViLmNvbS8iLAogICAgICBzYW1wbGVHaXRodWIkYEdpdEh1YiB1c2VybmFtZWAsCiAgICAgICIvIiwKICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgcmVwbyBuYW1lYCkKYGBgCgpgYGB7cn0Kc3RyX3NwbGl0X2ZpeGVkKGZpbG1Wb3RpbmdEYXRhJOiri+mBuOaTh+S9oOacgOWWnOatoeeahOW9seeJh+S6jOmDqCwiLCIsMyktPmJiCmRpbShiYikKCmNjPC1jKGJiKQpjYwp0YWJsZShjYykKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKZmlsbVZvdGluZ0RhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vY291cnNlLTEwNy0xLXByb2dyYW1taW5nLWZvci1kYXRhLXNjaWVuY2UvbWFzdGVyL2RhdGEvJUU3JUFDJUFDJUU0JUI4JTg5JUU1JUIxJTg2JUU3JUI2JTkzJUU2JUJGJTlGJUU2JTkyJUFEJUU1JUFFJUEyJUU3JUFCJUI2JUU4JUIzJUJEJUU1JThGJTgzJUU4JUIzJUJEJUU0JUJEJTlDJUU1JTkzJTgxJUU2JThBJTk1JUU3JUE1JUE4JUU3JUI1JTkwJUU2JTlFJTlDJUU2JUE4JUEzJUU2JTlDJUFDJTIwLSUyMFNoZWV0MS5jc3YiKQpgYGAKCmBgYHtyfQpmcnVpdHMgPC0gYygKICAiYXBwbGVzIGFuZCBvcmFuZ2VzIGFuZCBwZWFycyBhbmQgYmFuYW5hcyIsCiAgInBpbmVhcHBsZXMgYW5kIG1hbmdvcyBhbmQgZ3VhdmFzIgopCgpzdHJfc3BsaXQoZnJ1aXRzLCAiIGFuZCAiKQpzdHJfc3BsaXQoZnJ1aXRzLCAiIGFuZCAiLCBzaW1wbGlmeSA9IFRSVUUpCgpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAnMjAxOC0xMC0wMycKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9Cmh3IDwtICJIYWRsZXkgV2lja2hhbSIKCnN0cl9zdWIoaHcsIDEsIDYpCnN0cl9zdWIoaHcsIGVuZCA9IDYpCnN0cl9zdWIoaHcsIDgsIDE0KQpzdHJfc3ViKGh3LCA4KQpzdHJfc3ViKGh3LCBjKDEsIDgpLCBjKDYsIDE0KSkKCmBgYAoKYGBge3J9CmxpYnJhcnkocmVhZHIpCmxpYnJhcnkoc3RyaW5ncikKc3R1ZGVudElEIDwtIHJlYWRfY3N2KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vdHBlbWFydGluL2dpdGh1Yi1kYXRhL21hc3Rlci9zdHVkZW50SUQuY3N2IikKc3R1ZGVudElEJOWtuOiZnwpzdHJfc3ViKHN0dWRlbnRJRCTlrbjomZ8sNSw2KS0+YWEKdGFibGUoYWEpCmBgYAoKYGBge3J9CnN0cl9jKGxldHRlcnMsTEVUVEVSUykKc3RyX2MobGV0dGVycyxMRVRURVJTLHNlcD0iLSIpCnN0cl9jKCJsb3dlcmNhc2U6ICIsIGxldHRlcnMsICIsIGNhcGl0YWw6ICIsIExFVFRFUlMpCmBgYAoKYGBge3J9CnN0cl9jKCJMZXR0ZXI6ICIsIGxldHRlcnMpCnN0cl9jKCJMZXR0ZXIiLCBsZXR0ZXJzLCBzZXAgPSAiOiAiKQpzdHJfYyhsZXR0ZXJzLCAiIGlzIGZvciIsICIuLi4iKQpzdHJfYyhsZXR0ZXJzWy0yNl0sICIgY29tZXMgYmVmb3JlICIsIGxldHRlcnNbLTFdKQoKc3RyX2MobGV0dGVycywgY29sbGFwc2UgPSAiIikKc3RyX2MobGV0dGVycywgY29sbGFwc2UgPSAiLCAiKQoKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKZ2l0aHViRGF0YSA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9naXRodWItZGF0YS9tYXN0ZXIvZ2l0aHViRGF0YS5jc3YiKQpgYGAKCmBgYHtyfQpnaXRodWJEYXRhW2MoMiwzLDQpLF0gLT4gc2FtcGxlR2l0aHViCnN0cl9jKHNhbXBsZUdpdGh1YiRgR2l0SHViIHVzZXJuYW1lYCwKICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgcmVwbyBuYW1lYCkKc3RyX2MoImh0dHBzOi8vZ2l0aHViLmNvbS8iLAogICAgICBzYW1wbGVHaXRodWIkYEdpdEh1YiB1c2VybmFtZWAsCiAgICAgICIvIiwKICAgICAgc2FtcGxlR2l0aHViJGBHaXRIdWIgcmVwbyBuYW1lYCkKYGBgCgpgYGB7cn0Kc3RyX3NwbGl0X2ZpeGVkKGZpbG1Wb3RpbmdEYXRhJOiri+mBuOaTh+S9oOacgOWWnOatoeeahOW9seeJh+S6jOmDqCwiLCIsMyktPmJiCmRpbShiYikKCmNjPC1jKGJiKQpjYwp0YWJsZShjYykKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKZmlsbVZvdGluZ0RhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vY291cnNlLTEwNy0xLXByb2dyYW1taW5nLWZvci1kYXRhLXNjaWVuY2UvbWFzdGVyL2RhdGEvJUU3JUFDJUFDJUU0JUI4JTg5JUU1JUIxJTg2JUU3JUI2JTkzJUU2JUJGJTlGJUU2JTkyJUFEJUU1JUFFJUEyJUU3JUFCJUI2JUU4JUIzJUJEJUU1JThGJTgzJUU4JUIzJUJEJUU0JUJEJTlDJUU1JTkzJTgxJUU2JThBJTk1JUU3JUE1JUE4JUU3JUI1JTkwJUU2JTlFJTlDJUU2JUE4JUEzJUU2JTlDJUFDJTIwLSUyMFNoZWV0MS5jc3YiKQpgYGAKCmBgYHtyfQpmcnVpdHMgPC0gYygKICAiYXBwbGVzIGFuZCBvcmFuZ2VzIGFuZCBwZWFycyBhbmQgYmFuYW5hcyIsCiAgInBpbmVhcHBsZXMgYW5kIG1hbmdvcyBhbmQgZ3VhdmFzIgopCgpzdHJfc3BsaXQoZnJ1aXRzLCAiIGFuZCAiKQpzdHJfc3BsaXQoZnJ1aXRzLCAiIGFuZCAiLCBzaW1wbGlmeSA9IFRSVUUpCgpgYGAKYGBge3J9CuawkeWci+W5tOaciDwtYygiMDk5LzAxIiwiMDk5LzAyIiwiMDk5LzAzIikKc3RyX2MoMSkKYGBgCgo=</div>
 
 
 
