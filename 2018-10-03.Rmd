@@ -1,13 +1,7 @@
 ---
-title: "2018-10-03"
-output: html_notebook
+title: '2018-10-03'
+output: html_document
 ---
-
-```{r}
-library (stringr)
-studentID <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/studentID.csv")
-str_sub(hw,3,4)
-```
 
 ```{r}
 hw <- "Hadley Wickham"
@@ -18,5 +12,13 @@ str_sub(hw, 8, 14)
 str_sub(hw, 8)
 str_sub(hw, c(1, 8), c(6, 14))
 
+```
+
+```{r}
+library(readr)
+library(stringr)
+studentID <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/studentID.csv")
+studentID$學號
+str_sub(studentID$學號,5,6)
 ```
 
