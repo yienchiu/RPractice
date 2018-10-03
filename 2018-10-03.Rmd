@@ -40,3 +40,18 @@ str_c(letters, collapse = ", ")
 
 ```
 
+```{r}
+library(readr)
+githubData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/githubData.csv")
+```
+
+```{r}
+githubData[c(2,3,4),] -> sampleGithub
+str_c(sampleGithub$`GitHub username`,
+      sampleGithub$`GitHub repo name`)
+str_c("https://github.com/",
+      sampleGithub$`GitHub username`,
+      "/",
+      sampleGithub$`GitHub repo name`)
+```
+
