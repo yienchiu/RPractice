@@ -19,7 +19,8 @@ library(readr)
 library(stringr)
 studentID <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/studentID.csv")
 studentID$學號
-str_sub(studentID$學號,5,6)
+str_sub(studentID$學號,5,6)->aa
+table(aa)
 ```
 
 ```{r}
