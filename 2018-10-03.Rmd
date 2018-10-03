@@ -59,7 +59,9 @@ str_c("https://github.com/",
 str_split_fixed(filmVotingData$請選擇你最喜歡的影片二部,",",3)->bb
 dim(bb)
 
-vv<-c(bb)
+cc<-c(bb)
+cc
+table(cc)
 ```
 
 ```{r}
