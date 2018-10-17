@@ -301,8 +301,66 @@ c</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnb29nbGVzaGVldHMpXG5nc19hdXRoKG5ld191c2VyID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code>library(googlesheets)
+gs_auth(new_user = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRGlzYWJsaW5nIC5odHRyLW9hdXRoIGJ5IHJlbmFtaW5nIHRvIC5odHRyLW9hdXRoLVNVU1BFTkRFRFxuTm8gdG9rZW4gY3VycmVudGx5IGluIGZvcmNlLlxuaHR0cHV2IG5vdCBpbnN0YWxsZWQsIGRlZmF1bHRpbmcgdG8gb3V0LW9mLWJhbmQgYXV0aGVudGljYXRpb25cbiJ9 -->
+<pre><code>Disabling .httr-oauth by renaming to .httr-oauth-SUSPENDED
+No token currently in force.
+httpuv not installed, defaulting to out-of-band authentication</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuNC9ld0M3WlVGbkF5LWpGSW5XcXdVT1BrdnhKMjIxVS1mYi1QeWZRV3FQQkZLV0hzOE9qT2M1eFVnXG5gYGAifQ== -->
+<pre class="r"><code>4/ewC7ZUFnAy-jFInWqwUOPkvxJ221U-fb-PyfQWqPBFKWHs8OjOc5xUg</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ3NTdXJ2ZXk8LWdzX2tleShcIjFtQzlibnhqMTFOQ05vT0N3MFZtbjRueEVSYkh0TGplR285djlDOWIyR0RFXCIpICAjZG93bmxvYWQgc2hlZXQgaW5mb3JtYXRpb24gYXMgYW4gb2JqZWN0XG5gYGAifQ== -->
+<pre class="r"><code>gsSurvey&lt;-gs_key(&quot;1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE&quot;)  #download sheet information as an object</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiU2hlZXQgc3VjY2Vzc2Z1bGx5IGlkZW50aWZpZWQ6IFwi5YWo54+t6YCa6KiK6YyEIChSZXNwb25zZXMpXCJcbiJ9 -->
+<pre><code>Sheet successfully identified: &quot;全班通訊錄 (Responses)&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3NTdXJ2ZXk8LWdzX3JlYWQoZ3NTdXJ2ZXksd3M9MSkgI2FjY2VzcyB0aGUgMXN0IHdvcmtzaGVldFxuYGBgIn0= -->
+<pre class="r"><code>classSurvey&lt;-gs_read(gsSurvey,ws=1) #access the 1st worksheet</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQWNjZXNzaW5nIHdvcmtzaGVldCB0aXRsZWQgJ0Zvcm0gUmVzcG9uc2VzIDEnLlxuIn0= -->
+<pre><code>Accessing worksheet titled 'Form Responses 1'.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5Eb3dubG9hZGluZzogMS4zIGtCICAgICBcbkRvd25sb2FkaW5nOiAxLjMga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMiBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4yIGtCICAgICBcbkRvd25sb2FkaW5nOiAyLjIga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMiBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4yIGtCICAgICBcbkRvd25sb2FkaW5nOiAyLjIga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMiBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4yIGtCICAgICBcbiJ9 -->
+<pre><code>
+Downloading: 1.3 kB     
+Downloading: 1.3 kB     
+Downloading: 2.2 kB     
+Downloading: 2.2 kB     
+Downloading: 2.2 kB     
+Downloading: 2.2 kB     
+Downloading: 2.2 kB     
+Downloading: 2.2 kB     
+Downloading: 2.2 kB     
+Downloading: 2.2 kB     </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBUaW1lc3RhbXAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBFbWFpbCBBZGRyZXNzYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAg5aeT5ZCNID0gY29sX2NoYXJhY3RlcigpLFxuICDlrbjomZ8gPSBjb2xfaW50ZWdlcigpLFxuICDlsYXkvY/lnLDooYzmlL/ljYAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIOaAp+WIpSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAg5pys5a245pyf5a245YiG5pW4ID0gY29sX2ludGVnZXIoKSxcbiAg5pys5a245pyf55uu5YmN5bey5Y+D5Yqg5LmL6Kqy5aSW5rS75YuVID0gY29sX2NoYXJhY3RlcigpXG4pXG4ifQ== -->
+<pre><code>Parsed with column specification:
+cols(
+  Timestamp = col_character(),
+  `Email Address` = col_character(),
+  姓名 = col_character(),
+  學號 = col_integer(),
+  居住地行政區 = col_character(),
+  性別 = col_character(),
+  本學期學分數 = col_integer(),
+  本學期目前已參加之課外活動 = col_character()
+)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0xNyIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShyZWFkcikKZmlsbVZvdGluZ0RhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vY291cnNlLTEwNy0xLXByb2dyYW1taW5nLWZvci1kYXRhLXNjaWVuY2UvbWFzdGVyL2RhdGEvJUU3JUFDJUFDJUU0JUI4JTg5JUU1JUIxJTg2JUU3JUI2JTkzJUU2JUJGJTlGJUU2JTkyJUFEJUU1JUFFJUEyJUU3JUFCJUI2JUU4JUIzJUJEJUU1JThGJTgzJUU4JUIzJUJEJUU0JUJEJTlDJUU1JTkzJTgxJUU2JThBJTk1JUU3JUE1JUE4JUU3JUI1JTkwJUU2JTlFJTlDJUU2JUE4JUEzJUU2JTlDJUFDJTIwLSUyMFNoZWV0MS5jc3YiKQpgYGAKYGBge3J9CmhlYWQoZmlsbVZvdGluZ0RhdGEk6KuL6YG45pOH5L2g5pyA5Zac5q2h55qE5b2x54mH5LqM6YOoKQpgYGAKCmBgYHtyfQpsaWJyYXJ5KHN0cmluZ3IpCnN0cl9zcGxpdF9maXhlZChmaWxtVm90aW5nRGF0YSToq4vpgbjmk4fkvaDmnIDllpzmraHnmoTlvbHniYfkuozpg6gsIiwgIixuPTMpLT5zcGxpdFJlc3VsdApgYGAKCmBgYHtyfQpzdHJfYyhzcGxpdFJlc3VsdCktPmFycmF5UmVzdWx0CmhlYWQoYXJyYXlSZXN1bHQpCmBgYAoKYGBge3J9CnRhYmxlKGFycmF5UmVzdWx0KQpgYGAKCmBgYHtyfQphPC1jKCJBLCBCIiwiQiwgQyIpCmEKc3RyX3NwbGl0X2ZpeGVkKGEsIiwgIiwgbj0zKS0+YgpzdHJfYyhiKS0+YwpjCnRhYmxlKGIpCmIKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0xNyIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShyZWFkcikKZmlsbVZvdGluZ0RhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vY291cnNlLTEwNy0xLXByb2dyYW1taW5nLWZvci1kYXRhLXNjaWVuY2UvbWFzdGVyL2RhdGEvJUU3JUFDJUFDJUU0JUI4JTg5JUU1JUIxJTg2JUU3JUI2JTkzJUU2JUJGJTlGJUU2JTkyJUFEJUU1JUFFJUEyJUU3JUFCJUI2JUU4JUIzJUJEJUU1JThGJTgzJUU4JUIzJUJEJUU0JUJEJTlDJUU1JTkzJTgxJUU2JThBJTk1JUU3JUE1JUE4JUU3JUI1JTkwJUU2JTlFJTlDJUU2JUE4JUEzJUU2JTlDJUFDJTIwLSUyMFNoZWV0MS5jc3YiKQpgYGAKYGBge3J9CmhlYWQoZmlsbVZvdGluZ0RhdGEk6KuL6YG45pOH5L2g5pyA5Zac5q2h55qE5b2x54mH5LqM6YOoKQpgYGAKCmBgYHtyfQpsaWJyYXJ5KHN0cmluZ3IpCnN0cl9zcGxpdF9maXhlZChmaWxtVm90aW5nRGF0YSToq4vpgbjmk4fkvaDmnIDllpzmraHnmoTlvbHniYfkuozpg6gsIiwgIixuPTMpLT5zcGxpdFJlc3VsdApgYGAKCmBgYHtyfQpzdHJfYyhzcGxpdFJlc3VsdCktPmFycmF5UmVzdWx0CmhlYWQoYXJyYXlSZXN1bHQpCmBgYAoKYGBge3J9CnRhYmxlKGFycmF5UmVzdWx0KQpgYGAKCmBgYHtyfQphPC1jKCJBLCBCIiwiQiwgQyIpCmEKc3RyX3NwbGl0X2ZpeGVkKGEsIiwgIiwgbj0zKS0+YgpzdHJfYyhiKS0+YwpjCnRhYmxlKGIpCmIKYGBgCgpgYGB7cn0KbGlicmFyeShnb29nbGVzaGVldHMpCmdzX2F1dGgobmV3X3VzZXIgPSBUUlVFKQpgYGAKCmBgYHtyfQpnc1N1cnZleTwtZ3Nfa2V5KCIxbUM5Ym54ajExTkNOb09DdzBWbW40bnhFUmJIdExqZUdvOXY5QzliMkdERSIpICAjZG93bmxvYWQgc2hlZXQgaW5mb3JtYXRpb24gYXMgYW4gb2JqZWN0CmNsYXNzU3VydmV5PC1nc19yZWFkKGdzU3VydmV5LHdzPTEpICNhY2Nlc3MgdGhlIDFzdCB3b3Jrc2hlZXQKYGBgCgo=</div>
 
 
 
