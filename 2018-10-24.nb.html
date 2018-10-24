@@ -308,8 +308,46 @@ StuDF[c(T,F,F,T,F),c(F,T,T,F,F)]</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuKFN0dURGJHNjb3JlID49IDgwKVxuKFN0dURGJG5hbWUgPT0gXCLlsI/mlrBcIilcbmBgYCJ9 -->
+<pre class="r"><code>(StuDF$score &gt;= 80)
+(StuDF$name == &quot;小新&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZcbmBgYCJ9 -->
+<pre class="r"><code>StuDF</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERpaXVCaVlHQmdZbUJtWldSZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0JqSkFNbnhBekdyL2dRRU1IQmlnTkFlVUZvRFNJZ3d3QUJKaFpXQm9BQm5FOW5SRC83TVpmWERla3VVdlo3ZkFlQythcDcyWTJZZXNjdG9HSkpYUForNkYyZTRRQXJYRkQwcUhOVURvUUNqdENiTWN4UnVzZVltNXFjVlFKekhEQklOTFNqMWRvQndXa0FxWVJIRnlmbEVxbWhHY1JmbmxlakJqZUVGQkJyRVI1RU5VdTVKekVvdGhkc0VFdVZJU1N4TDEwb3BBbGpBdy9FUFR3cDVmVUpLWm53ZlV4Q1FNTVJGRk0yTVJtZ0IvYVI3SUpTbTZ5Um1sZWRtNlJpQUx3TklRd0F0bHN5S3htU0ZXTXYySHh3dkVLTGJVdlBUTVBMalBjeEtUVW5PZ0hENmdqOEVlMWlzb3lzd3JnZmtFS0Zxc1Y1SmZrZ2hUeDVXY253TVRBZnVONFI4QTJSV09MbGtDQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["StuID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"小明","3":"80"},{"1":"2","2":"大雄","3":"60"},{"1":"3","2":"胖虎","3":"90"},{"1":"4","2":"小新","3":"70"},{"1":"5","2":"大白","3":"50"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbKFN0dURGJHNjb3JlPj04MCksYyhGLFQsRildXG5gYGAifQ== -->
+<pre class="r"><code>StuDF[(StuDF$score&gt;=80),c(F,T,F)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwi5bCP5piOXCIgXCLog5bomY5cIlxuIn0= -->
+<pre><code>[1] &quot;小明&quot; &quot;胖虎&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYyhGLEYsRixULEYpLGMoRixGLFQpXVxuYGBgIn0= -->
+<pre class="r"><code>StuDF[c(F,F,F,T,F),c(F,F,T)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDcwXG4ifQ== -->
+<pre><code>[1] 70</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0yNCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShnb29nbGVzaGVldHMpCmdzU3VydmV5PC1nc19rZXkoIjFtQzlibnhqMTFOQ05vT0N3MFZtbjRueEVSYkh0TGplR285djlDOWIyR0RFIikgICNkb3dubG9hZCBzaGVldCBpbmZvcm1hdGlvbiBhcyBhbiBvYmplY3QKY2xhc3NTdXJ2ZXk8LWdzX3JlYWQoZ3NTdXJ2ZXksd3M9MSkgI2FjY2VzcyB0aGUgMXN0IHdvcmtzaGVldApgYGAKCmBgYHtyfQpjbGFzcyhjbGFzc1N1cnZleSkKYGBgCgpgYGB7cn0KbmFtZXMoY2xhc3NTdXJ2ZXkpCmNvbG5hbWVzKGNsYXNzU3VydmV5KQpyb3duYW1lcyhjbGFzc1N1cnZleSkKYGBgCgpgYGB7cn0KU3R1REYgPC0gZGF0YS5mcmFtZSgKICBTdHVJRD1jKDEsMiwzLDQsNSksCiAgbmFtZT1jKCLlsI/mmI4iLCLlpKfpm4QiLCLog5bomY4iLCLlsI/mlrAiLCLlpKfnmb0iKSwKICBzY29yZT1jKDgwLDYwLDkwLDcwLDUwKQogICkKU3R1REYgCmBgYAoKYGBge3J9CmFzLmNoYXJhY3RlcihTdHVERiRuYW1lKS0+U3R1REYkbmFtZQpgYGAKCmBgYHtyfQpTdHVERiA8LSBkYXRhLmZyYW1lKAogIFN0dUlEPWMoMSwyLDMsNCw1KSwKICBuYW1lPWMoIuWwj+aYjiIsIuWkp+mbhCIsIuiDluiZjiIsIuWwj+aWsCIsIuWkp+eZvSIpLAogIHNjb3JlPWMoODAsNjAsOTAsNzAsNTApLAogIHN0cmluZ3NBc0ZhY3RvcnMgPSBGCiAgKQpTdHVERiAKYGBgCgpgYGB7cn0KbmFtZXMoU3R1REYpIApjb2xuYW1lcyhTdHVERikKYGBgCgpgYGB7cn0Kcm93bmFtZXMoU3R1REYpCmBgYAoKYGBge3J9ClN0dURGWzEsMl0KYGBgCgpgYGB7cn0KU3R1REZbMSwyXQpTdHVERlssMl0KU3R1REZbMSxdClN0dURGW2MoMSw0KSxdClN0dURGW2MoMSw0KSxjKDIsMyldCmBgYAoKYGBge3J9ClN0dURGW2MoMSwyLDMpLF0KU3R1REZbYygxOjMpLF0KU3R1REZbYygxOjMsNSksXQpgYGAKCmBgYHtyfQpTdHVERltjKDEsNCksXQpTdHVERlstYygxLDQpLF0KYGBgCgpgYGB7cn0KU3R1REZbYyhULEYsRixGLEYpLGMoRixULEYpXQpTdHVERltjKFQsRixGLFQsRiksXQpgYGAKCmBgYHtyfQphPC1jKFQsVCxGLEYsVCxGLEYpCnN1bShhKQpgYGAKCmBgYHtyfQpTdHVERltjKFQsRixGLEYsRiksXQpTdHVERltjKFQsRixGLFQsRiksYyhGLFQsVCxGLEYpXQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0yNCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShnb29nbGVzaGVldHMpCmdzU3VydmV5PC1nc19rZXkoIjFtQzlibnhqMTFOQ05vT0N3MFZtbjRueEVSYkh0TGplR285djlDOWIyR0RFIikgICNkb3dubG9hZCBzaGVldCBpbmZvcm1hdGlvbiBhcyBhbiBvYmplY3QKY2xhc3NTdXJ2ZXk8LWdzX3JlYWQoZ3NTdXJ2ZXksd3M9MSkgI2FjY2VzcyB0aGUgMXN0IHdvcmtzaGVldApgYGAKCmBgYHtyfQpjbGFzcyhjbGFzc1N1cnZleSkKYGBgCgpgYGB7cn0KbmFtZXMoY2xhc3NTdXJ2ZXkpCmNvbG5hbWVzKGNsYXNzU3VydmV5KQpyb3duYW1lcyhjbGFzc1N1cnZleSkKYGBgCgpgYGB7cn0KU3R1REYgPC0gZGF0YS5mcmFtZSgKICBTdHVJRD1jKDEsMiwzLDQsNSksCiAgbmFtZT1jKCLlsI/mmI4iLCLlpKfpm4QiLCLog5bomY4iLCLlsI/mlrAiLCLlpKfnmb0iKSwKICBzY29yZT1jKDgwLDYwLDkwLDcwLDUwKQogICkKU3R1REYgCmBgYAoKYGBge3J9CmFzLmNoYXJhY3RlcihTdHVERiRuYW1lKS0+U3R1REYkbmFtZQpgYGAKCmBgYHtyfQpTdHVERiA8LSBkYXRhLmZyYW1lKAogIFN0dUlEPWMoMSwyLDMsNCw1KSwKICBuYW1lPWMoIuWwj+aYjiIsIuWkp+mbhCIsIuiDluiZjiIsIuWwj+aWsCIsIuWkp+eZvSIpLAogIHNjb3JlPWMoODAsNjAsOTAsNzAsNTApLAogIHN0cmluZ3NBc0ZhY3RvcnMgPSBGCiAgKQpTdHVERiAKYGBgCgpgYGB7cn0KbmFtZXMoU3R1REYpIApjb2xuYW1lcyhTdHVERikKYGBgCgpgYGB7cn0Kcm93bmFtZXMoU3R1REYpCmBgYAoKYGBge3J9ClN0dURGWzEsMl0KYGBgCgpgYGB7cn0KU3R1REZbMSwyXQpTdHVERlssMl0KU3R1REZbMSxdClN0dURGW2MoMSw0KSxdClN0dURGW2MoMSw0KSxjKDIsMyldCmBgYAoKYGBge3J9ClN0dURGW2MoMSwyLDMpLF0KU3R1REZbYygxOjMpLF0KU3R1REZbYygxOjMsNSksXQpgYGAKCmBgYHtyfQpTdHVERltjKDEsNCksXQpTdHVERlstYygxLDQpLF0KYGBgCgpgYGB7cn0KU3R1REZbYyhULEYsRixGLEYpLGMoRixULEYpXQpTdHVERltjKFQsRixGLFQsRiksXQpgYGAKCmBgYHtyfQphPC1jKFQsVCxGLEYsVCxGLEYpCnN1bShhKQpgYGAKCmBgYHtyfQpTdHVERltjKFQsRixGLEYsRiksXQpTdHVERltjKFQsRixGLFQsRiksYyhGLFQsVCxGLEYpXQpgYGAKCmBgYHtyfQooU3R1REYkc2NvcmUgPj0gODApCihTdHVERiRuYW1lID09ICLlsI/mlrAiKQpgYGAKCmBgYHtyfQpTdHVERgpgYGAKCmBgYHtyfQpTdHVERlsoU3R1REYkc2NvcmU+PTgwKSxjKEYsVCxGKV0KU3R1REZbYyhGLEYsRixULEYpLGMoRixGLFQpXQpgYGAKCg==</div>
 
 
 
