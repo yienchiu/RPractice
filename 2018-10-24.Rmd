@@ -133,6 +133,39 @@ classSurvey[(classSurvey$居住地行政區=="新北市"),3]
 ```
 
 ```{r}
+aaa<-c(3,7,9,10)
+aaa[3]
+```
 
+```{r}
+StuDF
+```
+
+```{r}
+StuDF$StuID
+StuDF[,c("StuID")]
+StuDF$name
+StuDF[,c("name")]
+```
+
+```{r}
+StuDF[,c("StuID","name")]
+```
+
+```{r}
+StuDF[c(1,4),c(2)]
+StuDF[,c(2)][c(1,4)]
+
+## the second one is equivalent to 
+StuDF[,c(2)] -> aa
+aa[c(1,4)] 
+```
+
+```{r}
+StuDF$name[c(2)]
+```
+
+```{r}
+StuDF[c(1,4),][,c(1,3)]
 ```
 
