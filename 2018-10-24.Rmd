@@ -73,3 +73,18 @@ StuDF[c(1,4),]
 StuDF[-c(1,4),]
 ```
 
+```{r}
+StuDF[c(T,F,F,F,F),c(F,T,F)]
+StuDF[c(T,F,F,T,F),]
+```
+
+```{r}
+a<-c(T,T,F,F,T,F,F)
+sum(a)
+```
+
+```{r}
+StuDF[c(T,F,F,F,F),]
+StuDF[c(T,F,F,T,F),c(F,T,T,F,F)]
+```
+

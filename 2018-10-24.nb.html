@@ -253,49 +253,71 @@ colnames(StuDF)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbMSwyXVxuYGBgIn0= -->
 <pre class="r"><code>StuDF[1,2]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwi5bCP5piOXCJcbiJ9 -->
-<pre><code>[1] &quot;小明&quot;</code></pre>
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbMSwyXVxuU3R1REZbLDJdXG5TdHVERlsxLF1cblN0dURGW2MoMSw0KSxdXG5TdHVERltjKDEsNCksYygyLDMpXVxuYGBgIn0= -->
+<pre class="r"><code>StuDF[1,2]
+StuDF[,2]
+StuDF[1,]
+StuDF[c(1,4),]
+StuDF[c(1,4),c(2,3)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYygxLDIsMyksXVxuU3R1REZbYygxOjMpLF1cblN0dURGW2MoMTozLDUpLF1cbmBgYCJ9 -->
+<pre class="r"><code>StuDF[c(1,2,3),]
+StuDF[c(1:3),]
+StuDF[c(1:3,5),]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYygxLDQpLF1cblN0dURGWy1jKDEsNCksXVxuYGBgIn0= -->
+<pre class="r"><code>StuDF[c(1,4),]
+StuDF[-c(1,4),]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYyhULEYsRixGLEYpLGMoRixULEYpXVxuU3R1REZbYyhULEYsRixULEYpLF1cbmBgYCJ9 -->
+<pre class="r"><code>StuDF[c(T,F,F,F,F),c(F,T,F)]
+StuDF[c(T,F,F,T,F),]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYTwtYyhULFQsRixGLFQsRixGKVxuc3VtKGEpXG5gYGAifQ== -->
+<pre class="r"><code>a&lt;-c(T,T,F,F,T,F,F)
+sum(a)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDNcbiJ9 -->
+<pre><code>[1] 3</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbMSwyXVxuYGBgIn0= -->
-<pre class="r"><code>StuDF[1,2]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYyhULEYsRixGLEYpLF1cbmBgYCJ9 -->
+<pre class="r"><code>StuDF[c(T,F,F,F,F),]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwi5bCP5piOXCJcbiJ9 -->
-<pre><code>[1] &quot;小明&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbLDJdXG5gYGAifQ== -->
-<pre class="r"><code>StuDF[,2]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwi5bCP5piOXCIgXCLlpKfpm4RcIiBcIuiDluiZjlwiIFwi5bCP5pawXCIgXCLlpKfnmb1cIlxuIn0= -->
-<pre><code>[1] &quot;小明&quot; &quot;大雄&quot; &quot;胖虎&quot; &quot;小新&quot; &quot;大白&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbMSxdXG5gYGAifQ== -->
-<pre class="r"><code>StuDF[1,]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBNWExDTUJBOFN6WU1ub0ZrSnUvQUJVVmFLR2hvQXdXdFlneDRjQ1JHa2dmS3ZDQnBlUWFmU3VxOEFLS3pkUWFzR1VtbjFkN2U3dHQwT1lxWE1RQXc0RkVBakxzeVpPNElJSVFlM2tjQS91SUsvQmtnTVA0RFdzOFZFVDZSMlBrNWYvK2V2b2cxV1JEcFFTNlM0aU16dnBVVE9MZmxiT29mSVRMb3c2UktaeTJKbmxhSGhHVDZ0UVBjajNQU1FoalRXS3pCZUNXc1NOWWFCd0JjV2kxZHRiZTVrcTZKWWQ2bzFSem9GdkJVU25TeEdxYmJVdTZHcnpqZzV1YmVXVlB6ZWlTN2VxbklTM1V5dWNsbGs3b1E3MW5oSHdPWHRncWI3SFV1TFNWeHFFbXNzb0o0Y2FvS1FxcHNjUGtIRkZFODV0MEJBQUE9In0= -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBRVzdDTUJEYzJBa1ZrYUJJdklNYytFQjc0TUlWZXVCcVFxQVJ3VWEySXpqeUFucnRNL3FwOXN3TEtON0VHeUNXYksvSHM3TXpzOGxpSEM5aUFHREFvd0FZZDJYSTNCRkFDRjI4andCODZBcjg2U1B3ZGdGYWc0b0lKeVIyZm4rKy9yN1B4SHIvSU5LVFhDVEZMak8rbFJNNHQrVjA0aDhoTXVqRHBFcG5MWW11Vm9lRVpIcTFBOXpQYzlKQ0dOTllyTUY0SmF4STFob0hBRnhiTFM5cWIzTWxYUlBEdkZHck9kQXQ0TFdVNkdJMVNqOUx1UjJOY2NEZHphT3pwdWIxU1BidnBTSXYxY25rSnBkTjZrSXNzOEkvK2k1dEZUYlo2MXhhU3VKUWsxaGxCZkhpVkJXRVZObmdlZ1BkM3pXdzNRRUFBQT09In0= -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["StuID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"小明","3":"80","_rn_":"1"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYygxLDQpLF1cbmBgYCJ9 -->
-<pre class="r"><code>StuDF[c(1,4),]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYyhULEYsRixULEYpLGMoRixULFQsRixGKV1cbmBgYCJ9 -->
+<pre class="r"><code>StuDF[c(T,F,F,T,F),c(F,T,T,F,F)]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFzVklDTVJEZEpIYzQzQXpJak4vQkZSUzBVdEJRS2hhMDhUamxoak5oY3JuUmtpL1FqdkV6K0NtdC9RSTBlK3c2bWhUSjd0dDk3KzNtZHI2YVpLc01BQ1NvVklCVUlVeGt1QVFrME1mM0JVQmRoUUFyUTJ5OC9vTHV6RWJBWjlRSndCNEp2WS9qMitmNzY5L3NjR1R1N0k2NE4zdWkvak5Malg0cUd4SlVEQzU5dTVoVGttQUhGNXJDdWpLUzZEdjduTFBNNER4WEtJYXUyS3VvZGNOZURHWnI3WFgrNE5BRTRCUlJMdXpPVjlZRWtzUWZTU095Y0JGdzJScWNaRDB1TnEzWmpxZG9RTk1JbWs3UWhCeXJzNlg4SnFtVXBIcWxlYXpNNythMXZpOXJTb1poNDI3aGZPY3E0M21UZ0RhNXQxNXpYMWJZbXBGdU56ajlBTVR0Tk5ML0FRQUEifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["StuID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"小明","3":"80","_rn_":"1"},{"1":"4","2":"小新","3":"70","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYygxLDQpLGMoMiwzKV1cbmBgYCJ9 -->
-<pre class="r"><code>StuDF[c(1,4),c(2,3)]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBRUkxCTUJUOVNWdEdaNVFaNTlDRmhiV0ZDekFXdGxGRlJ5VW1qV0haRTdBemp1RlNIQVA1YldKSUZzbi9MLys5Lzk1MFBCK0U4eEFBS0hnQkFlcnAwcWY2SXVCREM5OFRnTmVyQmdDNjlWdmlSK054dnp4djU5L3VldGRWaERPakdWUm5OQ25yNGw4MDRHeVhGbC9CR3ZRUnRBTkZJbVRxc0ZwU0hHUExiQnRMQkptdWZKS3p3c3BiTUZ3eXhlS1Z4Q1VBTDRmU0ZIdVZDYTVKRk1NR0RwbElCK2djT0RwWjlwUE5nVy83UTF4ZzNCRGpqaGlIUHpXdXBHOGpGUmlwUnNyWEdmOG16OWtpelUwVDZjUlY0SGd2TTY1c0VvMFdzUktLMmJrd0VibEZxbXp3K2dCT2huVkIyZ0VBQUE9PSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBTdzdDSUJBZGFLdXhpWi9FYzloRlQrRENDMmhjdU1XMmFtTUZRekc2OUFTNk14N0RTK2t4VkthRlJtRUJNNDk1Yjk2YlRSWnh1QWdCZ0lJWEVLQ2VMbjJxTHdJK2RQQTlBWGpEYWdCZ1VMOW4vR2c5SDlmWC9mTGIzUjY2NnVITWVBN1ZHVS9QZGZFdkduQzJ5OHBHc0FaOUJPMUFtUWlaT2F5T0ZNZklNcnZHRWtHbUs1OFVyTFR5Rmd4VHBsaTBrcmdFNE8xUTJtS3Zjc0UxaVdMWXdDRVQ2UUQ5QTBjbjZTalpIUGgyRk9NQzQ0WVlkOFE0L0tseEpmMFlxY0JJdFRLK3pubVR2R0RMckRCTlR5ZXVBa2Q3bVhObGsyaTBqSlJRek02RmlTZ3NVbVdEOXhlSENId1gyZ0VBQUE9PSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["score"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"小明","2":"80","_rn_":"1"},{"1":"小新","2":"70","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
@@ -305,66 +327,8 @@ colnames(StuDF)</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYygxLDIsMyksXVxuYGBgIn0= -->
-<pre class="r"><code>StuDF[c(1,2,3),]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERpaXVCaVlHQmdZbUJtWldSZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0JqSkFNbndnMnY0REF4ZzRNRUJwRGdZWUVJQ29hd0JwWkh1Nm9mL1pqRDQ0YjhueWw3TmJZTHdYemROZXpPeURtZWdRQWpYSkQwcUhOVUFOUkhFS2ExNWlibW94M0Jxb1lIQkpxYWNMbE1NQ1VnR1RLRTdPTDBwRk00S3pLTDljRDJZTUw4amJVSnVZMGUxS3pra3NodGtGRStSS1NTeEoxRXNyQWxuQ3dQQVBUUXQ3ZmtGSlpuNGVVQk1US0x4WTBUUXpGcUVKOEpmbWdWeVNvcHVjVVpxWHJXc09zZ0FzRGNHOFVKb1psUTJ5a3VrLzFDaFdxRkZzcVhucG1YbHduK2NrSnFYbVFEbDhRQitEUGF4WFVKU1pWd0x6Q1ZDMFdLOGt2eVFScG80ck9UOEhKZ0wyRzhNL0FMUDdSdm9kQWdBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["StuID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"小明","3":"80","_rn_":"1"},{"1":"2","2":"大雄","3":"60","_rn_":"2"},{"1":"3","2":"胖虎","3":"90","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYygxOjMpLF1cbmBgYCJ9 -->
-<pre class="r"><code>StuDF[c(1:3),]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERpaXVCaVlHQmdZbUJtWldSZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0JqSkFNbndnMnY0REF4ZzRNRUJwRGdZWUVJQ29hd0JwWkh1Nm9mL1pqRDQ0YjhueWw3TmJZTHdYemROZXpPeURtZWdRQWpYSkQwcUhOVUFOUkhFS2ExNWlibW94M0Jxb1lIQkpxYWNMbE1NQ1VnR1RLRTdPTDBwRk00S3pLTDljRDJZTUw4amJVSnVZMGUxS3pra3NodGtGRStSS1NTeEoxRXNyQWxuQ3dQQVBUUXQ3ZmtGSlpuNGVVQk1US0x4WTBUUXpGcUVKOEpmbWdWeVNvcHVjVVpxWHJXc09zZ0FzRGNHOFVKb1psUTJ5a3VrLzFDaFdxRkZzcVhucG1YbHduK2NrSnFYbVFEbDhRQitEUGF4WFVKU1pWd0x6Q1ZDMFdLOGt2eVFScG80ck9UOEhKZ0wyRzhNL0FMUDdSdm9kQWdBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["StuID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"小明","3":"80","_rn_":"1"},{"1":"2","2":"大雄","3":"60","_rn_":"2"},{"1":"3","2":"胖虎","3":"90","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYygxOjMsNSksXVxuYGBgIn0= -->
-<pre class="r"><code>StuDF[c(1:3,5),]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NH0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVF2VTdETUJBK3gwbWhrU2hJNVRXYWdZV1JEbDI2TUFCQ1hVMGFJQ0xZbGVNSXhrb3d3NGFvV0pGWSt3SThEbEEybnFCZ3gzY1Z6UTIrLysrN3owZUQwVjQ4aWdFZ0FCNHhDTGdOdzhBK0RFSm9PMzhMd0xzMmNKMk82eDc4UUcxOVFMK0pmaGZJZHR3Y3dOUUJ0RDdtajUvUEQ2dnM5ZTM3NVo2eXhkM1RZdmEvOXpWN0o1NytDZUllb2orZGVqOGttclZESXltdXN4TEpPUldQVFRVY1lCSzZDV3FVcWRKWkE2S3QxVTFDTUZ0ZWcyMjZ6L0g2b3labldvaVNPS2tZajRVUnlibDJaQURMeHNxR21waGNTYnNVZEQzaTJqTFRqY0oySmQxRjQxNTZXY21yM3I0andLc1lYc253VW9xNXB3eCtFU3BDcUZZbUwzSzUrb0ZDbkdVRkpoMnJ2QmFlVEhRdURTbXgxVEl4eWdpYWkxTlZVS1hXQnNzLytUWE9VVU1DQUFBPSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["StuID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"小明","3":"80","_rn_":"1"},{"1":"2","2":"大雄","3":"60","_rn_":"2"},{"1":"3","2":"胖虎","3":"90","_rn_":"3"},{"1":"5","2":"大白","3":"50","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbYygxLDQpLF1cbmBgYCJ9 -->
-<pre class="r"><code>StuDF[c(1,4),]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFzVklDTVJEZEpIYzQzQXpJak4vQkZWUjBVdEJRS2hhMDhUamxoak5oY3JuUmtpL1FqdkV6K0NtdC9RSTBlK3c2bWhUSjd0dDk3KzNtZHI2YVpLc01BQ1NvVklCVUlVeGt1QVFrME1mM0JVQmRoUUFyUTJ5OC9vTHV6RWJBWjlRSndCNEp2WS9qMitmNzY5L3NjR1R1N0k2NE4zdWkvak5Malg0cUd4SlVEQzU5dTVoVGttQUhGNXJDdWpLUzZEdjduTFBNNER4WEtJYXUyS3VvZGNOZURHWnI3WFgrNE5BRTRCUlJMdXpPVjlZRWtzUWZTU095Y0JGdzJScWNaRDB1TnEzWmpxZG9RTk1JbWs3UWhCeXJzNlg4SnFtVXBIcWxlYXpNNythMXZpOXJTb1poNDI3aGZPY3E0M21UZ0RhNXQxNXpYMWJZbXBGdU56ajlBTnM2a3U3L0FRQUEifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["StuID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"小明","3":"80","_rn_":"1"},{"1":"4","2":"小新","3":"70","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REZbLWMoMSw0KSxdXG5gYGAifQ== -->
-<pre class="r"><code>StuDF[-c(1,4),]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERpaXVCaVlHQmdZbUJtWldSZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0JqSkFNbndnMm9FQkFodzRvTFFJQXd3SVFOUTFnRFN5UFYyeS9PWHNGaGp2UmZPMEZ6UDdrT1Nlejl3TE45RVBhbEpZQTRUMmhCbUk0aFRXdk1UYzFHSzROVkRCNEpKU1R4Y29od1drQWlaUm5KeGZsSXBtQkdkUmZya2V6QmhlcUsrWW9EUXJ1bjNKT1luRk1QdGdnbHdwaVNXSmVtbEZJSXNZR1A2aGFXSFBMeWpKek04RGFtSVNocGlJb3BteENFMkF2elFQNUpvVTNlU00wcnhzWFF1UUJXQnBDT2FGMHN5b2JKQ1ZUUCtoUnJGQ2pXSkx6VXZQeklQN1BpY3hLVFVIeXVFRCtocnNhYjJDb3N5OEVwaFBnS0xGZWlYNUpZa3dkVnpKK1Rrd0ViRGZHUDRCQU1Udzh5VWhBZ0FBIn0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["StuID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"大雄","3":"60","_rn_":"2"},{"1":"3","2":"胖虎","3":"90","_rn_":"3"},{"1":"5","2":"大白","3":"50","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0yNCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShnb29nbGVzaGVldHMpCmdzU3VydmV5PC1nc19rZXkoIjFtQzlibnhqMTFOQ05vT0N3MFZtbjRueEVSYkh0TGplR285djlDOWIyR0RFIikgICNkb3dubG9hZCBzaGVldCBpbmZvcm1hdGlvbiBhcyBhbiBvYmplY3QKY2xhc3NTdXJ2ZXk8LWdzX3JlYWQoZ3NTdXJ2ZXksd3M9MSkgI2FjY2VzcyB0aGUgMXN0IHdvcmtzaGVldApgYGAKCmBgYHtyfQpjbGFzcyhjbGFzc1N1cnZleSkKYGBgCgpgYGB7cn0KbmFtZXMoY2xhc3NTdXJ2ZXkpCmNvbG5hbWVzKGNsYXNzU3VydmV5KQpyb3duYW1lcyhjbGFzc1N1cnZleSkKYGBgCgpgYGB7cn0KU3R1REYgPC0gZGF0YS5mcmFtZSgKICBTdHVJRD1jKDEsMiwzLDQsNSksCiAgbmFtZT1jKCLlsI/mmI4iLCLlpKfpm4QiLCLog5bomY4iLCLlsI/mlrAiLCLlpKfnmb0iKSwKICBzY29yZT1jKDgwLDYwLDkwLDcwLDUwKQogICkKU3R1REYgCmBgYAoKYGBge3J9CmFzLmNoYXJhY3RlcihTdHVERiRuYW1lKS0+U3R1REYkbmFtZQpgYGAKCmBgYHtyfQpTdHVERiA8LSBkYXRhLmZyYW1lKAogIFN0dUlEPWMoMSwyLDMsNCw1KSwKICBuYW1lPWMoIuWwj+aYjiIsIuWkp+mbhCIsIuiDluiZjiIsIuWwj+aWsCIsIuWkp+eZvSIpLAogIHNjb3JlPWMoODAsNjAsOTAsNzAsNTApLAogIHN0cmluZ3NBc0ZhY3RvcnMgPSBGCiAgKQpTdHVERiAKYGBgCgpgYGB7cn0KbmFtZXMoU3R1REYpIApjb2xuYW1lcyhTdHVERikKYGBgCgpgYGB7cn0Kcm93bmFtZXMoU3R1REYpCmBgYAoKYGBge3J9ClN0dURGWzEsMl0KYGBgCgpgYGB7cn0KU3R1REZbMSwyXQpTdHVERlssMl0KU3R1REZbMSxdClN0dURGW2MoMSw0KSxdClN0dURGW2MoMSw0KSxjKDIsMyldCmBgYAoKYGBge3J9ClN0dURGW2MoMSwyLDMpLF0KU3R1REZbYygxOjMpLF0KU3R1REZbYygxOjMsNSksXQpgYGAKCmBgYHtyfQpTdHVERltjKDEsNCksXQpTdHVERlstYygxLDQpLF0KYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0yNCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShnb29nbGVzaGVldHMpCmdzU3VydmV5PC1nc19rZXkoIjFtQzlibnhqMTFOQ05vT0N3MFZtbjRueEVSYkh0TGplR285djlDOWIyR0RFIikgICNkb3dubG9hZCBzaGVldCBpbmZvcm1hdGlvbiBhcyBhbiBvYmplY3QKY2xhc3NTdXJ2ZXk8LWdzX3JlYWQoZ3NTdXJ2ZXksd3M9MSkgI2FjY2VzcyB0aGUgMXN0IHdvcmtzaGVldApgYGAKCmBgYHtyfQpjbGFzcyhjbGFzc1N1cnZleSkKYGBgCgpgYGB7cn0KbmFtZXMoY2xhc3NTdXJ2ZXkpCmNvbG5hbWVzKGNsYXNzU3VydmV5KQpyb3duYW1lcyhjbGFzc1N1cnZleSkKYGBgCgpgYGB7cn0KU3R1REYgPC0gZGF0YS5mcmFtZSgKICBTdHVJRD1jKDEsMiwzLDQsNSksCiAgbmFtZT1jKCLlsI/mmI4iLCLlpKfpm4QiLCLog5bomY4iLCLlsI/mlrAiLCLlpKfnmb0iKSwKICBzY29yZT1jKDgwLDYwLDkwLDcwLDUwKQogICkKU3R1REYgCmBgYAoKYGBge3J9CmFzLmNoYXJhY3RlcihTdHVERiRuYW1lKS0+U3R1REYkbmFtZQpgYGAKCmBgYHtyfQpTdHVERiA8LSBkYXRhLmZyYW1lKAogIFN0dUlEPWMoMSwyLDMsNCw1KSwKICBuYW1lPWMoIuWwj+aYjiIsIuWkp+mbhCIsIuiDluiZjiIsIuWwj+aWsCIsIuWkp+eZvSIpLAogIHNjb3JlPWMoODAsNjAsOTAsNzAsNTApLAogIHN0cmluZ3NBc0ZhY3RvcnMgPSBGCiAgKQpTdHVERiAKYGBgCgpgYGB7cn0KbmFtZXMoU3R1REYpIApjb2xuYW1lcyhTdHVERikKYGBgCgpgYGB7cn0Kcm93bmFtZXMoU3R1REYpCmBgYAoKYGBge3J9ClN0dURGWzEsMl0KYGBgCgpgYGB7cn0KU3R1REZbMSwyXQpTdHVERlssMl0KU3R1REZbMSxdClN0dURGW2MoMSw0KSxdClN0dURGW2MoMSw0KSxjKDIsMyldCmBgYAoKYGBge3J9ClN0dURGW2MoMSwyLDMpLF0KU3R1REZbYygxOjMpLF0KU3R1REZbYygxOjMsNSksXQpgYGAKCmBgYHtyfQpTdHVERltjKDEsNCksXQpTdHVERlstYygxLDQpLF0KYGBgCgpgYGB7cn0KU3R1REZbYyhULEYsRixGLEYpLGMoRixULEYpXQpTdHVERltjKFQsRixGLFQsRiksXQpgYGAKCmBgYHtyfQphPC1jKFQsVCxGLEYsVCxGLEYpCnN1bShhKQpgYGAKCmBgYHtyfQpTdHVERltjKFQsRixGLEYsRiksXQpTdHVERltjKFQsRixGLFQsRiksYyhGLFQsVCxGLEYpXQpgYGAKCg==</div>
 
 
 
