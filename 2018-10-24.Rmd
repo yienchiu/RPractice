@@ -3,6 +3,50 @@ title: "2018-10-24"
 output: html_notebook
 ---
 ```{r}
+library(googlesheets)
+gsSurvey<-gs_key("1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE")  #download sheet information as an object
+classSurvey<-gs_read(gsSurvey,ws=1) #access the 1st worksheet
+```
 
+```{r}
+class(classSurvey)
+```
+
+```{r}
+names(classSurvey)
+colnames(classSurvey)
+rownames(classSurvey)
+```
+
+```{r}
+StuDF <- data.frame(
+  StuID=c(1,2,3,4,5),
+  name=c("小明","大雄","胖虎","小新","大白"),
+  score=c(80,60,90,70,50)
+  )
+StuDF 
+```
+
+```{r}
+as.character(StuDF$name)->StuDF$name
+```
+
+```{r}
+StuDF <- data.frame(
+  StuID=c(1,2,3,4,5),
+  name=c("小明","大雄","胖虎","小新","大白"),
+  score=c(80,60,90,70,50),
+  stringsAsFactors = F
+  )
+StuDF 
+```
+
+```{r}
+names(StuDF) 
+colnames(StuDF)
+```
+
+```{r}
+rownames(StuDF)
 ```
 
