@@ -50,3 +50,26 @@ colnames(StuDF)
 rownames(StuDF)
 ```
 
+```{r}
+StuDF[1,2]
+```
+
+```{r}
+StuDF[1,2]
+StuDF[,2]
+StuDF[1,]
+StuDF[c(1,4),]
+StuDF[c(1,4),c(2,3)]
+```
+
+```{r}
+StuDF[c(1,2,3),]
+StuDF[c(1:3),]
+StuDF[c(1:3,5),]
+```
+
+```{r}
+StuDF[c(1,4),]
+StuDF[-c(1,4),]
+```
+
