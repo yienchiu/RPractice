@@ -102,3 +102,37 @@ StuDF[(StuDF$score>=80),c(F,T,F)]
 StuDF[c(F,F,F,T,F),c(F,F,T)]
 ```
 
+```{r}
+StuDF[which(StuDF$score>=80),2]
+StuDF[which(StuDF$name == "小新"),3]
+```
+
+```{r}
+which(StuDF$score>=80)
+```
+
+```{r}
+classSurvey
+```
+
+```{r}
+(classSurvey$性別 == "男")->aa
+
+(classSurvey$本學期學分數 > 20)->bb
+
+(classSurvey$性別 == "男" | 
+    classSurvey$本學期學分數 > 20)->cc
+```
+
+```{r}
+classSurvey[(classSurvey$性別=="男"&
+ classSurvey$本學期學分數>26),3]
+classSurvey[(classSurvey$居住地行政區=="台北市"),3]
+classSurvey[(classSurvey$居住地行政區=="新北市"),3]
+
+```
+
+```{r}
+
+```
+
