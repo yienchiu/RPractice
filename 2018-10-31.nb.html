@@ -178,50 +178,99 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnb29nbGVzaGVldHMpXG5nc1N1cnZleTwtZ3Nfa2V5KFwiMW1DOWJueGoxMU5DTm9PQ3cwVm1uNG54RVJiSHRMamVHbzl2OUM5YjJHREVcIikgICNkb3dubG9hZCBzaGVldCBpbmZvcm1hdGlvbiBhcyBhbiBvYmplY3RcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnb29nbGVzaGVldHMpXG5nc1N1cnZleTwtZ3Nfa2V5KFwiMW1DOWJueGoxMU5DTm9PQ3cwVm1uNG54RVJiSHRMamVHbzl2OUM5YjJHREVcIikgICNkb3dubG9hZCBzaGVldCBpbmZvcm1hdGlvbiBhcyBhbiBvYmplY3RcbmNsYXNzU3VydmV5PC1nc19yZWFkKGdzU3VydmV5LHdzPTEpICNhY2Nlc3MgdGhlIDFzdCB3b3Jrc2hlZXRcbmBgYCJ9 -->
 <pre class="r"><code>library(googlesheets)
-gsSurvey&lt;-gs_key(&quot;1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE&quot;)  #download sheet information as an object</code></pre>
+gsSurvey&lt;-gs_key(&quot;1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE&quot;)  #download sheet information as an object
+classSurvey&lt;-gs_read(gsSurvey,ws=1) #access the 1st worksheet</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV29ya3NoZWV0cyBmZWVkIGNvbnN0cnVjdGVkIHdpdGggcHVibGljIHZpc2liaWxpdHlcbiJ9 -->
-<pre><code>Worksheets feed constructed with public visibility</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3NTdXJ2ZXk8LWdzX3JlYWQoZ3NTdXJ2ZXksd3M9MSkgI2FjY2VzcyB0aGUgMXN0IHdvcmtzaGVldFxuYGBgIn0= -->
-<pre class="r"><code>classSurvey&lt;-gs_read(gsSurvey,ws=1) #access the 1st worksheet</code></pre>
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzdHJpbmdyKVxuYWE8LShzdHJfc3ViKGNsYXNzU3VydmV5JOWxheS9j+WcsOihjOaUv+WNgCwxLDMpKVxuY2xhc3NTdXJ2ZXlbYWEgPT0gXCLlj7DljJfluIJcIiwzXVxuY2xhc3NTdXJ2ZXlbYWE9PVwi5Y+w5YyX5biCXCIsYyhcIuWnk+WQjVwiKV1cbmBgYCJ9 -->
+<pre class="r"><code>library(stringr)
+aa&lt;-(str_sub(classSurvey$居住地行政區,1,3))
+classSurvey[aa == &quot;台北市&quot;,3]
+classSurvey[aa==&quot;台北市&quot;,c(&quot;姓名&quot;)]</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiQWNjZXNzaW5nIHdvcmtzaGVldCB0aXRsZWQgJ0Zvcm0gUmVzcG9uc2VzIDEnLlxuIn0= -->
-<pre><code>Accessing worksheet titled 'Form Responses 1'.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5Eb3dubG9hZGluZzogMS4yIGtCICAgICBcbkRvd25sb2FkaW5nOiAxLjIga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMiBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4yIGtCICAgICBcbkRvd25sb2FkaW5nOiAyLjMga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMyBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4zIGtCICAgICBcbkRvd25sb2FkaW5nOiAyLjMga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMyBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4zIGtCICAgICBcbiJ9 -->
-<pre><code>
-Downloading: 1.2 kB     
-Downloading: 1.2 kB     
-Downloading: 2.2 kB     
-Downloading: 2.2 kB     
-Downloading: 2.3 kB     
-Downloading: 2.3 kB     
-Downloading: 2.3 kB     
-Downloading: 2.3 kB     
-Downloading: 2.3 kB     
-Downloading: 2.3 kB     </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBUaW1lc3RhbXAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBFbWFpbCBBZGRyZXNzYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAg5aeT5ZCNID0gY29sX2NoYXJhY3RlcigpLFxuICDlrbjomZ8gPSBjb2xfaW50ZWdlcigpLFxuICDlsYXkvY/lnLDooYzmlL/ljYAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIOaAp+WIpSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAg5pys5a245pyf5a245YiG5pW4ID0gY29sX2ludGVnZXIoKSxcbiAg5pys5a245pyf55uu5YmN5bey5Y+D5Yqg5LmL6Kqy5aSW5rS75YuVID0gY29sX2NoYXJhY3RlcigpXG4pXG4ifQ== -->
-<pre><code>Parsed with column specification:
-cols(
-  Timestamp = col_character(),
-  `Email Address` = col_character(),
-  姓名 = col_character(),
-  學號 = col_integer(),
-  居住地行政區 = col_character(),
-  性別 = col_character(),
-  本學期學分數 = col_integer(),
-  本學期目前已參加之課外活動 = col_character()
-)</code></pre>
-<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3NTdXJ2ZXlbYWE9PVwi5Y+w5YyX5biCXCIsYyhcIuWnk+WQjVwiKV0tPmNjXG5jbGFzcyhjYylcbmNjJOWnk+WQjVszXVxuYGBgIn0= -->
+<pre class="r"><code>classSurvey[aa==&quot;台北市&quot;,c(&quot;姓名&quot;)]-&gt;cc
+class(cc)
+cc$姓名[3]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3R1REYgPC0gZGF0YS5mcmFtZShcbiAgU3R1SUQ9YygxLDIsMyw0LDUpLFxuICBuYW1lPWMoXCLlsI/mmI5cIixcIuWkp+mbhFwiLFwi6IOW6JmOXCIsXCLlsI/mlrBcIixcIuWkp+eZvVwiKSxcbiAgc2NvcmU9Yyg4MCw2MCw5MCw3MCw1MClcbiAgKVxuU3R1REYgXG5gYGAifQ== -->
+<pre class="r"><code>StuDF &lt;- data.frame(
+  StuID=c(1,2,3,4,5),
+  name=c(&quot;小明&quot;,&quot;大雄&quot;,&quot;胖虎&quot;,&quot;小新&quot;,&quot;大白&quot;),
+  score=c(80,60,90,70,50)
+  )
+StuDF </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMoZ3NTdXJ2ZXkpXG5nc1N1cnZleSRsaW5rcyR0eXBlXG5gYGAifQ== -->
+<pre class="r"><code>names(gsSurvey)
+gsSurvey$links$type</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMoU3R1REYpXG5uYW1lcyhTdHVERilbMl08LWMoXCLlp5PlkI1cIilcbm5hbWVzKFN0dURGKVxuYGBgIn0= -->
+<pre class="r"><code>names(StuDF)
+names(StuDF)[2]&lt;-c(&quot;姓名&quot;)
+names(StuDF)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMoU3R1REYpIDwtIGMoXCLlrbjomZ9cIixcIuWnk+WQjVwiLFwi5oiQ57i+XCIpXG5uYW1lcyhTdHVERilcbmBgYCJ9 -->
+<pre class="r"><code>names(StuDF) &lt;- c(&quot;學號&quot;,&quot;姓名&quot;,&quot;成績&quot;)
+names(StuDF)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbnN0dWRlbnQgPC0gcmVhZF9jc3YoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vdHBlbWFydGluL2NvdXJzZS0xMDctMS1wcm9ncmFtbWluZy1mb3ItZGF0YS1zY2llbmNlL21hc3Rlci9kYXRhL3N0dWRlbnQuY3N2XCIpXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShtYWdyaXR0cilcbnN0dWRlbnQgJTw+JSBtdXRhdGUoXG4gIOi6q+mrmOe0mui3nT1jdXQo6Lqr6auYLGMoMCwxNTAsMTU1LDE2MCwxNjUsMTcwLDE3NSwxODAsMTg1LDIwMCkpKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+student &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv&quot;)
+library(dplyr)
+library(magrittr)
+student %&lt;&gt;% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGV2ZWxzKHN0dWRlbnQk6Lqr6auY57Sa6LedKTwtYyhcIuWwj+WAi+WtkFwiLFwi5bCP5YCL5a2QXCIsXCLlsI/lgIvlrZBcIixcIuWwj+WAi+WtkFwiLFwi5bCP5YCL5a2QXCIsXCLkuK3nrYnlgIvlrZBcIixcIuS4reetieWAi+WtkFwiLFwi6auY5YCL5a2QXCIsXCLpq5jlgIvlrZBcIilcbmBgYCJ9 -->
+<pre class="r"><code>levels(student$身高級距)&lt;-c(&quot;小個子&quot;,&quot;小個子&quot;,&quot;小個子&quot;,&quot;小個子&quot;,&quot;小個子&quot;,&quot;中等個子&quot;,&quot;中等個子&quot;,&quot;高個子&quot;,&quot;高個子&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3R1ZGVudCTmlrDouqvpq5jntJrot50gPC0gc3R1ZGVudCTouqvpq5jntJrot51cbmxldmVscyhzdHVkZW50JOaWsOi6q+mrmOe0mui3nSlbMTozXTwtXCIoMCwxNjBdXCJcbmBgYCJ9 -->
+<pre class="r"><code>student$新身高級距 &lt;- student$身高級距
+levels(student$新身高級距)[1:3]&lt;-&quot;(0,160]&quot;</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0zMSIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CmxpYnJhcnkoZ29vZ2xlc2hlZXRzKQpnc1N1cnZleTwtZ3Nfa2V5KCIxbUM5Ym54ajExTkNOb09DdzBWbW40bnhFUmJIdExqZUdvOXY5QzliMkdERSIpICAjZG93bmxvYWQgc2hlZXQgaW5mb3JtYXRpb24gYXMgYW4gb2JqZWN0CmNsYXNzU3VydmV5PC1nc19yZWFkKGdzU3VydmV5LHdzPTEpICNhY2Nlc3MgdGhlIDFzdCB3b3Jrc2hlZXQKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0zMSIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CmxpYnJhcnkoZ29vZ2xlc2hlZXRzKQpnc1N1cnZleTwtZ3Nfa2V5KCIxbUM5Ym54ajExTkNOb09DdzBWbW40bnhFUmJIdExqZUdvOXY5QzliMkdERSIpICAjZG93bmxvYWQgc2hlZXQgaW5mb3JtYXRpb24gYXMgYW4gb2JqZWN0CmNsYXNzU3VydmV5PC1nc19yZWFkKGdzU3VydmV5LHdzPTEpICNhY2Nlc3MgdGhlIDFzdCB3b3Jrc2hlZXQKYGBgCgpgYGB7cn0KbGlicmFyeShzdHJpbmdyKQphYTwtKHN0cl9zdWIoY2xhc3NTdXJ2ZXkk5bGF5L2P5Zyw6KGM5pS/5Y2ALDEsMykpCmNsYXNzU3VydmV5W2FhID09ICLlj7DljJfluIIiLDNdCmNsYXNzU3VydmV5W2FhPT0i5Y+w5YyX5biCIixjKCLlp5PlkI0iKV0KYGBgCgpgYGB7cn0KY2xhc3NTdXJ2ZXlbYWE9PSLlj7DljJfluIIiLGMoIuWnk+WQjSIpXS0+Y2MKY2xhc3MoY2MpCmNjJOWnk+WQjVszXQpgYGAKCmBgYHtyfQpTdHVERiA8LSBkYXRhLmZyYW1lKAogIFN0dUlEPWMoMSwyLDMsNCw1KSwKICBuYW1lPWMoIuWwj+aYjiIsIuWkp+mbhCIsIuiDluiZjiIsIuWwj+aWsCIsIuWkp+eZvSIpLAogIHNjb3JlPWMoODAsNjAsOTAsNzAsNTApCiAgKQpTdHVERiAKYGBgCgpgYGB7cn0KbmFtZXMoZ3NTdXJ2ZXkpCmdzU3VydmV5JGxpbmtzJHR5cGUKYGBgCgpgYGB7cn0KbmFtZXMoU3R1REYpCm5hbWVzKFN0dURGKVsyXTwtYygi5aeT5ZCNIikKbmFtZXMoU3R1REYpCmBgYAoKYGBge3J9Cm5hbWVzKFN0dURGKSA8LSBjKCLlrbjomZ8iLCLlp5PlkI0iLCLmiJDnuL4iKQpuYW1lcyhTdHVERikKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKc3R1ZGVudCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS9zdHVkZW50LmNzdiIpCmxpYnJhcnkoZHBseXIpCmxpYnJhcnkobWFncml0dHIpCnN0dWRlbnQgJTw+JSBtdXRhdGUoCiAg6Lqr6auY57Sa6LedPWN1dCjouqvpq5gsYygwLDE1MCwxNTUsMTYwLDE2NSwxNzAsMTc1LDE4MCwxODUsMjAwKSkpCmBgYAoKYGBge3J9CmxldmVscyhzdHVkZW50JOi6q+mrmOe0mui3nSk8LWMoIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuS4reetieWAi+WtkCIsIuS4reetieWAi+WtkCIsIumrmOWAi+WtkCIsIumrmOWAi+WtkCIpCmBgYAoKYGBge3J9CnN0dWRlbnQk5paw6Lqr6auY57Sa6LedIDwtIHN0dWRlbnQk6Lqr6auY57Sa6LedCmxldmVscyhzdHVkZW50JOaWsOi6q+mrmOe0mui3nSlbMTozXTwtIigwLDE2MF0iCmBgYAoKCg==</div>
 
 
 
