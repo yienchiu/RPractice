@@ -268,9 +268,114 @@ levels(student$新身高級距)[1:3]&lt;-&quot;(0,160]&quot;</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<div class="section level2">
+<h2>課堂練習</h2>
+<p>1.1</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGltKGNsYXNzU3VydmV5KVxuYGBgIn0= -->
+<pre class="r"><code>dim(classSurvey)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>1.2</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3NTdXJ2ZXkk5a246JmfLT5hXG5hcy5jaGFyYWN0ZXIoYSktPmFcbnN0cl9zdWIoYSwxLDQpLT5hXG5hcy5mYWN0b3IoYSktPmNsYXNzU3VydmV5JOW5tOe0mlxubGV2ZWxzKGNsYXNzU3VydmV5JOW5tOe0mik8LWMoXCLlpKflm5tcIixcIuWkp+S4iVwiLFwi5aSn5LqMXCIsXCLlpKfkuIBcIilcbmBgYCJ9 -->
+<pre class="r"><code>classSurvey$學號-&gt;a
+as.character(a)-&gt;a
+str_sub(a,1,4)-&gt;a
+as.factor(a)-&gt;classSurvey$年級
+levels(classSurvey$年級)&lt;-c(&quot;大四&quot;,&quot;大三&quot;,&quot;大二&quot;,&quot;大一&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>1.3</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoY2xhc3NTdXJ2ZXkk5bm057SaKVxuYGBgIn0= -->
+<pre class="r"><code>table(classSurvey$年級)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG7lpKflm5sg5aSn5LiJIOWkp+S6jCDlpKfkuIAgXG4gICA0ICAgIDQgICAgNiAgIDQ1IFxuIn0= -->
+<pre><code>
+大四 大三 大二 大一 
+   4    4    6   45 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>1.4</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LqMXCIpLT5iXG50YWJsZShiKVxuYGBgIn0= -->
+<pre class="r"><code>as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大二&quot;)-&gt;b
+table(b)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYlxuRkFMU0UgIFRSVUUgXG4gICA1NyAgICAgMiBcbiJ9 -->
+<pre><code>b
+FALSE  TRUE 
+   57     2 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LiJXCIpLT5jXG50YWJsZShjKVxuYGBgIn0= -->
+<pre class="r"><code>as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大三&quot;)-&gt;c
+table(c)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiY1xuRkFMU0UgIFRSVUUgXG4gICA1OCAgICAgMSBcbiJ9 -->
+<pre><code>c
+FALSE  TRUE 
+   58     1 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5ZubXCIpLT5kXG50YWJsZShkKVxuYGBgIn0= -->
+<pre class="r"><code>as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大四&quot;)-&gt;d
+table(d)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiZFxuRkFMU0UgIFRSVUUgXG4gICA1NyAgICAgMiBcbiJ9 -->
+<pre><code>d
+FALSE  TRUE 
+   57     2 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOW5tOe0mj09XCLlpKfkuoxcInxjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LiJXCJ8Y2xhc3NTdXJ2ZXkk5bm057SaPT1cIuWkp+Wbm1wiKS0+ZVxudGFibGUoZSlcbmBgYCJ9 -->
+<pre class="r"><code>as.factor(classSurvey$年級==&quot;大二&quot;|classSurvey$年級==&quot;大三&quot;|classSurvey$年級==&quot;大四&quot;)-&gt;e
+table(e)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiZVxuRkFMU0UgIFRSVUUgXG4gICA0NSAgICAxNCBcbiJ9 -->
+<pre><code>e
+FALSE  TRUE 
+   45    14 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuNS8xNFxuYGBgIn0= -->
+<pre class="r"><code>5/14</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMzU3MTQyOVxuIn0= -->
+<pre><code>[1] 0.3571429</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>1.6</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZjwtY2xhc3NTdXJ2ZXkk5pys5a245pyf55uu5YmN5bey5Y+D5Yqg5LmL6Kqy5aSW5rS75YuVW2NsYXNzU3VydmV5JOW5tOe0mj09XCLlpKfkuIBcIl1cbnN0cl9zcGxpdF9maXhlZChmLFwiLFwiLG49NSktPmdcbmFzLmNoYXJhY3RlcihnKS0+Z2dcbnRhYmxlKGdnKVxuYGBgIn0= -->
+<pre class="r"><code>f&lt;-classSurvey$本學期目前已參加之課外活動[classSurvey$年級==&quot;大一&quot;]
+str_split_fixed(f,&quot;,&quot;,n=5)-&gt;g
+as.character(g)-&gt;gg
+table(gg)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiZ2dcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg5omT5belICAgICAgICAgICAgICDllabllabpmoogXG4gICAgICAgICAgICAgICAgMTYzICAgICAgICAgICAgICAgICAgIDcgICAgICAgICAgICAgICAgICAgMyBcbiDnlLfmjpLnkIPntpMo5Yqg55CD57aTISEpICAgICAgICAgICAgICAgIOezu+aOkiAgICAgICAgICAgICAgICDns7vnvr0gXG4gICAgICAgICAgICAgICAgICAxICAgICAgICAgICAgICAgICAgIDMgICAgICAgICAgICAgICAgICAgMSBcbiAgICAgICAgICAgICAgIOezu+ahjCAgICAgICAgICAgICAgICDlrbjmnIMgICAgICAgICAgICAgICAg5omT5belIFxuICAgICAgICAgICAgICAgICAgMSAgICAgICAgICAgICAgICAgICAxICAgICAgICAgICAgICAgICAgIDQgXG4gICAgICAgICAgICAg5ZWm5ZWm6ZqKICAgICAgICAgICAgICAgIOekvuWcmCAgICAgICAgICAgICAgICAgIOeEoSBcbiAgICAgICAgICAgICAgICAgMjQgICAgICAgICAgICAgICAgICAgNyAgICAgICAgICAgICAgICAgIDEwIFxuIn0= -->
+<pre><code>gg
+                                   打工              啦啦隊 
+                163                   7                   3 
+ 男排球經(加球經!!)                系排                系羽 
+                  1                   3                   1 
+               系桌                學會                打工 
+                  1                   1                   4 
+             啦啦隊                社團                  無 
+                 24                   7                  10 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0zMSIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CmxpYnJhcnkoZ29vZ2xlc2hlZXRzKQpnc1N1cnZleTwtZ3Nfa2V5KCIxbUM5Ym54ajExTkNOb09DdzBWbW40bnhFUmJIdExqZUdvOXY5QzliMkdERSIpICAjZG93bmxvYWQgc2hlZXQgaW5mb3JtYXRpb24gYXMgYW4gb2JqZWN0CmNsYXNzU3VydmV5PC1nc19yZWFkKGdzU3VydmV5LHdzPTEpICNhY2Nlc3MgdGhlIDFzdCB3b3Jrc2hlZXQKYGBgCgpgYGB7cn0KbGlicmFyeShzdHJpbmdyKQphYTwtKHN0cl9zdWIoY2xhc3NTdXJ2ZXkk5bGF5L2P5Zyw6KGM5pS/5Y2ALDEsMykpCmNsYXNzU3VydmV5W2FhID09ICLlj7DljJfluIIiLDNdCmNsYXNzU3VydmV5W2FhPT0i5Y+w5YyX5biCIixjKCLlp5PlkI0iKV0KYGBgCgpgYGB7cn0KY2xhc3NTdXJ2ZXlbYWE9PSLlj7DljJfluIIiLGMoIuWnk+WQjSIpXS0+Y2MKY2xhc3MoY2MpCmNjJOWnk+WQjVszXQpgYGAKCmBgYHtyfQpTdHVERiA8LSBkYXRhLmZyYW1lKAogIFN0dUlEPWMoMSwyLDMsNCw1KSwKICBuYW1lPWMoIuWwj+aYjiIsIuWkp+mbhCIsIuiDluiZjiIsIuWwj+aWsCIsIuWkp+eZvSIpLAogIHNjb3JlPWMoODAsNjAsOTAsNzAsNTApCiAgKQpTdHVERiAKYGBgCgpgYGB7cn0KbmFtZXMoZ3NTdXJ2ZXkpCmdzU3VydmV5JGxpbmtzJHR5cGUKYGBgCgpgYGB7cn0KbmFtZXMoU3R1REYpCm5hbWVzKFN0dURGKVsyXTwtYygi5aeT5ZCNIikKbmFtZXMoU3R1REYpCmBgYAoKYGBge3J9Cm5hbWVzKFN0dURGKSA8LSBjKCLlrbjomZ8iLCLlp5PlkI0iLCLmiJDnuL4iKQpuYW1lcyhTdHVERikKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKc3R1ZGVudCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS9zdHVkZW50LmNzdiIpCmxpYnJhcnkoZHBseXIpCmxpYnJhcnkobWFncml0dHIpCnN0dWRlbnQgJTw+JSBtdXRhdGUoCiAg6Lqr6auY57Sa6LedPWN1dCjouqvpq5gsYygwLDE1MCwxNTUsMTYwLDE2NSwxNzAsMTc1LDE4MCwxODUsMjAwKSkpCmBgYAoKYGBge3J9CmxldmVscyhzdHVkZW50JOi6q+mrmOe0mui3nSk8LWMoIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuS4reetieWAi+WtkCIsIuS4reetieWAi+WtkCIsIumrmOWAi+WtkCIsIumrmOWAi+WtkCIpCmBgYAoKYGBge3J9CnN0dWRlbnQk5paw6Lqr6auY57Sa6LedIDwtIHN0dWRlbnQk6Lqr6auY57Sa6LedCmxldmVscyhzdHVkZW50JOaWsOi6q+mrmOe0mui3nSlbMTozXTwtIigwLDE2MF0iCmBgYAoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMC0zMSIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CmxpYnJhcnkoZ29vZ2xlc2hlZXRzKQpnc1N1cnZleTwtZ3Nfa2V5KCIxbUM5Ym54ajExTkNOb09DdzBWbW40bnhFUmJIdExqZUdvOXY5QzliMkdERSIpICAjZG93bmxvYWQgc2hlZXQgaW5mb3JtYXRpb24gYXMgYW4gb2JqZWN0CmNsYXNzU3VydmV5PC1nc19yZWFkKGdzU3VydmV5LHdzPTEpICNhY2Nlc3MgdGhlIDFzdCB3b3Jrc2hlZXQKYGBgCgpgYGB7cn0KbGlicmFyeShzdHJpbmdyKQphYTwtKHN0cl9zdWIoY2xhc3NTdXJ2ZXkk5bGF5L2P5Zyw6KGM5pS/5Y2ALDEsMykpCmNsYXNzU3VydmV5W2FhID09ICLlj7DljJfluIIiLDNdCmNsYXNzU3VydmV5W2FhPT0i5Y+w5YyX5biCIixjKCLlp5PlkI0iKV0KYGBgCgpgYGB7cn0KY2xhc3NTdXJ2ZXlbYWE9PSLlj7DljJfluIIiLGMoIuWnk+WQjSIpXS0+Y2MKY2xhc3MoY2MpCmNjJOWnk+WQjVszXQpgYGAKCmBgYHtyfQpTdHVERiA8LSBkYXRhLmZyYW1lKAogIFN0dUlEPWMoMSwyLDMsNCw1KSwKICBuYW1lPWMoIuWwj+aYjiIsIuWkp+mbhCIsIuiDluiZjiIsIuWwj+aWsCIsIuWkp+eZvSIpLAogIHNjb3JlPWMoODAsNjAsOTAsNzAsNTApCiAgKQpTdHVERiAKYGBgCgpgYGB7cn0KbmFtZXMoZ3NTdXJ2ZXkpCmdzU3VydmV5JGxpbmtzJHR5cGUKYGBgCgpgYGB7cn0KbmFtZXMoU3R1REYpCm5hbWVzKFN0dURGKVsyXTwtYygi5aeT5ZCNIikKbmFtZXMoU3R1REYpCmBgYAoKYGBge3J9Cm5hbWVzKFN0dURGKSA8LSBjKCLlrbjomZ8iLCLlp5PlkI0iLCLmiJDnuL4iKQpuYW1lcyhTdHVERikKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKc3R1ZGVudCA8LSByZWFkX2NzdigiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS9zdHVkZW50LmNzdiIpCmxpYnJhcnkoZHBseXIpCmxpYnJhcnkobWFncml0dHIpCnN0dWRlbnQgJTw+JSBtdXRhdGUoCiAg6Lqr6auY57Sa6LedPWN1dCjouqvpq5gsYygwLDE1MCwxNTUsMTYwLDE2NSwxNzAsMTc1LDE4MCwxODUsMjAwKSkpCmBgYAoKYGBge3J9CmxldmVscyhzdHVkZW50JOi6q+mrmOe0mui3nSk8LWMoIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuWwj+WAi+WtkCIsIuS4reetieWAi+WtkCIsIuS4reetieWAi+WtkCIsIumrmOWAi+WtkCIsIumrmOWAi+WtkCIpCmBgYAoKYGBge3J9CnN0dWRlbnQk5paw6Lqr6auY57Sa6LedIDwtIHN0dWRlbnQk6Lqr6auY57Sa6LedCmxldmVscyhzdHVkZW50JOaWsOi6q+mrmOe0mui3nSlbMTozXTwtIigwLDE2MF0iCmBgYAoKIyPoqrLloILnt7Tnv5IKMS4xCmBgYHtyfQpkaW0oY2xhc3NTdXJ2ZXkpCmBgYAoxLjIKYGBge3J9CmNsYXNzU3VydmV5JOWtuOiZny0+YQphcy5jaGFyYWN0ZXIoYSktPmEKc3RyX3N1YihhLDEsNCktPmEKYXMuZmFjdG9yKGEpLT5jbGFzc1N1cnZleSTlubTntJoKbGV2ZWxzKGNsYXNzU3VydmV5JOW5tOe0mik8LWMoIuWkp+WbmyIsIuWkp+S4iSIsIuWkp+S6jCIsIuWkp+S4gCIpCmBgYAoxLjMKYGBge3J9CnRhYmxlKGNsYXNzU3VydmV5JOW5tOe0mikKYGBgCjEuNApgYGB7cn0KYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09IueUtyImY2xhc3NTdXJ2ZXkk5bm057SaPT0i5aSn5LqMIiktPmIKdGFibGUoYikKYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09IueUtyImY2xhc3NTdXJ2ZXkk5bm057SaPT0i5aSn5LiJIiktPmMKdGFibGUoYykKYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09IueUtyImY2xhc3NTdXJ2ZXkk5bm057SaPT0i5aSn5ZubIiktPmQKdGFibGUoZCkKYXMuZmFjdG9yKGNsYXNzU3VydmV5JOW5tOe0mj09IuWkp+S6jCJ8Y2xhc3NTdXJ2ZXkk5bm057SaPT0i5aSn5LiJInxjbGFzc1N1cnZleSTlubTntJo9PSLlpKflm5siKS0+ZQp0YWJsZShlKQo1LzE0CmBgYAoxLjYKYGBge3J9CmY8LWNsYXNzU3VydmV5JOacrOWtuOacn+ebruWJjeW3suWPg+WKoOS5i+iqsuWklua0u+WLlVtjbGFzc1N1cnZleSTlubTntJo9PSLlpKfkuIAiXQpzdHJfc3BsaXRfZml4ZWQoZiwiLCIsbj01KS0+Zwphcy5jaGFyYWN0ZXIoZyktPmdnCnRhYmxlKGdnKQpgYGAKCgo=</div>
 
 
 
