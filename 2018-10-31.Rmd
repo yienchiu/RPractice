@@ -92,14 +92,22 @@ as.factor(classSurvey$性別=="男"&classSurvey$年級=="大四")->d
 table(d)
 as.factor(classSurvey$年級=="大二"|classSurvey$年級=="大三"|classSurvey$年級=="大四")->e
 table(e)
-5/14
+sprintf("%.1f%%", 5/14 * 100)
 ```
+1.5
+```{r}
+as.factor(classSurvey$性別=="男"&classSurvey$年級=="大一")->bb
+table(bb)
+sprintf("%.1f%%", 11/45 * 100)
+```
+
 1.6
 ```{r}
 f<-classSurvey$本學期目前已參加之課外活動[classSurvey$年級=="大一"]
 str_split_fixed(f,",",n=5)->g
-as.character(g)->gg
+str_c(g)->gg
 table(gg)
 ```
+
 
 
