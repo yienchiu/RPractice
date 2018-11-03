@@ -178,11 +178,46 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnb29nbGVzaGVldHMpXG5nc1N1cnZleTwtZ3Nfa2V5KFwiMW1DOWJueGoxMU5DTm9PQ3cwVm1uNG54RVJiSHRMamVHbzl2OUM5YjJHREVcIikgICNkb3dubG9hZCBzaGVldCBpbmZvcm1hdGlvbiBhcyBhbiBvYmplY3RcbmNsYXNzU3VydmV5PC1nc19yZWFkKGdzU3VydmV5LHdzPTEpICNhY2Nlc3MgdGhlIDFzdCB3b3Jrc2hlZXRcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnb29nbGVzaGVldHMpXG5nc1N1cnZleTwtZ3Nfa2V5KFwiMW1DOWJueGoxMU5DTm9PQ3cwVm1uNG54RVJiSHRMamVHbzl2OUM5YjJHREVcIikgICNkb3dubG9hZCBzaGVldCBpbmZvcm1hdGlvbiBhcyBhbiBvYmplY3RcbmBgYCJ9 -->
 <pre class="r"><code>library(googlesheets)
-gsSurvey&lt;-gs_key(&quot;1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE&quot;)  #download sheet information as an object
-classSurvey&lt;-gs_read(gsSurvey,ws=1) #access the 1st worksheet</code></pre>
+gsSurvey&lt;-gs_key(&quot;1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE&quot;)  #download sheet information as an object</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQXV0by1yZWZyZXNoaW5nIHN0YWxlIE9BdXRoIHRva2VuLlxuU2hlZXQgc3VjY2Vzc2Z1bGx5IGlkZW50aWZpZWQ6IFwi5YWo54+t6YCa6KiK6YyEIChSZXNwb25zZXMpXCJcbiJ9 -->
+<pre><code>Auto-refreshing stale OAuth token.
+Sheet successfully identified: &quot;全班通訊錄 (Responses)&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3NTdXJ2ZXk8LWdzX3JlYWQoZ3NTdXJ2ZXksd3M9MSkgI2FjY2VzcyB0aGUgMXN0IHdvcmtzaGVldFxuYGBgIn0= -->
+<pre class="r"><code>classSurvey&lt;-gs_read(gsSurvey,ws=1) #access the 1st worksheet</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQWNjZXNzaW5nIHdvcmtzaGVldCB0aXRsZWQgJ0Zvcm0gUmVzcG9uc2VzIDEnLlxuIn0= -->
+<pre><code>Accessing worksheet titled 'Form Responses 1'.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5Eb3dubG9hZGluZzogMS4zIGtCICAgICBcbkRvd25sb2FkaW5nOiAxLjMga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMiBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4yIGtCICAgICBcbkRvd25sb2FkaW5nOiAyLjMga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMyBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4zIGtCICAgICBcbkRvd25sb2FkaW5nOiAyLjMga0IgICAgIFxuRG93bmxvYWRpbmc6IDIuMyBrQiAgICAgXG5Eb3dubG9hZGluZzogMi4zIGtCICAgICBcbiJ9 -->
+<pre><code>
+Downloading: 1.3 kB     
+Downloading: 1.3 kB     
+Downloading: 2.2 kB     
+Downloading: 2.2 kB     
+Downloading: 2.3 kB     
+Downloading: 2.3 kB     
+Downloading: 2.3 kB     
+Downloading: 2.3 kB     
+Downloading: 2.3 kB     
+Downloading: 2.3 kB     </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBUaW1lc3RhbXAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGBFbWFpbCBBZGRyZXNzYCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAg5aeT5ZCNID0gY29sX2NoYXJhY3RlcigpLFxuICDlrbjomZ8gPSBjb2xfaW50ZWdlcigpLFxuICDlsYXkvY/lnLDooYzmlL/ljYAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIOaAp+WIpSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAg5pys5a245pyf5a245YiG5pW4ID0gY29sX2ludGVnZXIoKSxcbiAg5pys5a245pyf55uu5YmN5bey5Y+D5Yqg5LmL6Kqy5aSW5rS75YuVID0gY29sX2NoYXJhY3RlcigpXG4pXG4ifQ== -->
+<pre><code>Parsed with column specification:
+cols(
+  Timestamp = col_character(),
+  `Email Address` = col_character(),
+  姓名 = col_character(),
+  學號 = col_integer(),
+  居住地行政區 = col_character(),
+  性別 = col_character(),
+  本學期學分數 = col_integer(),
+  本學期目前已參加之課外活動 = col_character()
+)</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -197,10 +232,8 @@ classSurvey[aa==&quot;台北市&quot;,c(&quot;姓名&quot;)]</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3NTdXJ2ZXlbYWE9PVwi5Y+w5YyX5biCXCIsYyhcIuWnk+WQjVwiKV0tPmNjXG5jbGFzcyhjYylcbmNjJOWnk+WQjVszXVxuYGBgIn0= -->
-<pre class="r"><code>classSurvey[aa==&quot;台北市&quot;,c(&quot;姓名&quot;)]-&gt;cc
-class(cc)
-cc$姓名[3]</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3NTdXJ2ZXlbYWE9PVwi5Y+w5YyX5biCXCIsYyhcIuWnk+WQjVwiKV0tPmJiXG5gYGAifQ== -->
+<pre class="r"><code>classSurvey[aa==&quot;台北市&quot;,c(&quot;姓名&quot;)]-&gt;bb</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -296,78 +329,32 @@ levels(classSurvey$年級)&lt;-c(&quot;大四&quot;,&quot;大三&quot;,&quot;大
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoY2xhc3NTdXJ2ZXkk5bm057SaKVxuYGBgIn0= -->
 <pre class="r"><code>table(classSurvey$年級)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG7lpKflm5sg5aSn5LiJIOWkp+S6jCDlpKfkuIAgXG4gICA0ICAgIDQgICAgNiAgIDQ1IFxuIn0= -->
-<pre><code>
-大四 大三 大二 大一 
-   4    4    6   45 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>1.4</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LqMXCIpLT5iXG50YWJsZShiKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LqMXCIpLT5iXG50YWJsZShiKVxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LiJXCIpLT5jXG50YWJsZShjKVxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5ZubXCIpLT5kXG50YWJsZShkKVxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOW5tOe0mj09XCLlpKfkuoxcInxjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LiJXCJ8Y2xhc3NTdXJ2ZXkk5bm057SaPT1cIuWkp+Wbm1wiKS0+ZVxudGFibGUoZSlcbnNwcmludGYoXCIlLjFmJSVcIiwgNS8xNCAqIDEwMClcbmBgYCJ9 -->
 <pre class="r"><code>as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大二&quot;)-&gt;b
-table(b)</code></pre>
+table(b)
+as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大三&quot;)-&gt;c
+table(c)
+as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大四&quot;)-&gt;d
+table(d)
+as.factor(classSurvey$年級==&quot;大二&quot;|classSurvey$年級==&quot;大三&quot;|classSurvey$年級==&quot;大四&quot;)-&gt;e
+table(e)
+sprintf(&quot;%.1f%%&quot;, 5/14 * 100)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYlxuRkFMU0UgIFRSVUUgXG4gICA1NyAgICAgMiBcbiJ9 -->
-<pre><code>b
-FALSE  TRUE 
-   57     2 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LiJXCIpLT5jXG50YWJsZShjKVxuYGBgIn0= -->
-<pre class="r"><code>as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大三&quot;)-&gt;c
-table(c)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiY1xuRkFMU0UgIFRSVUUgXG4gICA1OCAgICAgMSBcbiJ9 -->
-<pre><code>c
-FALSE  TRUE 
-   58     1 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5ZubXCIpLT5kXG50YWJsZShkKVxuYGBgIn0= -->
-<pre class="r"><code>as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大四&quot;)-&gt;d
-table(d)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiZFxuRkFMU0UgIFRSVUUgXG4gICA1NyAgICAgMiBcbiJ9 -->
-<pre><code>d
-FALSE  TRUE 
-   57     2 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOW5tOe0mj09XCLlpKfkuoxcInxjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LiJXCJ8Y2xhc3NTdXJ2ZXkk5bm057SaPT1cIuWkp+Wbm1wiKS0+ZVxudGFibGUoZSlcbmBgYCJ9 -->
-<pre class="r"><code>as.factor(classSurvey$年級==&quot;大二&quot;|classSurvey$年級==&quot;大三&quot;|classSurvey$年級==&quot;大四&quot;)-&gt;e
-table(e)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiZVxuRkFMU0UgIFRSVUUgXG4gICA0NSAgICAxNCBcbiJ9 -->
-<pre><code>e
-FALSE  TRUE 
-   45    14 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3ByaW50ZihcIiUuMWYlJVwiLCA1LzE0ICogMTAwKVxuYGBgIn0= -->
-<pre class="r"><code>sprintf(&quot;%.1f%%&quot;, 5/14 * 100)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMzUuNyVcIlxuIn0= -->
-<pre><code>[1] &quot;35.7%&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>1.5</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LiAXCIpLT5iYlxudGFibGUoYmIpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNsYXNzU3VydmV5JOaAp+WIpT09XCLnlLdcIiZjbGFzc1N1cnZleSTlubTntJo9PVwi5aSn5LiAXCIpLT5iYlxudGFibGUoYmIpXG5zcHJpbnRmKFwiJS4xZiUlXCIsIDExLzQ1ICogMTAwKVxuYGBgIn0= -->
 <pre class="r"><code>as.factor(classSurvey$性別==&quot;男&quot;&amp;classSurvey$年級==&quot;大一&quot;)-&gt;bb
-table(bb)</code></pre>
+table(bb)
+sprintf(&quot;%.1f%%&quot;, 11/45 * 100)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYmJcbkZBTFNFICBUUlVFIFxuICAgNDggICAgMTEgXG4ifQ== -->
-<pre><code>bb
-FALSE  TRUE 
-   48    11 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3ByaW50ZihcIiUuMWYlJVwiLCAxMS80NSAqIDEwMClcbmBgYCJ9 -->
-<pre class="r"><code>sprintf(&quot;%.1f%%&quot;, 11/45 * 100)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMjQuNCVcIlxuIn0= -->
-<pre><code>[1] &quot;24.4%&quot;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>1.6</p>
@@ -379,17 +366,6 @@ str_split_fixed(f,&quot;,&quot;,n=5)-&gt;g
 str_c(g)-&gt;gg
 table(gg)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiZ2dcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg5omT5belICAgICAgICAgICAgICDllabllabpmoogXG4gICAgICAgICAgICAgICAgMTYzICAgICAgICAgICAgICAgICAgIDcgICAgICAgICAgICAgICAgICAgMyBcbiDnlLfmjpLnkIPntpMo5Yqg55CD57aTISEpICAgICAgICAgICAgICAgIOezu+aOkiAgICAgICAgICAgICAgICDns7vnvr0gXG4gICAgICAgICAgICAgICAgICAxICAgICAgICAgICAgICAgICAgIDMgICAgICAgICAgICAgICAgICAgMSBcbiAgICAgICAgICAgICAgIOezu+ahjCAgICAgICAgICAgICAgICDlrbjmnIMgICAgICAgICAgICAgICAg5omT5belIFxuICAgICAgICAgICAgICAgICAgMSAgICAgICAgICAgICAgICAgICAxICAgICAgICAgICAgICAgICAgIDQgXG4gICAgICAgICAgICAg5ZWm5ZWm6ZqKICAgICAgICAgICAgICAgIOekvuWcmCAgICAgICAgICAgICAgICAgIOeEoSBcbiAgICAgICAgICAgICAgICAgMjQgICAgICAgICAgICAgICAgICAgNyAgICAgICAgICAgICAgICAgIDEwIFxuIn0= -->
-<pre><code>gg
-                                   打工              啦啦隊 
-                163                   7                   3 
- 男排球經(加球經!!)                系排                系羽 
-                  1                   3                   1 
-               系桌                學會                打工 
-                  1                   1                   4 
-             啦啦隊                社團                  無 
-                 24                   7                  10 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>1.7</p>
@@ -399,13 +375,6 @@ table(gg)</code></pre>
 <pre class="r"><code>str_sub(classSurvey$居住地行政區,1,3)-&gt;h
 table(h)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiaFxu6auY6ZuE5biCIOWfuumahuW4giDlmInnvqnluIIg5ZiJ576p57ijIOWPsOWMl+W4giDlj7DkuK3luIIg5paw5YyX5biCIOaWsOeruee4oyBcbiAgICAgNiAgICAgIDEgICAgICAxICAgICAgMSAgICAgMTEgICAgICA4ICAgICAyOCAgICAgIDEgXG7lrpzomK3nuKMg5b2w5YyW57ijIFxuICAgICAxICAgICAgMSBcbiJ9 -->
-<pre><code>h
-高雄市 基隆市 嘉義市 嘉義縣 台北市 台中市 新北市 新竹縣 
-     6      1      1      1     11      8     28      1 
-宜蘭縣 彰化縣 
-     1      1 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
