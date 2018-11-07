@@ -177,8 +177,273 @@ $(document).ready(function () {
 
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxu5rCR5ZyL5bm05pyIPC1jKFwiMDk5LzAxXCIsXCIwOTkvMDJcIixcIjA5OS8wM1wiKVxuYGBgIn0= -->
+<pre class="r"><code>民國年月&lt;-c(&quot;099/01&quot;,&quot;099/02&quot;,&quot;099/03&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzdHJpbmdyKVxubGlicmFyeShsdWJyaWRhdGUpXG7msJHlnIvlubTmnIg8LWMoXCIwOTkvMDFcIixcIjA5OS8wMlwiLFwiMDk5LzAzXCIpXG5zdHJfYyhcIjFcIizmsJHlnIvlubTmnIgsXCIvMDFcIiktPuawkeWci+W5tOaciFxubHVicmlkYXRlOjp5bWQo5rCR5ZyL5bm05pyIKSAtPiDmsJHlnIvlubTmnIhcbuawkeWci+W5tOaciCArIHllYXJzKDkxMSlcbmBgYCJ9 -->
+<pre class="r"><code>library(stringr)
+library(lubridate)
+民國年月&lt;-c(&quot;099/01&quot;,&quot;099/02&quot;,&quot;099/03&quot;)
+str_c(&quot;1&quot;,民國年月,&quot;/01&quot;)-&gt;民國年月
+lubridate::ymd(民國年月) -&gt; 民國年月
+民國年月 + years(911)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxu5rCR5ZyL5bm05pyIPC1jKFwiMDk5LzAxXCIsXCIwOTkvMDJcIixcIjA5OS8wM1wiKVxuXG5saWJyYXJ5KGRwbHlyKVxuIyAxXG7msJHlnIvlubTmnIggJT4lIFxuICBzdHJfYyhcIjFcIiwgLiAsXCIvMDFcIikgJT4lXG4gIHltZCAlPiVcbiAgeyAuICsgeWVhcnMoOTExKSB9XG5gYGAifQ== -->
+<pre class="r"><code>民國年月&lt;-c(&quot;099/01&quot;,&quot;099/02&quot;,&quot;099/03&quot;)
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMS0wNyIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoK</div>
+library(dplyr)
+# 1
+民國年月 %&gt;% 
+  str_c(&quot;1&quot;, . ,&quot;/01&quot;) %&gt;%
+  ymd %&gt;%
+  { . + years(911) }</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmNvbGxlZ2VEYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9xdWFsaXR5LmRhdGEuZ292LnR3L2RxX2Rvd25sb2FkX2Nzdi5waHA/bmlkPTYyMzEmbWQ1X3VybD1kZGE4ZmNhNDA3MTMxNDgzYzFkOGNiZjNkNjFjZjc5M1wiKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+collegeData &lt;- read_csv(&quot;https://quality.data.gov.tw/dq_download_csv.php?nid=6231&amp;md5_url=dda8fca407131483c1d8cbf3d61cf793&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbm11dGF0ZShcbiAgY29sbGVnZURhdGEsXG4gIOWtuOagoeS7o+eivD1hcy5mYWN0b3Io5a245qCh5Luj56K8KSxcbiAg5a245qCh5ZCN56ixPWFzLmZhY3RvcijlrbjmoKHlkI3nqLEpXG4gICkgLT4gY29sbGVnZURhdGEyXG5gYGAifQ== -->
+<pre class="r"><code>library(dplyr)
+mutate(
+  collegeData,
+  學校代碼=as.factor(學校代碼),
+  學校名稱=as.factor(學校名稱)
+  ) -&gt; collegeData2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmNvbGxlZ2VEYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9xdWFsaXR5LmRhdGEuZ292LnR3L2RxX2Rvd25sb2FkX2Nzdi5waHA/bmlkPTYyMzEmbWQ1X3VybD1kZGE4ZmNhNDA3MTMxNDgzYzFkOGNiZjNkNjFjZjc5M1wiKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+collegeData &lt;- read_csv(&quot;https://quality.data.gov.tw/dq_download_csv.php?nid=6231&amp;md5_url=dda8fca407131483c1d8cbf3d61cf793&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGNvbGxlZ2VEYXRhJOWtuOagoeS7o+eivClcbmFzLmZhY3Rvcihjb2xsZWdlRGF0YSTlrbjmoKHlkI3nqLEpXG5hcy5mYWN0b3IoY29sbGVnZURhdGEkYOaXpemWk+KIlemAsuS/ruWIpWApXG5hcy5udW1lcmljKGNvbGxlZ2VEYXRhJOS4gOW5tOe0mueUt+eUnylcbmFzLm51bWVyaWMoY29sbGVnZURhdGEk5LiA5bm057Sa5aWz55SfKVxuYGBgIn0= -->
+<pre class="r"><code>as.factor(collegeData$學校代碼)
+as.factor(collegeData$學校名稱)
+as.factor(collegeData$`日間∕進修別`)
+as.numeric(collegeData$一年級男生)
+as.numeric(collegeData$一年級女生)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZURhdGEgJT4lIFxuICBtdXRhdGUoXG4gICAgYOaXpemWk+KIlemAsuS/ruWIpWA9YXMuZmFjdG9yKGDml6XplpPiiJXpgLLkv67liKVgKSxcbiAgICDnrYnntJrliKU9YXMuZmFjdG9yKOetiee0muWIpSksXG4gICAg5LiA5bm057Sa55S355SfPXBhcnNlX251bWJlcijkuIDlubTntJrnlLfnlJ8sbG9jYWxlPWNsKSxcbiAgICDkuIDlubTntJrlpbPnlJ89cGFyc2VfbnVtYmVyKOS4gOW5tOe0muWls+eUnyxsb2NhbGU9Y2wpLFxuICAgIOS4gOW5tOe0mueUt+eUn+avj+WNg+S6uj3kuIDlubTntJrnlLfnlJ8vMTAwMCxcbiAgICDkuIDlubTntJrlpbPnlJ/mr4/ljYPkuro95LiA5bm057Sa5aWz55SfLzEwMDBcbiAgICApIC0+IGNvbGxlZ2VEYXRhNlxubGlicmFyeShyZWFkcilcbmNvbGxlZ2VEYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9xdWFsaXR5LmRhdGEuZ292LnR3L2RxX2Rvd25sb2FkX2Nzdi5waHA/bmlkPTYyMzEmbWQ1X3VybD1kZGE4ZmNhNDA3MTMxNDgzYzFkOGNiZjNkNjFjZjc5M1wiKVxuYGBgIn0= -->
+<pre class="r"><code>collegeData %&gt;% 
+  mutate(
+    `日間∕進修別`=as.factor(`日間∕進修別`),
+    等級別=as.factor(等級別),
+    一年級男生=parse_number(一年級男生,locale=cl),
+    一年級女生=parse_number(一年級女生,locale=cl),
+    一年級男生每千人=一年級男生/1000,
+    一年級女生每千人=一年級女生/1000
+    ) -&gt; collegeData6
+library(readr)
+collegeData &lt;- read_csv(&quot;https://quality.data.gov.tw/dq_download_csv.php?nid=6231&amp;md5_url=dda8fca407131483c1d8cbf3d61cf793&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZURhdGEgJT4lIFxuICBtdXRhdGUoXG4gICAgYOaXpemWk+KIlemAsuS/ruWIpWA9YXMuZmFjdG9yKGDml6XplpPiiJXpgLLkv67liKVgKSxcbiAgICDnrYnntJrliKU9YXMuZmFjdG9yKOetiee0muWIpSksXG4gICAg5LiA5bm057Sa55S355SfPWFzLm51bWVyaWMo5LiA5bm057Sa55S355SfKSxcbiAgICDkuIDlubTntJrlpbPnlJ89YXMubnVtZXJpYyjkuIDlubTntJrlpbPnlJ8pXG4gICkgLT4gY29sbGVnZURhdGEzXG5gYGAifQ== -->
+<pre class="r"><code>collegeData %&gt;% 
+  mutate(
+    `日間∕進修別`=as.factor(`日間∕進修別`),
+    等級別=as.factor(等級別),
+    一年級男生=as.numeric(一年級男生),
+    一年級女生=as.numeric(一年級女生)
+  ) -&gt; collegeData3</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMubnVtZXJpYyhcIjEsMjM0XCIpXG5gYGAifQ== -->
+<pre class="r"><code>as.numeric(&quot;1,234&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmNsPC1sb2NhbGUoZ3JvdXBpbmdfbWFyayA9IFwiLFwiKSAjIOWJtemAoGNs5L6G5o+P6L+w5Y2D5YiG5L2N56ym6Jmf5L2/55SoXCIsXCLnmoTnv5LmhaPloLTmma9cbmNvbGxlZ2VEYXRhICU+JSBcbiAgbXV0YXRlKFxuICAgIGDml6XplpPiiJXpgLLkv67liKVgPWFzLmZhY3Rvcihg5pel6ZaT4oiV6YCy5L+u5YilYCksXG4gICAg562J57Sa5YilPWFzLmZhY3RvcijnrYnntJrliKUpLFxuICAgIOS4gOW5tOe0mueUt+eUnz1wYXJzZV9udW1iZXIo5LiA5bm057Sa55S355SfLGxvY2FsZT1jbCksXG4gICAg5LiA5bm057Sa5aWz55SfPXBhcnNlX251bWJlcijkuIDlubTntJrlpbPnlJ8sbG9jYWxlPWNsKVxuICApIC0+IGNvbGxlZ2VEYXRhNFxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+cl&lt;-locale(grouping_mark = &quot;,&quot;) # 創造cl來描述千分位符號使用&quot;,&quot;的習慣場景
+collegeData %&gt;% 
+  mutate(
+    `日間∕進修別`=as.factor(`日間∕進修別`),
+    等級別=as.factor(等級別),
+    一年級男生=parse_number(一年級男生,locale=cl),
+    一年級女生=parse_number(一年級女生,locale=cl)
+  ) -&gt; collegeData4</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZURhdGEgJT4lIFxuICBtdXRhdGUoXG4gICAgYOaXpemWk+KIlemAsuS/ruWIpWA9YXMuZmFjdG9yKGDml6XplpPiiJXpgLLkv67liKVgKSxcbiAgICDnrYnntJrliKU9YXMuZmFjdG9yKOetiee0muWIpSksXG4gICAg5LiA5bm057Sa55S355SfPXBhcnNlX251bWJlcijkuIDlubTntJrnlLfnlJ8sbG9jYWxlPWNsKSxcbiAgICDkuIDlubTntJrlpbPnlJ89cGFyc2VfbnVtYmVyKOS4gOW5tOe0muWls+eUnyxsb2NhbGU9Y2wpXG4gICkgLT4gY29sbGVnZURhdGE0XG5cbmNvbGxlZ2VEYXRhNCAlPiVcbiAgbXV0YXRlKFxuICAgIOS4gOW5tOe0mueUt+eUn+avj+WNg+S6uj3kuIDlubTntJrnlLfnlJ8vMTAwMCxcbiAgICDkuIDlubTntJrlpbPnlJ/mr4/ljYPkuro95LiA5bm057Sa5aWz55SfLzEwMDBcbiAgICApIC0+IGNvbGxlZ2VEYXRhNVxuYGBgIn0= -->
+<pre class="r"><code>collegeData %&gt;% 
+  mutate(
+    `日間∕進修別`=as.factor(`日間∕進修別`),
+    等級別=as.factor(等級別),
+    一年級男生=parse_number(一年級男生,locale=cl),
+    一年級女生=parse_number(一年級女生,locale=cl)
+  ) -&gt; collegeData4
+
+collegeData4 %&gt;%
+  mutate(
+    一年級男生每千人=一年級男生/1000,
+    一年級女生每千人=一年級女生/1000
+    ) -&gt; collegeData5</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZURhdGEgJT4lIFxuICBtdXRhdGUoXG4gICAgYOaXpemWk+KIlemAsuS/ruWIpWA9YXMuZmFjdG9yKGDml6XplpPiiJXpgLLkv67liKVgKSxcbiAgICDnrYnntJrliKU9YXMuZmFjdG9yKOetiee0muWIpSksXG4gICAg5LiA5bm057Sa55S355SfPXBhcnNlX251bWJlcijkuIDlubTntJrnlLfnlJ8sbG9jYWxlPWNsKSxcbiAgICDkuIDlubTntJrlpbPnlJ89cGFyc2VfbnVtYmVyKOS4gOW5tOe0muWls+eUnyxsb2NhbGU9Y2wpLFxuICAgIOS4gOW5tOe0mueUt+eUn+avj+WNg+S6uj3kuIDlubTntJrnlLfnlJ8vMTAwMCxcbiAgICDkuIDlubTntJrlpbPnlJ/mr4/ljYPkuro95LiA5bm057Sa5aWz55SfLzEwMDBcbiAgICApIC0+IGNvbGxlZ2VEYXRhNlxuYGBgIn0= -->
+<pre class="r"><code>collegeData %&gt;% 
+  mutate(
+    `日間∕進修別`=as.factor(`日間∕進修別`),
+    等級別=as.factor(等級別),
+    一年級男生=parse_number(一年級男生,locale=cl),
+    一年級女生=parse_number(一年級女生,locale=cl),
+    一年級男生每千人=一年級男生/1000,
+    一年級女生每千人=一年級女生/1000
+    ) -&gt; collegeData6</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChjb2xsZWdlRGF0YTVbLGMoXCLkuIDlubTntJrnlLfnlJ9cIixcIuS4gOW5tOe0muWls+eUn1wiLFwi5LiA5bm057Sa55S355Sf5q+P5Y2D5Lq6XCIsXCLkuIDlubTntJrlpbPnlJ/mr4/ljYPkurpcIildKVxuXG5oZWFkKGNvbGxlZ2VEYXRhNlssYyhcIuS4gOW5tOe0mueUt+eUn1wiLFwi5LiA5bm057Sa5aWz55SfXCIsXCLkuIDlubTntJrnlLfnlJ/mr4/ljYPkurpcIixcIuS4gOW5tOe0muWls+eUn+avj+WNg+S6ulwiKV0pXG5gYGAifQ== -->
+<pre class="r"><code>head(collegeData5[,c(&quot;一年級男生&quot;,&quot;一年級女生&quot;,&quot;一年級男生每千人&quot;,&quot;一年級女生每千人&quot;)])
+
+head(collegeData6[,c(&quot;一年級男生&quot;,&quot;一年級女生&quot;,&quot;一年級男生每千人&quot;,&quot;一年級女生每千人&quot;)])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzdHJpbmdyKVxuY29sbGVnZTFzdFllYXJEYXRhICU+JVxuICBtdXRhdGVfYWxsKGZ1bnMocGFyc2VfbnVtYmVyKC4sbG9jYWxlPWNsKSkpIC0+XG4gIGNvbGxlZ2Uxc3RZZWFyRGF0YU51bWVyaWNcbmBgYCJ9 -->
+<pre class="r"><code>library(stringr)
+college1stYearData %&gt;%
+  mutate_all(funs(parse_number(.,locale=cl))) -&gt;
+  college1stYearDataNumeric</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZTFzdFllYXJEYXRhTnVtZXJpYyAlPiVcbiAgbXV0YXRlX2FsbChcbiAgICBmdW5zKFxuICAgICAg5q+P55m+5Lq6PS4vMTAwLFxuICAgICAg5q+P5Y2D5Lq6PS4vMTAwMFxuICAgIClcbiAgKVxuYGBgIn0= -->
+<pre class="r"><code>college1stYearDataNumeric %&gt;%
+  mutate_all(
+    funs(
+      每百人=./100,
+      每千人=./1000
+    )
+  )</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnb29nbGVzaGVldHMpXG5nc19hdXRoKG5ld191c2VyID0gVFJVRSlcbmdzU3VydmV5PC1nc19rZXkoXCIxbUM5Ym54ajExTkNOb09DdzBWbW40bnhFUmJIdExqZUdvOXY5QzliMkdERVwiKSAgI2Rvd25sb2FkIHNoZWV0IGluZm9ybWF0aW9uIGFzIGFuIG9iamVjdFxuY2xhc3NTdXJ2ZXk8LWdzX3JlYWQoZ3NTdXJ2ZXksd3M9MSkgI2FjY2VzcyB0aGUgMXN0IHdvcmtzaGVldFxuY2xhc3NTdXJ2ZXkgJT4lIHNlbGVjdCjlsYXkvY/lnLDooYzmlL/ljYAs5oCn5YilKSAtPlxuICBjbGFzc1N1cnZleVBhcnRpYWxcbmBgYCJ9 -->
+<pre class="r"><code>library(googlesheets)
+gs_auth(new_user = TRUE)
+gsSurvey&lt;-gs_key(&quot;1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE&quot;)  #download sheet information as an object
+classSurvey&lt;-gs_read(gsSurvey,ws=1) #access the 1st worksheet
+classSurvey %&gt;% select(居住地行政區,性別) -&gt;
+  classSurveyPartial</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3NTdXJ2ZXlQYXJ0aWFsJT4lXG4gIG11dGF0ZShg5bGF5L2P5Zyw6KGM5pS/5Y2AYD1hcy5mYWN0b3IoYOWxheS9j+WcsOihjOaUv+WNgGApLFxuICAgICAgICAgYOaAp+WIpWA9YXMuZmFjdG9yKGDmgKfliKVgKSktPmNsYXNzU3VydmV5UGFydGlhbDFcbmBgYCJ9 -->
+<pre class="r"><code>classSurveyPartial%&gt;%
+  mutate(`居住地行政區`=as.factor(`居住地行政區`),
+         `性別`=as.factor(`性別`))-&gt;classSurveyPartial1</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZURhdGEgJT4lIG11dGF0ZV9hdChcbiAgdmFycyjkuIDlubTntJrnlLfnlJ8s5LiA5bm057Sa5aWz55SfKSxcbiAgZnVucyhwYXJzZV9udW1iZXIoLixsb2NhbGU9Y2wpKVxuKSAtPiBjb2xsZWdlMXN0WWVhckRhdGFBXG5cbmNvbGxlZ2Uxc3RZZWFyRGF0YUEgJT4lXG4gIHNlbGVjdCjkuIDlubTntJrnlLfnlJ8s5LiA5bm057Sa5aWz55SfKVxuYGBgIn0= -->
+<pre class="r"><code>collegeData %&gt;% mutate_at(
+  vars(一年級男生,一年級女生),
+  funs(parse_number(.,locale=cl))
+) -&gt; college1stYearDataA
+
+college1stYearDataA %&gt;%
+  select(一年級男生,一年級女生)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZURhdGEgJT4lIG11dGF0ZV9hdChcbiAgdmFycyhzdGFydHNfd2l0aChcIuS4gOW5tOe0mlwiKSksXG4gIGZ1bnMocGFyc2VfbnVtYmVyKC4sbG9jYWxlPWNsKSlcbikgLT4gY29sbGVnZTFzdFllYXJEYXRhQlxuYGBgIn0= -->
+<pre class="r"><code>collegeData %&gt;% mutate_at(
+  vars(starts_with(&quot;一年級&quot;)),
+  funs(parse_number(.,locale=cl))
+) -&gt; college1stYearDataB</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiMTY3IHBhcnNpbmcgZmFpbHVyZXMuXG5yb3cgXHUwMDFiWzkwbSMgQSB0aWJibGU6IDUgeCA0XHUwMDFiWzM5bSBjb2wgICAgIHJvdyAgIGNvbCBleHBlY3RlZCBhY3R1YWwgZXhwZWN0ZWQgICBcdTAwMWJbM21cdTAwMWJbOTBtPGludD5cdTAwMWJbMzltXHUwMDFiWzIzbSBcdTAwMWJbM21cdTAwMWJbOTBtPGludD5cdTAwMWJbMzltXHUwMDFiWzIzbSBcdTAwMWJbM21cdTAwMWJbOTBtPGNocj5cdTAwMWJbMzltXHUwMDFiWzIzbSAgICBcdTAwMWJbM21cdTAwMWJbOTBtPGNocj5cdTAwMWJbMzltXHUwMDFiWzIzbSAgYWN0dWFsIFx1MDAxYls5MG0xXHUwMDFiWzM5bSAgICAxNCAgICBcdTAwMWJbMzFtTkFcdTAwMWJbMzltIGEgbnVtYmVyIC0gICAgICByb3cgXHUwMDFiWzkwbTJcdTAwMWJbMzltICAgIDc2ICAgIFx1MDAxYlszMW1OQVx1MDAxYlszOW0gYSBudW1iZXIgLSAgICAgIGNvbCBcdTAwMWJbOTBtM1x1MDAxYlszOW0gICAgODggICAgXHUwMDFiWzMxbU5BXHUwMDFiWzM5bSBhIG51bWJlciAtICAgICAgZXhwZWN0ZWQgXHUwMDFiWzkwbTRcdTAwMWJbMzltICAgIDg5ICAgIFx1MDAxYlszMW1OQVx1MDAxYlszOW0gYSBudW1iZXIgLSAgICAgIGFjdHVhbCBcdTAwMWJbOTBtNVx1MDAxYlszOW0gICAgOTAgICAgXHUwMDFiWzMxbU5BXHUwMDFiWzM5bSBhIG51bWJlciAtICAgICBcbi4uLiAuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4gLi4uIC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uIC4uLi4uLi4uIC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAuLi4uLi4gLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAuLi4gLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAuLi4gLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAuLi4uLi4uLiAuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uIC4uLi4uLiAuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uXG5TZWUgcHJvYmxlbXMoLi4uKSBmb3IgbW9yZSBkZXRhaWxzLlxuMTY4IHBhcnNpbmcgZmFpbHVyZXMuXG5yb3cgXHUwMDFiWzkwbSMgQSB0aWJibGU6IDUgeCA0XHUwMDFiWzM5bSBjb2wgICAgIHJvdyAgIGNvbCBleHBlY3RlZCBhY3R1YWwgZXhwZWN0ZWQgICBcdTAwMWJbM21cdTAwMWJbOTBtPGludD5cdTAwMWJbMzltXHUwMDFiWzIzbSBcdTAwMWJbM21cdTAwMWJbOTBtPGludD5cdTAwMWJbMzltXHUwMDFiWzIzbSBcdTAwMWJbM21cdTAwMWJbOTBtPGNocj5cdTAwMWJbMzltXHUwMDFiWzIzbSAgICBcdTAwMWJbM21cdTAwMWJbOTBtPGNocj5cdTAwMWJbMzltXHUwMDFiWzIzbSAgYWN0dWFsIFx1MDAxYls5MG0xXHUwMDFiWzM5bSAgICAxNCAgICBcdTAwMWJbMzFtTkFcdTAwMWJbMzltIGEgbnVtYmVyIC0gICAgICByb3cgXHUwMDFiWzkwbTJcdTAwMWJbMzltICAgIDc2ICAgIFx1MDAxYlszMW1OQVx1MDAxYlszOW0gYSBudW1iZXIgLSAgICAgIGNvbCBcdTAwMWJbOTBtM1x1MDAxYlszOW0gICAgODggICAgXHUwMDFiWzMxbU5BXHUwMDFiWzM5bSBhIG51bWJlciAtICAgICAgZXhwZWN0ZWQgXHUwMDFiWzkwbTRcdTAwMWJbMzltICAgIDg5ICAgIFx1MDAxYlszMW1OQVx1MDAxYlszOW0gYSBudW1iZXIgLSAgICAgIGFjdHVhbCBcdTAwMWJbOTBtNVx1MDAxYlszOW0gICAgOTAgICAgXHUwMDFiWzMxbU5BXHUwMDFiWzM5bSBhIG51bWJlciAtICAgICBcbi4uLiAuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4gLi4uIC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uIC4uLi4uLi4uIC4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAuLi4uLi4gLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAuLi4gLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAuLi4gLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLiAuLi4uLi4uLiAuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uIC4uLi4uLiAuLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uXG5TZWUgcHJvYmxlbXMoLi4uKSBmb3IgbW9yZSBkZXRhaWxzLlxuIn0= -->
+<pre><code>167 parsing failures.
+row [90m# A tibble: 5 x 4[39m col     row   col expected actual expected   [3m[90m&lt;int&gt;[39m[23m [3m[90m&lt;int&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m    [3m[90m&lt;chr&gt;[39m[23m  actual [90m1[39m    14    [31mNA[39m a number -      row [90m2[39m    76    [31mNA[39m a number -      col [90m3[39m    88    [31mNA[39m a number -      expected [90m4[39m    89    [31mNA[39m a number -      actual [90m5[39m    90    [31mNA[39m a number -     
+... ........................... ... ............................. ........ ......................................................................................................... ...... ................................................. ... ................................................. ... ................................................. ........ ................................................. ...... .................................................
+See problems(...) for more details.
+168 parsing failures.
+row [90m# A tibble: 5 x 4[39m col     row   col expected actual expected   [3m[90m&lt;int&gt;[39m[23m [3m[90m&lt;int&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m    [3m[90m&lt;chr&gt;[39m[23m  actual [90m1[39m    14    [31mNA[39m a number -      row [90m2[39m    76    [31mNA[39m a number -      col [90m3[39m    88    [31mNA[39m a number -      expected [90m4[39m    89    [31mNA[39m a number -      actual [90m5[39m    90    [31mNA[39m a number -     
+... ........................... ... ............................. ........ ......................................................................................................... ...... ................................................. ... ................................................. ... ................................................. ........ ................................................. ...... .................................................
+See problems(...) for more details.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZTFzdFllYXJEYXRhQiAlPiUgXG4gIHNlbGVjdCjkuIDlubTntJrnlLfnlJ8s5LiA5bm057Sa5aWz55SfKVxuYGBgIn0= -->
+<pre class="r"><code>college1stYearDataB %&gt;% 
+  select(一年級男生,一年級女生)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6ODM4fSwicmRmIjoiSDRzSUFBQUFBQUFBQTRXYlMyeWR4UlhIUHhKU0lBSjZwV2FSQllzcmhGQ0VJTHJsMFVKZmZJUVFFcDQzRHhJbmhIRDlpdlB3NC9vVjIzRklQajlpaHdRN056Ukt3cVBxRlZDSlJSZVJpbFRhbFpkZGRPRmxsMTZBWU9sbEZ4WFV6dngvNDU3emZWYXp5TGx6NXN6TU9UTm56bXMrNzl2Wjh1VG1sczFKa214SU5tNjZLOW13Y2VYbjNSdFcvcnNydVR1NWJ4V09Kc25HbjkwaFNKSUhWMzd2U2c5bXllcS85T0tKQUQrNE44Q0Jlb0NuMWYvN3hRQ3YzUi9nTTBtQXh3WEgxUDk1UUtUTldvRERqVHZ3d3ZMcS8vZDhsdGFFbjlUOFYwb0JkalVEN05OOGYzZ2t3SSs3eFU4NXdNUHF2OXdRUDFXdHN4VGcvb1VBK3pYdmphT1NxeUs2MndHMmFiNzU3d1hGVjcvbU9ad0dPQ3UrWm5ZSHlINjhMRDVHdGY2OCtIbEg0OTRVM2V1aTJ5djhqUGk0UEJyZ0thMzdrdWhQQ0k2S2owNzF2eXI4b09TYWVsYjBOU3YzS2NIVGt1L25XdjgzZ24yYWQzcHJnQWVGUHluODAycWZFTDl6a3F0ZGJaMW5Xa29zZmtMNG82RWR6L3ZYb3VzUlgxY1dBOXduZVo1WGY0ZjR6YVNIQjlUUC9sd2JDbkQrWDJaK0Q5TlRtVjMvRmMwL0lUNmxCN0cvclJud3Z4RGQ3d1FIbGdPOGV0dlN0NHVmTHZHTG5zd0Z1clR4dmFVZkUzNTgyZUtmMVRyOVduLzJhOXQvUXYyN0JZY1d0US8vdG5RREdqL281SHBFNDQ0S2NrNFZ0Y3VDNkFmNC9WbUE3TXVMbVozM21PanVGZVFlakpjQ2ZFM2oyYzlFc0NiOGpPVFluZG4xbU8rWStMemFjZ2Mrdnl6ODhWcUFENm5kci9hTnV5MS9lelRmcU9QN1lZMUQzMmUzMlg3Ty9ZRFdmMFB0a2NCQTFQZlhFdHV2K3hMNVpEL2JsZ0k4SzNqQTBUMG0yS3IrZ1lib0ZnTGsvQTZsdHAvMXVhZWpvdCttOWs3QlJMQlQ0Njk5YWVTTmNyOGx1dmVkWGpILzYxbUF2V3EvbkZrNnprMTZrbllreGV1VUxUN3VKK3QwTDlsKzloRzVXbExiLzdDYmI0L294dW9CYWdQU3RvVUFYeEIvd3d0MjNyMXE3MU43NUhZeC94M0lMOWkxanB5c2N6eXovT0ZuSDlmNFZ4My9KZGZlQ3YrMUFLZkY1MTdOYzBpUWU3VFZqVWVmdHdocWY5TWRhajhwK0p4Z2orYTU4ZWNBMzFiN0pmVmpoOUREVDRNZ2FWOXExeDF0Qmp6NmkxKy9Galk4MmgzMjgyQVluNzZvOWxuUmZ5Sy96NzJWWFU5ZkVUeFhDZkR6eVFCUE5pMGZyWm9IdjlvVEZrNC8reXJBL1k1dmpZOSsra0pKODNkSXpvVUFzZmVjVDFYNHE0SzdFanN2OTZkYmNGTGo4TWZJM1YwTGNGNTA3d3FQbmg1ZkNqQlQrNDNNcnNQOVM2R1h2SE5mR3I3WC9KajQ1WnpZMXphMW54TEVUeDBVL2MwdkFqeGRzL05sNHU5UjBSOFJ2QlRzQ3ZvVTZiVlAwUTRjMC9vZlRZdVB3Ry9PejF3Um5lTFBOVCt1OWJlTHJxYTJzM3ZSM28wMUF5VCtlRnN3cTloMVgzRHJjSi9lRVh4UDgreFZtN2h2aCtCVXhjckp1VmNFOGMrWjR1NWRHaGZqc0hLQW56eGsrY0J2VHRjc0hyMk1mdFRGRmZpdHFiTEZZeGV1ZldQeHhLOGptY1hyWGtaL2hsMmFxVm82OXJXL1l2SG9OZkwyQkRrQzE2djZLRWk4UHhyR1I3LzV5OFRPOXl2aDN4UWNYd2h3bTZXTDlQalZ4djNGL2RoSDdONWx4ei9uTTFJckh1L3RlNjFwMjdJLzZZYzZkL3orK2FxbEk5NHBDMVlGWjNXdm4zVHJ0SVoyUEJmaTcrbVNwVU8vdWY5bjY3WWZQNFZmUFN6KzBOUHRibDM4MGZ3L0N2Y2pwNTh6dDRyNU9heDVQZ3o5TWQ1UlhocnAzeFUvcWZxdnBMWWZ1My94ZGlFLzhkN1h3emp1WSt6ZnAvbDNNSTliLzl4aU1mK3RtbS9LeVZkV3YvTGZOYnN0L1BuQVovUW5paCtpbnAzTDdEalpmK3p5bXR5aVArUDQ0OTRUbDJPbnNhdFR6azRTUjU5dEJJaTl2bnpDMHVrZXBqMlNHMy9CZmxUZ2Y4bU9nNjdUOGY5YjRiR3Zsd1h4RCtnSGNROSsrbWlZSi9xMWtzWmg3NGZDK3RGUGxvV2Z6T3o2eE0vc1Q0L2pHL3N5bTloNTNuRnlVQjloM3pLblA5enJWcmMrL211eWJQSGNZOFVKRVUvOE5yaHM4ZmlaMXNCWDNJK0RiajNPbVhvRTQ3eGVZYStuRm92eHlwdHk5eUhxWXoxQTdHcEhhdGNicTlyeDVKa1Z3U09pSjA2ZnFsdDY3dEZ4eTBmczV6eW5pKzFUOUNzWGsrSitCVjZ4dm9KZFVsNmEyM2QvSHZnUjlQN0FPdXVROTJTTGxyNWQ2KzRRSDBOT2Z2UkFkanJpeWNjNXAxT09YL1FaZmUwczIvNVk1MHN0SHY5d0lkQ3Y1UmwyL2toL05DdkU0NmZXOWxuek5McUw1Mm1UUEp3RGZPQlg5anY1aVpPT09EejNISHM0dFd6N09TL09zNzBaWUZudHZZNXY5SXQ5MkdQbGpmNitvbjdsVWJsN2lCeXF4K1hzd3FnYjE2SjlRRy84L1U0ZFh6WEh0Ni92bEVUM25sMG45cE1uTUovcXhMbTg4OUNDeGJkcEhQc05YOHJyMHpOT1h2TERUb2NubjRMUHFKOU9EdWJGenZwOHBzZnRBL3lNVkl2bHhyNjAxZ0o4eEkwbjNzQ083SFA4NE5mZ2Y3OGJUNXhGUExiVGpjZHV2dXJ3eE5mUmZpMFc4dS9qOWxobnhqNjNsd1AwK2NsNjhSSDM2aFhIRC9VUG5XZXN0M1UwTFYwaVBIcDBNaTJldjZSK1grK2h6czY5ZTg3MWw0VVg5SFltdHkvdzhVd3hYZVREbnp0K2puM1ZmWXJ4Ti9jU2ZyamZuSnZ1U1ZvUEMxQS94NzdIK2lEblFqMlBPT2J0MVBKRHZPUFhReis1RitTSHZDOXdMOUV6NnJXS1E5S1cwRTU0TjZJK1B5dityd2VIR091eTJEdmxnK21jNkdOY3BYbTdSSCtyRWVCSHltdTZscXhjeDdRTzd6RU4xYW5PYW43eTZJYnFVZzNsS1YzaUE3czFFZXJLNmZ1VkFLbXpFMS9HdkhvNVFPcjM4b3N4SDc0Z21DbFBPYVYrNHRLejZxY2VkbEp0N0JEMDQrcW43c3orNEErNG44ZzVvMzNnWHNwT3BQMkM3NG1POXd2c1ZsM2pKaVYvZmRuS015UTVWZGVrN2hIOUR2cEozbm1JY1lJVlJ6ZW5kYWlycVk0Ujd3VjZPTDRZb1BLVFhINU5YWEx1VW9DS202STlWZnljVHVrOTZ5M0p5WHZaQmJYSHltYitmSHl5WU5mbnZxSFBVNjQrVHI1Qi9rTWN3cnZabFlxbGg1L2pUVHR1Y0NuQTh5VkwzeWw2NzBleE03b2Y2YlI3YjJKLzhDUFk5Y25NMGxFZjlQa1grdGNwMkNOK2lSL1JCL0lhN0J2MTF0SEZBUGU2ZWV1U0J6dkxQUnRQQTZUT3JmZ2g2Z24rVXZXbmVIOTAvbXR4aWZES004T3NLL0RkMUxhcFU0d3QyZkhFenkyVzc4Z0g5dE85SzhWKzlKWDlvUDZKZjJnUnJJa2Y0ay9PQ2YwaDdybFFWVnYwMnh3ZDc5UVRzblA5dHdQRTNtUFhzbktBWFVHdXVIKzhBOGM2VDVBcnlrTitvM3BvN3I2Z3Z6N3VLZ3RmRGZpMFhldjRPaXJyb3A4VDFlSjFmQjBOL2NFdXVuSFJMaEQzMVd1Mi8yazNIM0x3cmswY1JiN0pPYWtPRU9OTjdJUDhZanBmS3VZLy9GaXpSMk4yL2JqZmtqTWRkL3h4VHR6TFd0bjJiMGtLMjlGK3pLdiszdTc0cFk3Q1BsRUg0cDJaKzBDK1hVMEQ1UDREc2MrZmhIZjUrRzdCK2JCL285cUh6L1JlTTVoYXZpZjFIUWIzZ2ZlU2oyWDNFeWRYYlNGQTZpTDR0eHZoZ09NK0VPZHdQNGRyNG1NZ3dCTk55d2Y3Z3Z6ZDVRQS9QNlYxeTVhK2Q4blJxMzFMNjNJUHFZK1gxQ2ErK2tqZnVWUVRPeTk1Q3Q4LzROL1lUL2FmOTVwWmZRL3lWbXJYYVY4SWNGRHpxTDRZMThFZWxLRVgzU1g1ZVYvL29pN0gvT3cvOVJyaUJzNlJPdVhOY3dINmQ3ZlQ0aGM5Ukg5dTZYc2IvMjdGZXdIOGRvamZMOEtHeEx3R3U4dStmNnI0VlBsSm5HK2dadVhoM2ZQV0ZrdEhQV0NzRVNEM0h6OThVZVBRdTlmZE92REwvazZxM3NaNWNhN1lvNG5sQUxIbitCWGEzRmZscXpGdVovMDI4WFA5bjVZUDFsTmNtc3RqZUErZmRmM295V0JpOGNTcE45MStFVytQMUEwK2wvOHh2dUhlcWNpRC9EdGpTZU9VUDZmalN3SGlUOGlMc0JNVG9kNFg0MVBac1p3ZmFpMEgrRUdRR3oxYnR3NGd1NzV1SHNtOUdHelk5ZURQK3kzdXkvbDZnT3kzNHBwY25RSjk0OTFMZWh6cGRKK2lmK0hjNThLNjVIdTVPaEo2d0xsY2MvcERmb01mUEovWmZzNkZlaWwxc3huNWg0cGJGejNKL3M5M1hTWE5PMXd1cEl2dkp2TzNBNHpuNU5iam5SUCs5RDFTN256T3I3TU85YTNoSUFoMklHZWZVdEdOMVd5LzR1U2MvK2Q5eG4xUEVmdjlPeDl4Q3ZrNzcxblVrVGlmeksxUG5LejRPNmQvL3ZzNTdnZDVCM1NzODZGNzEwRHY5ZjRVOStHcTR4OTdyM2RSOURIS3l6bGR0SG9SOWJpK2FQSFVMOW9ELytuTmJ6Ui9PVUR5dGZqZUpqcnE0OVJaeXVwWHZUbzlvM0hZWi9Ualp0bXV6L2RwK08yeHpQYVRMNTFKQy9FNXU2anZyTkpKOTQ1SUhxRDRKNGUvdU5YaWlSTk9MMWs4OFVybTFtY2ZNOFVUOEhQRXljTjZralBTK2U4eTBKdTUzUmFQSHIzbTZFdkNZeGZJY3pnMzZvbll4KzUxK0VjKzdsVzB4OHVXbnJqNlJUdFByditEZGI2Znc5NVBwTVg5NkF2Zjl5Q1hmeStNZFo2U3hRK0hlYU05N3NpSzErRThla1ZQUEVBZVIxdzIwclR6dzc5L04yQWMrNno2Vlc2ZkU4R2FsWC9OVDd0NXVmZmRRZjU0MzMxK1NIeDFhWjMzT205M1dXKzZYa3lQZjhBL1BlYkcrL1c1cjA4NVBQcU1YbHgyOTVQdkJyQy8xQitSZTQrZEw3Y3Z2bzdOUG5CKzh4WGJUOTdEK1o4cEZjL2ZXN1BqOEI5bHdiMnA3U2ZlamUrR1RkdC8yclh4RTQyVzR2WDd5M2ErQzQ2ZnF2RCtYWVR2aXJrM05kSHhuVlc5YXVuSmI1VmY1ZUtNa3NaVEovRDFjLzQrZ1hQR0Q4WDhjZG5TY3crR0dzVnlKK3JuUHYzY3liZkY0blB2bDlFK2lmK2RianoxWCtJMkh5ZGdCMU9ISnc0b0NRNVVDL25QOGNsMytzaE5YWUM4Skg2MzFnendJYmN1K1pWL2QwUy9xUWRYMU42WFdycXk4UEg5Y2RIMjY1M2FmK2NlKzZsSDRYLzg5OHdsSzhlNis4SDg3UHZqeGZUeC9CNTFmSEFQa0lmM2xQamRSR2JHUlRpanZKRjY0cnprNGZ2TVJ0TzJpVnY0RHBIdnpPYmszOGtqWndKRDBkN0U3OXMwVHQ5OXBPUFZBUGs3SU00TmU5SmIxbndhcDNqVy9TSFNwdmJ1MXNIVlZMTDBQOGpOSGExRHJkdVBEN1QyZEhyeTNoVWM1Q3NkMlNyeXA5OThuWDM3dDYrKysrcmo3NjcvOWJ2cmY4eWh2LzNUWCs2Z3pWVDNEZlNOYkdlNkIxYW5XOTNvSDMvOHo5OVh3QStPK0o2Kyt0REp2dDRWMGcycmZ6VzF5VEY4MTRCRGxJWjdWNmZ1ZUtMOXhIRHY2U2VlV3QzRXpYZjZ3NzhId3UrTnU5WityNHF6dXViR0h6WFhKczMxazg3ZXJwTzluZXhBZDJ0Ylo3Y2FENjdJY0VlRTdmV0JrNzFEYk44S2RuRDdVTjlRSzNTYjIvdTZ3ZHdSTHZuaHY2RnBlUm9rTmdBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["一年級男生"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["一年級女生"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"90","2":"82"},{"1":"685","2":"760"},{"1":"897","2":"1299"},{"1":"295","2":"278"},{"1":"220","2":"77"},{"1":"1268","2":"714"},{"1":"1091","2":"944"},{"1":"21","2":"11"},{"1":"176","2":"233"},{"1":"413","2":"187"},{"1":"2483","2":"1572"},{"1":"2096","2":"1642"},{"1":"345","2":"191"},{"1":"NA","2":"NA"},{"1":"131","2":"123"},{"1":"590","2":"756"},{"1":"866","2":"1067"},{"1":"189","2":"421"},{"1":"248","2":"112"},{"1":"1865","2":"1035"},{"1":"1691","2":"1026"},{"1":"290","2":"186"},{"1":"100","2":"53"},{"1":"850","2":"555"},{"1":"1108","2":"806"},{"1":"350","2":"192"},{"1":"79","2":"122"},{"1":"273","2":"78"},{"1":"1431","2":"670"},{"1":"902","2":"411"},{"1":"347","2":"169"},{"1":"145","2":"58"},{"1":"989","2":"496"},{"1":"972","2":"531"},{"1":"286","2":"209"},{"1":"101","2":"49"},{"1":"756","2":"416"},{"1":"713","2":"394"},{"1":"220","2":"200"},{"1":"46","2":"19"},{"1":"389","2":"209"},{"1":"978","2":"442"},{"1":"117","2":"81"},{"1":"63","2":"11"},{"1":"58","2":"51"},{"1":"69","2":"42"},{"1":"710","2":"421"},{"1":"847","2":"728"},{"1":"211","2":"260"},{"1":"43","2":"41"},{"1":"196","2":"280"},{"1":"398","2":"469"},{"1":"171","2":"303"},{"1":"55","2":"38"},{"1":"305","2":"268"},{"1":"615","2":"587"},{"1":"195","2":"271"},{"1":"79","2":"58"},{"1":"214","2":"331"},{"1":"217","2":"184"},{"1":"17","2":"34"},{"1":"28","2":"15"},{"1":"255","2":"257"},{"1":"643","2":"757"},{"1":"88","2":"92"},{"1":"207","2":"320"},{"1":"20","2":"16"},{"1":"194","2":"257"},{"1":"946","2":"939"},{"1":"154","2":"205"},{"1":"345","2":"193"},{"1":"4","2":"1"},{"1":"154","2":"97"},{"1":"562","2":"445"},{"1":"113","2":"60"},{"1":"NA","2":"NA"},{"1":"27","2":"20"},{"1":"238","2":"236"},{"1":"890","2":"945"},{"1":"74","2":"80"},{"1":"31","2":"29"},{"1":"161","2":"140"},{"1":"525","2":"611"},{"1":"82","2":"87"},{"1":"211","2":"55"},{"1":"1117","2":"508"},{"1":"987","2":"402"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"212","2":"115"},{"1":"NA","2":"NA"},{"1":"52","2":"28"},{"1":"552","2":"278"},{"1":"902","2":"639"},{"1":"NA","2":"NA"},{"1":"149","2":"115"},{"1":"22","2":"23"},{"1":"30","2":"14"},{"1":"303","2":"194"},{"1":"1014","2":"870"},{"1":"NA","2":"NA"},{"1":"155","2":"55"},{"1":"185","2":"181"},{"1":"101","2":"23"},{"1":"950","2":"318"},{"1":"1082","2":"481"},{"1":"NA","2":"NA"},{"1":"411","2":"172"},{"1":"447","2":"95"},{"1":"NA","2":"NA"},{"1":"24","2":"9"},{"1":"282","2":"191"},{"1":"759","2":"669"},{"1":"NA","2":"NA"},{"1":"192","2":"80"},{"1":"48","2":"10"},{"1":"333","2":"153"},{"1":"1150","2":"592"},{"1":"NA","2":"NA"},{"1":"298","2":"177"},{"1":"307","2":"174"},{"1":"NA","2":"NA"},{"1":"10","2":"11"},{"1":"112","2":"168"},{"1":"154","2":"237"},{"1":"16","2":"12"},{"1":"8","2":"15"},{"1":"17","2":"44"},{"1":"16","2":"17"},{"1":"78","2":"141"},{"1":"149","2":"397"},{"1":"39","2":"71"},{"1":"NA","2":"NA"},{"1":"120","2":"264"},{"1":"3","2":"5"},{"1":"46","2":"78"},{"1":"433","2":"436"},{"1":"57","2":"147"},{"1":"22","2":"30"},{"1":"2","2":"1"},{"1":"132","2":"59"},{"1":"730","2":"376"},{"1":"49","2":"19"},{"1":"78","2":"29"},{"1":"3","2":"NA"},{"1":"121","2":"52"},{"1":"1003","2":"462"},{"1":"1","2":"2"},{"1":"179","2":"125"},{"1":"7","2":"2"},{"1":"278","2":"94"},{"1":"1409","2":"414"},{"1":"NA","2":"NA"},{"1":"51","2":"25"},{"1":"392","2":"99"},{"1":"NA","2":"NA"},{"1":"9","2":"1"},{"1":"88","2":"43"},{"1":"741","2":"392"},{"1":"NA","2":"NA"},{"1":"30","2":"1"},{"1":"81","2":"20"},{"1":"60","2":"17"},{"1":"383","2":"104"},{"1":"4","2":"3"},{"1":"56","2":"96"},{"1":"60","2":"130"},{"1":"20","2":"40"},{"1":"1","2":"10"},{"1":"17","2":"14"},{"1":"151","2":"160"},{"1":"430","2":"501"},{"1":"80","2":"162"},{"1":"1","2":"12"},{"1":"13","2":"14"},{"1":"143","2":"286"},{"1":"297","2":"545"},{"1":"83","2":"283"},{"1":"10","2":"6"},{"1":"93","2":"192"},{"1":"297","2":"516"},{"1":"56","2":"190"},{"1":"20","2":"19"},{"1":"396","2":"255"},{"1":"12","2":"14"},{"1":"40","2":"51"},{"1":"2","2":"1"},{"1":"170","2":"56"},{"1":"1130","2":"518"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"84","2":"23"},{"1":"831","2":"180"},{"1":"NA","2":"NA"},{"1":"20","2":"8"},{"1":"59","2":"66"},{"1":"240","2":"159"},{"1":"47","2":"34"},{"1":"NA","2":"NA"},{"1":"3","2":"14"},{"1":"39","2":"153"},{"1":"160","2":"554"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"8","2":"54"},{"1":"NA","2":"NA"},{"1":"4","2":"5"},{"1":"20","2":"42"},{"1":"231","2":"554"},{"1":"NA","2":"NA"},{"1":"17","2":"29"},{"1":"12","2":"7"},{"1":"97","2":"262"},{"1":"NA","2":"NA"},{"1":"9","2":"20"},{"1":"NA","2":"NA"},{"1":"50","2":"23"},{"1":"407","2":"345"},{"1":"32","2":"13"},{"1":"150","2":"105"},{"1":"35","2":"40"},{"1":"348","2":"239"},{"1":"12","2":"21"},{"1":"71","2":"28"},{"1":"72","2":"98"},{"1":"379","2":"962"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"160","2":"511"},{"1":"46","2":"55"},{"1":"184","2":"400"},{"1":"NA","2":"NA"},{"1":"NA","2":"1"},{"1":"35","2":"54"},{"1":"180","2":"432"},{"1":"NA","2":"NA"},{"1":"90","2":"255"},{"1":"14","2":"11"},{"1":"54","2":"129"},{"1":"NA","2":"NA"},{"1":"4","2":"5"},{"1":"NA","2":"NA"},{"1":"6","2":"5"},{"1":"147","2":"172"},{"1":"664","2":"991"},{"1":"70","2":"152"},{"1":"94","2":"98"},{"1":"49","2":"102"},{"1":"6","2":"7"},{"1":"NA","2":"46"},{"1":"30","2":"333"},{"1":"5","2":"25"},{"1":"231","2":"72"},{"1":"36","2":"65"},{"1":"18","2":"15"},{"1":"25","2":"15"},{"1":"236","2":"236"},{"1":"1451","2":"1782"},{"1":"110","2":"124"},{"1":"42","2":"42"},{"1":"48","2":"40"},{"1":"297","2":"399"},{"1":"1803","2":"2369"},{"1":"250","2":"308"},{"1":"NA","2":"NA"},{"1":"394","2":"605"},{"1":"10","2":"10"},{"1":"189","2":"228"},{"1":"1098","2":"1698"},{"1":"8","2":"2"},{"1":"160","2":"172"},{"1":"89","2":"134"},{"1":"38","2":"27"},{"1":"426","2":"268"},{"1":"1755","2":"1421"},{"1":"9","2":"5"},{"1":"212","2":"121"},{"1":"53","2":"20"},{"1":"451","2":"342"},{"1":"2497","2":"2361"},{"1":"205","2":"197"},{"1":"NA","2":"NA"},{"1":"141","2":"102"},{"1":"43","2":"25"},{"1":"233","2":"225"},{"1":"2394","2":"2485"},{"1":"77","2":"129"},{"1":"NA","2":"NA"},{"1":"205","2":"247"},{"1":"69","2":"25"},{"1":"497","2":"231"},{"1":"2482","2":"1552"},{"1":"254","2":"192"},{"1":"101","2":"70"},{"1":"6","2":"4"},{"1":"67","2":"132"},{"1":"1016","2":"1609"},{"1":"44","2":"64"},{"1":"NA","2":"NA"},{"1":"59","2":"24"},{"1":"228","2":"211"},{"1":"576","2":"611"},{"1":"28","2":"40"},{"1":"38","2":"15"},{"1":"227","2":"144"},{"1":"976","2":"743"},{"1":"124","2":"85"},{"1":"12","2":"4"},{"1":"183","2":"158"},{"1":"512","2":"310"},{"1":"61","2":"67"},{"1":"NA","2":"NA"},{"1":"39","2":"19"},{"1":"32","2":"8"},{"1":"177","2":"155"},{"1":"949","2":"789"},{"1":"101","2":"239"},{"1":"NA","2":"NA"},{"1":"158","2":"116"},{"1":"10","2":"4"},{"1":"53","2":"27"},{"1":"144","2":"120"},{"1":"19","2":"34"},{"1":"24","2":"10"},{"1":"91","2":"61"},{"1":"1513","2":"1503"},{"1":"219","2":"77"},{"1":"NA","2":"NA"},{"1":"540","2":"218"},{"1":"11","2":"7"},{"1":"104","2":"124"},{"1":"799","2":"1554"},{"1":"110","2":"101"},{"1":"NA","2":"NA"},{"1":"44","2":"45"},{"1":"4","2":"8"},{"1":"122","2":"163"},{"1":"1633","2":"2583"},{"1":"146","2":"196"},{"1":"3","2":"3"},{"1":"46","2":"70"},{"1":"880","2":"1811"},{"1":"21","2":"35"},{"1":"NA","2":"NA"},{"1":"151","2":"294"},{"1":"15","2":"4"},{"1":"135","2":"110"},{"1":"1130","2":"1541"},{"1":"NA","2":"NA"},{"1":"84","2":"48"},{"1":"410","2":"409"},{"1":"31","2":"28"},{"1":"108","2":"191"},{"1":"518","2":"688"},{"1":"3","2":"5"},{"1":"34","2":"59"},{"1":"NA","2":"NA"},{"1":"5","2":"8"},{"1":"116","2":"155"},{"1":"474","2":"591"},{"1":"68","2":"85"},{"1":"63","2":"40"},{"1":"37","2":"23"},{"1":"614","2":"574"},{"1":"4","2":"6"},{"1":"28","2":"17"},{"1":"16","2":"6"},{"1":"112","2":"46"},{"1":"513","2":"373"},{"1":"45","2":"18"},{"1":"20","2":"5"},{"1":"193","2":"148"},{"1":"1735","2":"1331"},{"1":"NA","2":"NA"},{"1":"78","2":"85"},{"1":"652","2":"394"},{"1":"NA","2":"NA"},{"1":"6","2":"3"},{"1":"121","2":"71"},{"1":"1015","2":"756"},{"1":"NA","2":"NA"},{"1":"60","2":"19"},{"1":"612","2":"304"},{"1":"NA","2":"NA"},{"1":"36","2":"51"},{"1":"1145","2":"1477"},{"1":"NA","2":"NA"},{"1":"58","2":"53"},{"1":"376","2":"375"},{"1":"NA","2":"NA"},{"1":"9","2":"NA"},{"1":"1","2":"2"},{"1":"70","2":"51"},{"1":"714","2":"1070"},{"1":"NA","2":"NA"},{"1":"108","2":"113"},{"1":"275","2":"219"},{"1":"NA","2":"NA"},{"1":"12","2":"4"},{"1":"45","2":"76"},{"1":"235","2":"446"},{"1":"2","2":"14"},{"1":"52","2":"39"},{"1":"100","2":"172"},{"1":"387","2":"569"},{"1":"13","2":"16"},{"1":"23","2":"65"},{"1":"NA","2":"NA"},{"1":"26","2":"14"},{"1":"62","2":"137"},{"1":"444","2":"916"},{"1":"12","2":"45"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"93","2":"38"},{"1":"1027","2":"511"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"18","2":"5"},{"1":"48","2":"27"},{"1":"838","2":"313"},{"1":"NA","2":"NA"},{"1":"20","2":"39"},{"1":"374","2":"554"},{"1":"NA","2":"NA"},{"1":"NA","2":"10"},{"1":"54","2":"487"},{"1":"NA","2":"19"},{"1":"133","2":"52"},{"1":"NA","2":"NA"},{"1":"77","2":"32"},{"1":"1154","2":"688"},{"1":"83","2":"26"},{"1":"485","2":"294"},{"1":"NA","2":"NA"},{"1":"7","2":"7"},{"1":"8","2":"1"},{"1":"64","2":"85"},{"1":"757","2":"938"},{"1":"18","2":"22"},{"1":"NA","2":"NA"},{"1":"136","2":"99"},{"1":"1","2":"3"},{"1":"27","2":"51"},{"1":"642","2":"1139"},{"1":"NA","2":"NA"},{"1":"3","2":"49"},{"1":"10","2":"21"},{"1":"423","2":"488"},{"1":"NA","2":"NA"},{"1":"14","2":"76"},{"1":"50","2":"33"},{"1":"103","2":"157"},{"1":"513","2":"731"},{"1":"15","2":"16"},{"1":"NA","2":"NA"},{"1":"94","2":"53"},{"1":"985","2":"539"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"6","2":"4"},{"1":"723","2":"338"},{"1":"NA","2":"NA"},{"1":"3","2":"NA"},{"1":"102","2":"67"},{"1":"1190","2":"982"},{"1":"56","2":"38"},{"1":"897","2":"496"},{"1":"NA","2":"NA"},{"1":"127","2":"36"},{"1":"32","2":"33"},{"1":"872","2":"730"},{"1":"NA","2":"NA"},{"1":"43","2":"39"},{"1":"694","2":"482"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"31","2":"30"},{"1":"260","2":"339"},{"1":"16","2":"28"},{"1":"NA","2":"NA"},{"1":"75","2":"45"},{"1":"37","2":"32"},{"1":"673","2":"406"},{"1":"NA","2":"NA"},{"1":"461","2":"141"},{"1":"NA","2":"NA"},{"1":"3","2":"1"},{"1":"138","2":"60"},{"1":"627","2":"250"},{"1":"NA","2":"NA"},{"1":"8","2":"1"},{"1":"131","2":"18"},{"1":"NA","2":"NA"},{"1":"38","2":"13"},{"1":"491","2":"171"},{"1":"67","2":"31"},{"1":"180","2":"50"},{"1":"20","2":"21"},{"1":"456","2":"524"},{"1":"NA","2":"NA"},{"1":"61","2":"52"},{"1":"91","2":"78"},{"1":"NA","2":"NA"},{"1":"42","2":"10"},{"1":"365","2":"212"},{"1":"NA","2":"NA"},{"1":"60","2":"14"},{"1":"22","2":"9"},{"1":"11","2":"10"},{"1":"46","2":"50"},{"1":"629","2":"1154"},{"1":"NA","2":"NA"},{"1":"51","2":"27"},{"1":"425","2":"365"},{"1":"44","2":"32"},{"1":"845","2":"992"},{"1":"NA","2":"NA"},{"1":"23","2":"7"},{"1":"234","2":"133"},{"1":"24","2":"22"},{"1":"3","2":"1"},{"1":"16","2":"36"},{"1":"462","2":"699"},{"1":"NA","2":"NA"},{"1":"24","2":"85"},{"1":"174","2":"269"},{"1":"NA","2":"NA"},{"1":"29","2":"22"},{"1":"116","2":"156"},{"1":"832","2":"1529"},{"1":"122","2":"129"},{"1":"102","2":"115"},{"1":"49","2":"38"},{"1":"497","2":"488"},{"1":"115","2":"57"},{"1":"158","2":"143"},{"1":"4","2":"8"},{"1":"84","2":"114"},{"1":"334","2":"364"},{"1":"39","2":"40"},{"1":"8","2":"39"},{"1":"592","2":"1480"},{"1":"NA","2":"NA"},{"1":"40","2":"179"},{"1":"11","2":"24"},{"1":"239","2":"408"},{"1":"NA","2":"NA"},{"1":"62","2":"44"},{"1":"736","2":"356"},{"1":"8","2":"NA"},{"1":"119","2":"44"},{"1":"NA","2":"NA"},{"1":"21","2":"2"},{"1":"44","2":"47"},{"1":"513","2":"595"},{"1":"NA","2":"NA"},{"1":"7","2":"12"},{"1":"140","2":"134"},{"1":"NA","2":"NA"},{"1":"15","2":"12"},{"1":"580","2":"675"},{"1":"NA","2":"NA"},{"1":"27","2":"15"},{"1":"227","2":"223"},{"1":"NA","2":"NA"},{"1":"25","2":"25"},{"1":"319","2":"512"},{"1":"NA","2":"NA"},{"1":"28","2":"22"},{"1":"142","2":"519"},{"1":"4","2":"2"},{"1":"90","2":"106"},{"1":"NA","2":"NA"},{"1":"51","2":"12"},{"1":"847","2":"408"},{"1":"28","2":"2"},{"1":"91","2":"21"},{"1":"NA","2":"NA"},{"1":"12","2":"9"},{"1":"634","2":"937"},{"1":"NA","2":"NA"},{"1":"12","2":"10"},{"1":"81","2":"56"},{"1":"NA","2":"NA"},{"1":"3","2":"4"},{"1":"42","2":"53"},{"1":"359","2":"286"},{"1":"18","2":"38"},{"1":"162","2":"88"},{"1":"28","2":"19"},{"1":"405","2":"224"},{"1":"NA","2":"NA"},{"1":"120","2":"22"},{"1":"16","2":"25"},{"1":"105","2":"60"},{"1":"72","2":"27"},{"1":"622","2":"319"},{"1":"NA","2":"NA"},{"1":"38","2":"11"},{"1":"178","2":"38"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"11","2":"11"},{"1":"665","2":"917"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"13","2":"5"},{"1":"672","2":"552"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"33","2":"39"},{"1":"214","2":"227"},{"1":"56","2":"53"},{"1":"179","2":"119"},{"1":"NA","2":"NA"},{"1":"28","2":"42"},{"1":"319","2":"417"},{"1":"NA","2":"NA"},{"1":"48","2":"340"},{"1":"24","2":"51"},{"1":"80","2":"164"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"17","2":"12"},{"1":"538","2":"242"},{"1":"24","2":"18"},{"1":"158","2":"56"},{"1":"37","2":"34"},{"1":"327","2":"378"},{"1":"NA","2":"NA"},{"1":"25","2":"5"},{"1":"103","2":"90"},{"1":"NA","2":"NA"},{"1":"57","2":"56"},{"1":"12","2":"19"},{"1":"211","2":"200"},{"1":"NA","2":"NA"},{"1":"62","2":"22"},{"1":"21","2":"2"},{"1":"169","2":"130"},{"1":"NA","2":"NA"},{"1":"21","2":"4"},{"1":"178","2":"78"},{"1":"NA","2":"NA"},{"1":"14","2":"7"},{"1":"498","2":"230"},{"1":"5","2":"1"},{"1":"227","2":"34"},{"1":"NA","2":"NA"},{"1":"NA","2":"28"},{"1":"114","2":"793"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"1","2":"28"},{"1":"NA","2":"NA"},{"1":"32","2":"4"},{"1":"1051","2":"654"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"148","2":"67"},{"1":"214","2":"76"},{"1":"14","2":"13"},{"1":"6","2":"NA"},{"1":"79","2":"34"},{"1":"NA","2":"NA"},{"1":"78","2":"44"},{"1":"107","2":"19"},{"1":"NA","2":"NA"},{"1":"40","2":"9"},{"1":"22","2":"11"},{"1":"638","2":"851"},{"1":"NA","2":"NA"},{"1":"48","2":"75"},{"1":"28","2":"21"},{"1":"157","2":"186"},{"1":"8","2":"7"},{"1":"68","2":"50"},{"1":"NA","2":"NA"},{"1":"11","2":"NA"},{"1":"5","2":"7"},{"1":"51","2":"25"},{"1":"NA","2":"NA"},{"1":"77","2":"28"},{"1":"16","2":"34"},{"1":"297","2":"966"},{"1":"NA","2":"NA"},{"1":"51","2":"268"},{"1":"6","2":"12"},{"1":"207","2":"353"},{"1":"NA","2":"NA"},{"1":"15","2":"NA"},{"1":"393","2":"243"},{"1":"NA","2":"NA"},{"1":"99","2":"13"},{"1":"17","2":"8"},{"1":"90","2":"69"},{"1":"NA","2":"NA"},{"1":"32","2":"48"},{"1":"5","2":"12"},{"1":"128","2":"213"},{"1":"NA","2":"NA"},{"1":"39","2":"221"},{"1":"NA","2":"NA"},{"1":"4","2":"14"},{"1":"473","2":"1046"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"53","2":"274"},{"1":"5","2":"12"},{"1":"295","2":"502"},{"1":"NA","2":"NA"},{"1":"30","2":"64"},{"1":"95","2":"76"},{"1":"NA","2":"NA"},{"1":"148","2":"433"},{"1":"22","2":"53"},{"1":"32","2":"128"},{"1":"97","2":"63"},{"1":"366","2":"261"},{"1":"NA","2":"NA"},{"1":"160","2":"98"},{"1":"175","2":"132"},{"1":"NA","2":"NA"},{"1":"59","2":"53"},{"1":"4","2":"4"},{"1":"21","2":"29"},{"1":"180","2":"109"},{"1":"NA","2":"NA"},{"1":"97","2":"131"},{"1":"7","2":"9"},{"1":"19","2":"36"},{"1":"24","2":"20"},{"1":"232","2":"351"},{"1":"NA","2":"NA"},{"1":"32","2":"22"},{"1":"373","2":"329"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"38","2":"2"},{"1":"139","2":"56"},{"1":"10","2":"17"},{"1":"NA","2":"NA"},{"1":"43","2":"5"},{"1":"13","2":"17"},{"1":"74","2":"79"},{"1":"NA","2":"NA"},{"1":"29","2":"11"},{"1":"59","2":"39"},{"1":"76","2":"40"},{"1":"NA","2":"NA"},{"1":"50","2":"41"},{"1":"10","2":"3"},{"1":"41","2":"18"},{"1":"NA","2":"NA"},{"1":"18","2":"25"},{"1":"55","2":"32"},{"1":"NA","2":"NA"},{"1":"108","2":"52"},{"1":"13","2":"4"},{"1":"698","2":"293"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"9","2":"5"},{"1":"196","2":"161"},{"1":"42","2":"22"},{"1":"153","2":"65"},{"1":"28","2":"6"},{"1":"16","2":"20"},{"1":"260","2":"197"},{"1":"16","2":"7"},{"1":"NA","2":"NA"},{"1":"78","2":"110"},{"1":"53","2":"39"},{"1":"NA","2":"NA"},{"1":"35","2":"34"},{"1":"366","2":"445"},{"1":"88","2":"16"},{"1":"165","2":"73"},{"1":"NA","2":"NA"},{"1":"2","2":"8"},{"1":"5","2":"5"},{"1":"202","2":"301"},{"1":"NA","2":"NA"},{"1":"78","2":"178"},{"1":"4","2":"16"},{"1":"9","2":"8"},{"1":"NA","2":"NA"},{"1":"117","2":"159"},{"1":"11","2":"10"},{"1":"25","2":"47"},{"1":"NA","2":"NA"},{"1":"8","2":"4"},{"1":"8","2":"20"},{"1":"1","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"16"},{"1":"5","2":"3"},{"1":"21","2":"14"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"4","2":"11"},{"1":"10","2":"11"},{"1":"NA","2":"NA"},{"1":"3","2":"12"},{"1":"9","2":"8"},{"1":"39","2":"82"},{"1":"1","2":"3"},{"1":"17","2":"43"},{"1":"8","2":"11"},{"1":"6","2":"11"},{"1":"108","2":"719"},{"1":"95","2":"96"},{"1":"257","2":"988"},{"1":"113","2":"91"},{"1":"327","2":"1064"},{"1":"143","2":"91"},{"1":"28","2":"40"},{"1":"170","2":"614"},{"1":"39","2":"83"},{"1":"109","2":"935"},{"1":"NA","2":"46"},{"1":"84","2":"709"},{"1":"8","2":"28"},{"1":"6","2":"20"},{"1":"43","2":"371"},{"1":"97","2":"634"},{"1":"121","2":"437"},{"1":"171","2":"1091"},{"1":"22","2":"34"},{"1":"18","2":"13"},{"1":"132","2":"241"},{"1":"580","2":"710"},{"1":"98","2":"250"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[838]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZURhdGElPiVtdXRhdGVfYXQoXG4gIHZhcnMoZW5kc193aXRoKFwi55SfXCIpKSxcbiAgZnVucyhwYXJzZV9udW1iZXIoLixsb2NhbGU9Y2wpKVxuKS0+Y29sbGVnZURhdGFcbmBgYCJ9 -->
+<pre class="r"><code>collegeData%&gt;%mutate_at(
+  vars(ends_with(&quot;生&quot;)),
+  funs(parse_number(.,locale=cl))
+)-&gt;collegeData</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMS0wNyIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CuawkeWci+W5tOaciDwtYygiMDk5LzAxIiwiMDk5LzAyIiwiMDk5LzAzIikKYGBgCgpgYGB7cn0KbGlicmFyeShzdHJpbmdyKQpsaWJyYXJ5KGx1YnJpZGF0ZSkK5rCR5ZyL5bm05pyIPC1jKCIwOTkvMDEiLCIwOTkvMDIiLCIwOTkvMDMiKQpzdHJfYygiMSIs5rCR5ZyL5bm05pyILCIvMDEiKS0+5rCR5ZyL5bm05pyICmx1YnJpZGF0ZTo6eW1kKOawkeWci+W5tOaciCkgLT4g5rCR5ZyL5bm05pyICuawkeWci+W5tOaciCArIHllYXJzKDkxMSkKYGBgCgpgYGB7cn0K5rCR5ZyL5bm05pyIPC1jKCIwOTkvMDEiLCIwOTkvMDIiLCIwOTkvMDMiKQoKbGlicmFyeShkcGx5cikKIyAxCuawkeWci+W5tOaciCAlPiUgCiAgc3RyX2MoIjEiLCAuICwiLzAxIikgJT4lCiAgeW1kICU+JQogIHsgLiArIHllYXJzKDkxMSkgfQpgYGAKCmBgYHtyfQpsaWJyYXJ5KHJlYWRyKQpjb2xsZWdlRGF0YSA8LSByZWFkX2NzdigiaHR0cHM6Ly9xdWFsaXR5LmRhdGEuZ292LnR3L2RxX2Rvd25sb2FkX2Nzdi5waHA/bmlkPTYyMzEmbWQ1X3VybD1kZGE4ZmNhNDA3MTMxNDgzYzFkOGNiZjNkNjFjZjc5MyIpCmBgYAoKYGBge3J9CmxpYnJhcnkoZHBseXIpCm11dGF0ZSgKICBjb2xsZWdlRGF0YSwKICDlrbjmoKHku6Pnorw9YXMuZmFjdG9yKOWtuOagoeS7o+eivCksCiAg5a245qCh5ZCN56ixPWFzLmZhY3RvcijlrbjmoKHlkI3nqLEpCiAgKSAtPiBjb2xsZWdlRGF0YTIKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKY29sbGVnZURhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcXVhbGl0eS5kYXRhLmdvdi50dy9kcV9kb3dubG9hZF9jc3YucGhwP25pZD02MjMxJm1kNV91cmw9ZGRhOGZjYTQwNzEzMTQ4M2MxZDhjYmYzZDYxY2Y3OTMiKQpgYGAKCmBgYHtyfQphcy5mYWN0b3IoY29sbGVnZURhdGEk5a245qCh5Luj56K8KQphcy5mYWN0b3IoY29sbGVnZURhdGEk5a245qCh5ZCN56ixKQphcy5mYWN0b3IoY29sbGVnZURhdGEkYOaXpemWk+KIlemAsuS/ruWIpWApCmFzLm51bWVyaWMoY29sbGVnZURhdGEk5LiA5bm057Sa55S355SfKQphcy5udW1lcmljKGNvbGxlZ2VEYXRhJOS4gOW5tOe0muWls+eUnykKYGBgCgpgYGB7cn0KY29sbGVnZURhdGEgJT4lIAogIG11dGF0ZSgKICAgIGDml6XplpPiiJXpgLLkv67liKVgPWFzLmZhY3Rvcihg5pel6ZaT4oiV6YCy5L+u5YilYCksCiAgICDnrYnntJrliKU9YXMuZmFjdG9yKOetiee0muWIpSksCiAgICDkuIDlubTntJrnlLfnlJ89cGFyc2VfbnVtYmVyKOS4gOW5tOe0mueUt+eUnyxsb2NhbGU9Y2wpLAogICAg5LiA5bm057Sa5aWz55SfPXBhcnNlX251bWJlcijkuIDlubTntJrlpbPnlJ8sbG9jYWxlPWNsKSwKICAgIOS4gOW5tOe0mueUt+eUn+avj+WNg+S6uj3kuIDlubTntJrnlLfnlJ8vMTAwMCwKICAgIOS4gOW5tOe0muWls+eUn+avj+WNg+S6uj3kuIDlubTntJrlpbPnlJ8vMTAwMAogICAgKSAtPiBjb2xsZWdlRGF0YTYKbGlicmFyeShyZWFkcikKY29sbGVnZURhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcXVhbGl0eS5kYXRhLmdvdi50dy9kcV9kb3dubG9hZF9jc3YucGhwP25pZD02MjMxJm1kNV91cmw9ZGRhOGZjYTQwNzEzMTQ4M2MxZDhjYmYzZDYxY2Y3OTMiKQpgYGAKCmBgYHtyfQpjb2xsZWdlRGF0YSAlPiUgCiAgbXV0YXRlKAogICAgYOaXpemWk+KIlemAsuS/ruWIpWA9YXMuZmFjdG9yKGDml6XplpPiiJXpgLLkv67liKVgKSwKICAgIOetiee0muWIpT1hcy5mYWN0b3Io562J57Sa5YilKSwKICAgIOS4gOW5tOe0mueUt+eUnz1hcy5udW1lcmljKOS4gOW5tOe0mueUt+eUnyksCiAgICDkuIDlubTntJrlpbPnlJ89YXMubnVtZXJpYyjkuIDlubTntJrlpbPnlJ8pCiAgKSAtPiBjb2xsZWdlRGF0YTMKYGBgCgpgYGB7cn0KYXMubnVtZXJpYygiMSwyMzQiKQpgYGAKCmBgYHtyfQpsaWJyYXJ5KHJlYWRyKQpjbDwtbG9jYWxlKGdyb3VwaW5nX21hcmsgPSAiLCIpICMg5Ym16YCgY2zkvobmj4/ov7DljYPliIbkvY3nrKbomZ/kvb/nlKgiLCLnmoTnv5LmhaPloLTmma8KY29sbGVnZURhdGEgJT4lIAogIG11dGF0ZSgKICAgIGDml6XplpPiiJXpgLLkv67liKVgPWFzLmZhY3Rvcihg5pel6ZaT4oiV6YCy5L+u5YilYCksCiAgICDnrYnntJrliKU9YXMuZmFjdG9yKOetiee0muWIpSksCiAgICDkuIDlubTntJrnlLfnlJ89cGFyc2VfbnVtYmVyKOS4gOW5tOe0mueUt+eUnyxsb2NhbGU9Y2wpLAogICAg5LiA5bm057Sa5aWz55SfPXBhcnNlX251bWJlcijkuIDlubTntJrlpbPnlJ8sbG9jYWxlPWNsKQogICkgLT4gY29sbGVnZURhdGE0CmBgYAoKYGBge3J9CmNvbGxlZ2VEYXRhICU+JSAKICBtdXRhdGUoCiAgICBg5pel6ZaT4oiV6YCy5L+u5YilYD1hcy5mYWN0b3IoYOaXpemWk+KIlemAsuS/ruWIpWApLAogICAg562J57Sa5YilPWFzLmZhY3RvcijnrYnntJrliKUpLAogICAg5LiA5bm057Sa55S355SfPXBhcnNlX251bWJlcijkuIDlubTntJrnlLfnlJ8sbG9jYWxlPWNsKSwKICAgIOS4gOW5tOe0muWls+eUnz1wYXJzZV9udW1iZXIo5LiA5bm057Sa5aWz55SfLGxvY2FsZT1jbCkKICApIC0+IGNvbGxlZ2VEYXRhNAoKY29sbGVnZURhdGE0ICU+JQogIG11dGF0ZSgKICAgIOS4gOW5tOe0mueUt+eUn+avj+WNg+S6uj3kuIDlubTntJrnlLfnlJ8vMTAwMCwKICAgIOS4gOW5tOe0muWls+eUn+avj+WNg+S6uj3kuIDlubTntJrlpbPnlJ8vMTAwMAogICAgKSAtPiBjb2xsZWdlRGF0YTUKYGBgCgpgYGB7cn0KY29sbGVnZURhdGEgJT4lIAogIG11dGF0ZSgKICAgIGDml6XplpPiiJXpgLLkv67liKVgPWFzLmZhY3Rvcihg5pel6ZaT4oiV6YCy5L+u5YilYCksCiAgICDnrYnntJrliKU9YXMuZmFjdG9yKOetiee0muWIpSksCiAgICDkuIDlubTntJrnlLfnlJ89cGFyc2VfbnVtYmVyKOS4gOW5tOe0mueUt+eUnyxsb2NhbGU9Y2wpLAogICAg5LiA5bm057Sa5aWz55SfPXBhcnNlX251bWJlcijkuIDlubTntJrlpbPnlJ8sbG9jYWxlPWNsKSwKICAgIOS4gOW5tOe0mueUt+eUn+avj+WNg+S6uj3kuIDlubTntJrnlLfnlJ8vMTAwMCwKICAgIOS4gOW5tOe0muWls+eUn+avj+WNg+S6uj3kuIDlubTntJrlpbPnlJ8vMTAwMAogICAgKSAtPiBjb2xsZWdlRGF0YTYKYGBgCgpgYGB7cn0KaGVhZChjb2xsZWdlRGF0YTVbLGMoIuS4gOW5tOe0mueUt+eUnyIsIuS4gOW5tOe0muWls+eUnyIsIuS4gOW5tOe0mueUt+eUn+avj+WNg+S6uiIsIuS4gOW5tOe0muWls+eUn+avj+WNg+S6uiIpXSkKCmhlYWQoY29sbGVnZURhdGE2WyxjKCLkuIDlubTntJrnlLfnlJ8iLCLkuIDlubTntJrlpbPnlJ8iLCLkuIDlubTntJrnlLfnlJ/mr4/ljYPkuroiLCLkuIDlubTntJrlpbPnlJ/mr4/ljYPkuroiKV0pCmBgYAoKYGBge3J9CmxpYnJhcnkoc3RyaW5ncikKY29sbGVnZTFzdFllYXJEYXRhICU+JQogIG11dGF0ZV9hbGwoZnVucyhwYXJzZV9udW1iZXIoLixsb2NhbGU9Y2wpKSkgLT4KICBjb2xsZWdlMXN0WWVhckRhdGFOdW1lcmljCmBgYAoKYGBge3J9CmNvbGxlZ2Uxc3RZZWFyRGF0YU51bWVyaWMgJT4lCiAgbXV0YXRlX2FsbCgKICAgIGZ1bnMoCiAgICAgIOavj+eZvuS6uj0uLzEwMCwKICAgICAg5q+P5Y2D5Lq6PS4vMTAwMAogICAgKQogICkKYGBgCgpgYGB7cn0KbGlicmFyeShnb29nbGVzaGVldHMpCmdzX2F1dGgobmV3X3VzZXIgPSBUUlVFKQpnc1N1cnZleTwtZ3Nfa2V5KCIxbUM5Ym54ajExTkNOb09DdzBWbW40bnhFUmJIdExqZUdvOXY5QzliMkdERSIpICAjZG93bmxvYWQgc2hlZXQgaW5mb3JtYXRpb24gYXMgYW4gb2JqZWN0CmNsYXNzU3VydmV5PC1nc19yZWFkKGdzU3VydmV5LHdzPTEpICNhY2Nlc3MgdGhlIDFzdCB3b3Jrc2hlZXQKY2xhc3NTdXJ2ZXkgJT4lIHNlbGVjdCjlsYXkvY/lnLDooYzmlL/ljYAs5oCn5YilKSAtPgogIGNsYXNzU3VydmV5UGFydGlhbApgYGAKCmBgYHtyfQpjbGFzc1N1cnZleVBhcnRpYWwlPiUKICBtdXRhdGUoYOWxheS9j+WcsOihjOaUv+WNgGA9YXMuZmFjdG9yKGDlsYXkvY/lnLDooYzmlL/ljYBgKSwKICAgICAgICAgYOaAp+WIpWA9YXMuZmFjdG9yKGDmgKfliKVgKSktPmNsYXNzU3VydmV5UGFydGlhbDEKYGBgCgpgYGB7cn0KY29sbGVnZURhdGEgJT4lIG11dGF0ZV9hdCgKICB2YXJzKOS4gOW5tOe0mueUt+eUnyzkuIDlubTntJrlpbPnlJ8pLAogIGZ1bnMocGFyc2VfbnVtYmVyKC4sbG9jYWxlPWNsKSkKKSAtPiBjb2xsZWdlMXN0WWVhckRhdGFBCgpjb2xsZWdlMXN0WWVhckRhdGFBICU+JQogIHNlbGVjdCjkuIDlubTntJrnlLfnlJ8s5LiA5bm057Sa5aWz55SfKQpgYGAKCmBgYHtyfQpjb2xsZWdlRGF0YSAlPiUgbXV0YXRlX2F0KAogIHZhcnMoc3RhcnRzX3dpdGgoIuS4gOW5tOe0miIpKSwKICBmdW5zKHBhcnNlX251bWJlciguLGxvY2FsZT1jbCkpCikgLT4gY29sbGVnZTFzdFllYXJEYXRhQgoKY29sbGVnZTFzdFllYXJEYXRhQiAlPiUgCiAgc2VsZWN0KOS4gOW5tOe0mueUt+eUnyzkuIDlubTntJrlpbPnlJ8pCmBgYAoKYGBge3J9CmNvbGxlZ2VEYXRhJT4lbXV0YXRlX2F0KAogIHZhcnMoZW5kc193aXRoKCLnlJ8iKSksCiAgZnVucyhwYXJzZV9udW1iZXIoLixsb2NhbGU9Y2wpKQopLT5jb2xsZWdlRGF0YQpgYGAKCg==</div>
 
 
 
