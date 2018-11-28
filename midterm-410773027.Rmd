@@ -18,11 +18,6 @@ Dplyr minicourse: https://bookdown.org/PoMingChen/Dplyr_minicourse/
 曾意儒，資料科學與R： https://yijutseng.github.io/DataScienceRBook/index.html
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,message=FALSE,error=FALSE,eval=FALSE)
-library(klippy)
-klippy()
-```
 
 ```{r}
 library(readr); library(dplyr); library(stringr); library(lubridate)
@@ -130,36 +125,48 @@ sum(a,aa,aaa,aaaa)->有參加團隊活動
 ```{r}
 aaa <- c("a","b",NA)
 is.na(aaa)
-
-aaa==NA
 ```
 
 記算每個人的**交作業次數**並在**hwGrades**新增**交作業次數**變數來儲存結果。(最後一行請打hwGrades顯示你的全部dataframe，批改程式會去比對hwGrades中的**交作業次數**欄位。) (hint: 利用`is.na()`去判斷每個作業是否有交，接著把每個人在三次作業的is.na判斷之TRUE/FALSE值加起來。) 
 
 ```{r ans14}
-3-(is.na(hwGrades$hw1)+
-is.na(hwGrades$hw2)+
-is.na(hwGrades$Exercise3)) ->hwGrades$交作業次數
+hwGrades[,-c(1)] #hwGrades[,c(2:4)]
 
-!is.na(hwGrades$hw1)+
-!is.na(hwGrades$hw2)+
-!is.na(hwGrades$Exercise3) ->hwGrades$交作業次數
+hwGrades$交作業次數<-as.numeric(!is.na(hwGrades$hw1))+
+  as.numeric(!is.na(hwGrades$hw2))+
+  as.numeric(!is.na(hwGrades$Exercise3))
 ```
+
+```{r}
+hwGrades %>%
+  select(c(2:4)) %>%
+  mutate_all(
+    funs(
+      !is.na(.)
+    )
+  ) -> hwGrades2
+rowSums(hwGrades2)->hwGrades$交作業次數
+```
+
+
 
 ## 1.5 計算平均成績  
 在**hwGrades**記算每個人的**平均成績**並在**hwGrades**新增**平均成績**變數來儲存結果；注意NA視同0分。(最後一行請打hwGrades，批改程式會去比對hwGrades中的**平均成績**欄位。)
 (hint: 使用`rowSums()`)
 
 ```{r ans15}
-rowSums(hwGrades[ ,c("hw1","hw2","Exercise3")],na.rm=T)
+rowSums(hwGrades[,c(2:4)],na.rm = T)/3->
+  hwGrades$平均成績
 ```
 
 ## 1.6 誰填了問卷？
 從**hwGrades**資料中選出那些**學號**有出現在**classSurvey**資料**學號**中的子樣本。（結果必需是個dataframe，它有和**hwGrades**一樣的column數目，但row只包含那些符合條件的觀測樣本；row個數會縮小。）(hint: 參見1.Basic(3)題)
 
 ```{r ans16}
-hwGrades$學號 %in% classSurvey$學號 -> isSurveyed
-hwGradesSubsample <- hwGrades[isSurveyed,]
+(hwGrades$學號 %in% classSurvey$學號) -> bbb
+cbind(hwGrades$學號,bbb)
+
+hwGrades[bbb,]->hwGradesSubsample
 ```
 
 > 以下各題均以「有填」classSurvey的人為主，即hwGrades的縮小子樣本，我們稱此子樣本為hwGradeSubsample（你不一定要用這個名稱，但後面各題請把hwGradeSubsample替換成你用的dataframe名稱）。
@@ -169,16 +176,22 @@ hwGradesSubsample <- hwGrades[isSurveyed,]
 (hint: 使用`%in%`找出**classSurvey**屬於女性的學號)
 
 ```{r ans17}
-classSurvey$學號[isFemale] -> 女性學號
-hwGradesSubsample$女性 <- hwGradesSubsample$學號 %in% 女性學號
-hwGradesSubsample
+#hwGradesSubsample$學號%in% classSurvey$女性學號
+#classSurvey%>%
+#{cbind(.$學號,(.$性別=="女"))}
+
+classSurvey$學號[(classSurvey$性別=="女")]->女性學號
+hwGradesSubsample$女性<-(hwGradesSubsample$學號 %in% 女性學號)
 ```
 
 ## 1.8 性別與學業表現：男性
 依**hwGradesSubsample**的**平均成績**及**女性**變數來記算出男性的「平均」**平均成績**。(最後一行必需出現此平均值)
 ```{r ans18}
-hwGradesSubsample$平均成績[(hwGradesSubsample$女性==F)] %>%
-  mean
+mean(hwGradesSubsample[(hwGradesSubsample$女性==F),]$平均成績)
+
+#hwGradesSubsample[(hwGradesSubsample$女性==F),]$平均成績
+
+mean(hwGradesSubsample$平均成績[hwGradesSubsample$女性==F])
 ```
 
 > 小知識：資料中女性平均成績表現高於男性近2.39分（滿分10分）
@@ -210,18 +223,15 @@ hwSubmit %>%
     Timestamp=with_tz(Timestamp,tzone="Asia/Taipei"),
     學號=as.character(學號)
   ) -> hwSubmit
+
 ```
 
 ## 2.2 交作業時間: Exercise3
 取出**hwSubmit**中**作業代碼**為Exercise3的子樣本，稱它為**hwSubmit3**。Exercise3的截止時日是台灣時間2018-11-06 00:00:00，請計算每個人該作業離截止時日還有多少小時。（請於**hwSubmit3**中創一個新變數**截止時差**存入每個人的時差小時值，程式最後一行請打hwSubmit3，程式將檢查裡面的**截止時差**是否正確。）(hint: `difftime()`)
 ```{r ans22}
-deadline3 <- ymd_hms("2018-11-06 00:00:00",tz="Asia/Taipei")
-hwSubmit3 <- hwSubmit[hwSubmit$作業代碼=="Exercise3",]
-hwSubmit3 %>%
-  mutate(
-    截止時差=difftime(deadline3,Timestamp,units="hours")
-  ) -> 
-  hwSubmit3
+hwSubmit[(hwSubmit$作業代碼=="Exercise3"),]
+
+deadline<- ymd_hms("2018-11-06 00:00:00",tz="Asia/Taipei")
 ```
 
 ## 2.3 性別差異
