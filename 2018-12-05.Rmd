@@ -12,14 +12,17 @@ libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data
 ```
 
 ```{r}
-as.factor(libraryData$書籍類別)->libraryData$書籍類別
+library(dplyr)
 library(lubridate)
-ymd(libraryData$書籍出版日期)->a
-with_tz(tz="Asia/Taipei",a)->libraryData$書籍出版日期
-as.factor(libraryData$書籍館藏地)->libraryData$書籍館藏地
-as.factor(libraryData$學院)->libraryData$學院
-ymd(libraryData$書籍上架年月)->b
-with_tz(tz="Asia/Taipei",b)->libraryData$書籍上架年月
+libraryData %>%
+  mutate_at(
+    vars(學院,書籍館藏地,書籍類別),
+    funs(as.factor(.)) ) -> libraryData
+
+libraryData %>%
+  mutate(
+    借閱時間=ymd_hms(借閱時間,tz="Asia/Taipei")) -> libraryData
+
 ```
 
 ```{r}
@@ -37,5 +40,108 @@ paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
 max(libraryData$書籍上架年月)-> maxNumber
 min(libraryData$書籍上架年月)-> minNumber
 paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+```
+
+```{r}
+minMaxFun<-function(x){
+  max(x)->maxNumber
+  min(x)->minNumber
+  paste0("最大值：",maxNumber,"最小值：",minNumber)
+  }
+```
+
+```{r}
+minMaxFun(libraryData$讀者借閱冊數)
+
+minMaxFun(libraryData$入學年)
+
+minMaxFun(libraryData$書籍上架年月)
+```
+
+```{r}
+minMaxFun2 <- function(x){
+  max(x)-> maxNumber
+  min(x)-> minNumber
+  paste0("最大值： ",maxNumber, " 最小值： ",minNumber)->result
+  return(result)
+}
+```
+
+```{r}
+minMaxFun3 <- function(x){
+  max(x)-> maxNumber
+  min(x)-> minNumber
+  print(
+    paste0("最大值： ",maxNumber, " 最小值： ",minNumber))
+  return(maxNumber)
+}
+```
+
+```{r}
+minMaxFun3(libraryData$讀者借閱冊數)->a1
+a1
+minMaxFun3(libraryData$入學年)->a2
+a2
+minMaxFun3(libraryData$書籍上架年月)->a3
+a3
+```
+
+```{r}
+minMaxFun4(libraryData$讀者借閱冊數)->a4
+a4
+```
+
+```{r}
+not_muneric <- function(x) {
+  !is.numeric(x)
+}
+```
+
+```{r}
+(libraryData$學院=="社會科學院")->logIndex
+libraryData[logIndex,]->subsample
+```
+
+```{r}
+findMyCollege<-function(x){
+  (libraryData$學院==x)->logIndex
+  libraryData[logIndex,]->subsample
+  return(subsample)
+}
+```
+
+```{r}
+libraryData %>%
+  group_by(學院) %>%
+  summmaries(
+    學院借閱冊數=length(學號)
+  )
+           
+```
+
+```{r}
+libraryData %>%
+  select(讀者借閱冊數,書籍出版日期) %>%
+  summarise(
+    讀者平均借閱冊數=mean(讀者借閱冊數),
+    最小書籍出版日期=min(書籍出版日期),
+    最大書籍出版日期=max(書籍出版日期)
+  )
+```
+
+```{r}
+library(summarytools)
+libraryData %>%
+  select_if(
+    is.numeric
+  ) %>% summarytools::dfSummary() %>% summarytools::view(.)
+```
+
+```{r}
+library(summarytools)
+libraryData %>%
+  select_if(
+   not_numeric
+  ) %>% summarytools::dfSummary() %>% summarytools::view(.)
 ```
 
