@@ -1,0 +1,41 @@
+---
+title: "2018-12-05"
+output: html_notebook
+---
+```{r}
+!(F+!(T+!F))
+```
+
+```{r}
+library(readr)
+libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/library100_102.csv")
+```
+
+```{r}
+as.factor(libraryData$書籍類別)->libraryData$書籍類別
+library(lubridate)
+ymd(libraryData$書籍出版日期)->a
+with_tz(tz="Asia/Taipei",a)->libraryData$書籍出版日期
+as.factor(libraryData$書籍館藏地)->libraryData$書籍館藏地
+as.factor(libraryData$學院)->libraryData$學院
+ymd(libraryData$書籍上架年月)->b
+with_tz(tz="Asia/Taipei",b)->libraryData$書籍上架年月
+```
+
+```{r}
+## 1
+max(libraryData$讀者借閱冊數)-> maxNumber
+min(libraryData$讀者借閱冊數)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+
+## 2
+max(libraryData$入學年)-> maxNumber
+min(libraryData$入學年)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+
+## 3
+max(libraryData$書籍上架年月)-> maxNumber
+min(libraryData$書籍上架年月)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+```
+

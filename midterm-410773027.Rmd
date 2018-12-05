@@ -217,6 +217,11 @@ hwSubmit <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/ma
 ## 2.1 class檢查
 請將**hwSubmit**的所有變數調整成正確的class，其中**Timestamp**為UTC時區，請將它轉成台灣Asia/Taipei時區。（最後一行請打hwSubmit, 程式將檢查裡面所有變數的class是否正確。）
 ```{r ans21}
+hwSubmit$Timestamp %>% ymd_hms->a
+a %>% as.numeric
+a %>% with_tz(tzone = "Asia/Taipei")->b
+b %>% as.numeric
+
 hwSubmit %>%
   mutate(
     Timestamp=ymd_hms(Timestamp),
@@ -232,6 +237,12 @@ hwSubmit %>%
 hwSubmit[(hwSubmit$作業代碼=="Exercise3"),]
 
 deadline<- ymd_hms("2018-11-06 00:00:00",tz="Asia/Taipei")
+hwSubmit3 <- hwSubmit[hwSubmit$作業代碼=="Exercise3",]
+hwSubmit3 %>%
+  mutate(
+    截止時差=difftime(deadline,Timestamp,units="hours")
+  ) -> 
+  hwSubmit3
 ```
 
 ## 2.3 性別差異
