@@ -177,8 +177,127 @@ $(document).ready(function () {
 
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmxpYnJhcnlEYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9naXRodWItZGF0YS9tYXN0ZXIvbGlicmFyeTEwMF8xMDIuY3N2XCIpXG5gYGAifQ== -->
+<pre class="r"><code>library(readr)
+libraryData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/github-data/master/library100_102.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICDlrbjomZ8gPSBjb2xfY2hhcmFjdGVyKCksXG4gIOabuOexjemhnuWIpSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAg5pu457GN5ZCN56ixID0gY29sX2NoYXJhY3RlcigpLFxuICDoroDogIXlgJ/plrHlhormlbggPSBjb2xfaW50ZWdlcigpLFxuICDmm7jnsY3lh7rniYjml6XmnJ8gPSBjb2xfaW50ZWdlcigpLFxuICDmm7jnsY3ppKjol4/lnLAgPSBjb2xfY2hhcmFjdGVyKCksXG4gIOabuOexjeS4iuaetuW5tOaciCA9IGNvbF9kYXRlKGZvcm1hdCA9IFwiXCIpLFxuICDlhaXlrbjlubQgPSBjb2xfaW50ZWdlcigpLFxuICDoroDogIXlubTntJogPSBjb2xfaW50ZWdlcigpLFxuICDlrbjpmaIgPSBjb2xfY2hhcmFjdGVyKCksXG4gIOWAn+mWseaZgumWkyA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
+<pre><code>Parsed with column specification:
+cols(
+  學號 = col_character(),
+  書籍類別 = col_character(),
+  書籍名稱 = col_character(),
+  讀者借閱冊數 = col_integer(),
+  書籍出版日期 = col_integer(),
+  書籍館藏地 = col_character(),
+  書籍上架年月 = col_date(format = &quot;&quot;),
+  入學年 = col_integer(),
+  讀者年級 = col_integer(),
+  學院 = col_character(),
+  借閱時間 = col_character()
+)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShsdWJyaWRhdGUpXG5saWJyYXJ5KGRwbHlyKVxubGlicmFyeShzdHJpbmdyKVxuYGBgIn0= -->
+<pre class="r"><code>library(lubridate)
+library(dplyr)
+library(stringr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuZmFjdG9yKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCktPmxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsFxubGV2ZWxzKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCktPnN0b3JhZ2VMb2NhdGlvbnNcbnN0b3JhZ2VMb2NhdGlvbnNcbmBgYCJ9 -->
+<pre class="r"><code>as.factor(libraryData$書籍館藏地)-&gt;libraryData$書籍館藏地
+levels(libraryData$書籍館藏地)-&gt;storageLocations
+storageLocations</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywICU+JSBhcy5mYWN0b3IgJT4lIGxldmVscyAtPiBzdG9yYWdlTG9jYXRpb25zXG5zdG9yYWdlTG9jYXRpb25zXG5gYGAifQ== -->
+<pre class="r"><code>libraryData$書籍館藏地 %&gt;% as.factor %&gt;% levels -&gt; storageLocations
+storageLocations</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIjFG5a+w5a6H6ZaL5Y235bCI5Y2AXCIgICAgICAgICAgIFwiMUbmlZnluKvmiJDplbflsIjljYBcIiAgICAgICAgICBcbiBbM10gXCIxRua1gemAmuarg+aqr1wiICAgICAgICAgICAgICAgXCIxRuimluiBveWNgFwiICAgICAgICAgICAgICAgIFxuIFs1XSBcIjFG54m55bGV5Y2AXCIgICAgICAgICAgICAgICAgIFwiMUbpgJrorZjmgoXoroDlsIjljYBcIiAgICAgICAgICBcbiBbN10gXCIxRuiBt+a2r+WNmuimveWwiOWNgFwiICAgICAgICAgICBcIjFG6IG35rav5Y2a6Ka95bCI5Y2AKOWJteaWsOWJtealrSlcIlxuIFs5XSBcIjFG5oyH5a6a5Y+D6ICD5pu45Y2AXCIgICAgICAgICAgIFwiMkbol53mloflsZXopr3ljYBcIiAgICAgICAgICAgIFxuWzExXSBcIjNG5Lit5paH5ZyW5pu45Y2AXCIgICAgICAgICAgICAgXCI0RuaXpemfk+aWh+WcluabuOWNgFwiICAgICAgICAgIFxuWzEzXSBcIjRG5aSW5paH5ZyW5pu45Y2AXCIgICAgICAgICAgICAgXCI1RuacrOagoeeJueiXj1wiICAgICAgICAgICAgICBcblsxNV0gXCI1RuWPg+iAg+izh+aWmeWNgFwiICAgICAgICAgICAgIFwiNkboppbogb3plonmnrbljYBcIiAgICAgICAgICAgIFxuWzE3XSBcIjZG5aWX5pu45Y2AXCIgICAgICAgICAgICAgICAgIFwi5rCR55Sf5qCh5Y2A5rWB6YCa5quD5qqvXCIgICAgICAgIFxuIn0= -->
+<pre><code> [1] &quot;1F寰宇開卷專區&quot;           &quot;1F教師成長專區&quot;          
+ [3] &quot;1F流通櫃檯&quot;               &quot;1F視聽區&quot;                
+ [5] &quot;1F特展區&quot;                 &quot;1F通識悅讀專區&quot;          
+ [7] &quot;1F職涯博覽專區&quot;           &quot;1F職涯博覽專區(創新創業)&quot;
+ [9] &quot;1F指定參考書區&quot;           &quot;2F藝文展覽區&quot;            
+[11] &quot;3F中文圖書區&quot;             &quot;4F日韓文圖書區&quot;          
+[13] &quot;4F外文圖書區&quot;             &quot;5F本校特藏&quot;              
+[15] &quot;5F參考資料區&quot;             &quot;6F視聽閉架區&quot;            
+[17] &quot;6F套書區&quot;                 &quot;民生校區流通櫃檯&quot;        </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaTwtMVxuIyAxXG5zdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIFxuIyAyXG5udW1lcmljYWxJbmRleEZvclN1YnNhbXBsZTwtd2hpY2gobGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywPT1zdG9yYWdlTG9jYXRpb25faSlcbnN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF1cbiMgM1xuYm9ycm93Q291bnRfaSA8LSBucm93KHN1YnNhbXBsZV9pKVxuYGBgIn0= -->
+<pre class="r"><code>i&lt;-1
+# 1
+storageLocation_i &lt;- storageLocations[i] 
+# 2
+numericalIndexForSubsample&lt;-which(libraryData$書籍館藏地==storageLocation_i)
+subsample_i &lt;- libraryData[numericalIndexForSubsample,]
+# 3
+borrowCount_i &lt;- nrow(subsample_i)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxsQm9ycm93Q291bnQgPC0gdmVjdG9yKFwibnVtZXJpY1wiLDE4KVxuYGBgIn0= -->
+<pre class="r"><code>allBorrowCount &lt;- vector(&quot;numeric&quot;,18)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyAwXG5hbGxCb3Jyb3dDb3VudCA8LSB2ZWN0b3IoXCJudW1lcmljXCIsMTgpXG5pPC0xXG4gICMgMVxuICBzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIFxuICAjIDJcbiAgbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGU8LXdoaWNoKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsD09c3RvcmFnZUxvY2F0aW9uX2kpXG4gIHN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF1cbiAgIyAzXG4gIGJvcnJvd0NvdW50X2kgPC0gbnJvdyhzdWJzYW1wbGVfaSlcbiAgIyA0XG4gIGFsbEJvcnJvd0NvdW50W1tpXV08LWJvcnJvd0NvdW50X2lcbmBgYCJ9 -->
+<pre class="r"><code># 0
+allBorrowCount &lt;- vector(&quot;numeric&quot;,18)
+i&lt;-1
+  # 1
+  storageLocation_i &lt;- storageLocations[i] 
+  # 2
+  numericalIndexForSubsample&lt;-which(libraryData$書籍館藏地==storageLocation_i)
+  subsample_i &lt;- libraryData[numericalIndexForSubsample,]
+  # 3
+  borrowCount_i &lt;- nrow(subsample_i)
+  # 4
+  allBorrowCount[[i]]&lt;-borrowCount_i</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9yKGkgaW4gYygxOjE4KSl7XG4gICMgMVxuICBzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIFxuICAjIDJcbiAgbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGU8LXdoaWNoKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsD09c3RvcmFnZUxvY2F0aW9uX2kpXG4gIHN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF1cbiAgIyAzXG4gIGJvcnJvd0NvdW50X2kgPC0gbnJvdyhzdWJzYW1wbGVfaSlcbiAgIyA0XG4gIGFsbEJvcnJvd0NvdW50W1tpXV08LWJvcnJvd0NvdW50X2kgIFxufVxuYGBgIn0= -->
+<pre class="r"><code>for(i in c(1:18)){
+  # 1
+  storageLocation_i &lt;- storageLocations[i] 
+  # 2
+  numericalIndexForSubsample&lt;-which(libraryData$書籍館藏地==storageLocation_i)
+  subsample_i &lt;- libraryData[numericalIndexForSubsample,]
+  # 3
+  borrowCount_i &lt;- nrow(subsample_i)
+  # 4
+  allBorrowCount[[i]]&lt;-borrowCount_i  
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMi0xMiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMi0xMiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeURhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vZ2l0aHViLWRhdGEvbWFzdGVyL2xpYnJhcnkxMDBfMTAyLmNzdiIpCmBgYAoKYGBge3J9CmxpYnJhcnkobHVicmlkYXRlKQpsaWJyYXJ5KGRwbHlyKQpsaWJyYXJ5KHN0cmluZ3IpCmBgYAoKYGBge3J9CmFzLmZhY3RvcihsaWJyYXJ5RGF0YSTmm7jnsY3ppKjol4/lnLApLT5saWJyYXJ5RGF0YSTmm7jnsY3ppKjol4/lnLAKbGV2ZWxzKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCktPnN0b3JhZ2VMb2NhdGlvbnMKc3RvcmFnZUxvY2F0aW9ucwpgYGAKCmBgYHtyfQpsaWJyYXJ5RGF0YSTmm7jnsY3ppKjol4/lnLAgJT4lIGFzLmZhY3RvciAlPiUgbGV2ZWxzIC0+IHN0b3JhZ2VMb2NhdGlvbnMKc3RvcmFnZUxvY2F0aW9ucwpgYGAKCmBgYHtyfQppPC0xCiMgMQpzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIAojIDIKbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGU8LXdoaWNoKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsD09c3RvcmFnZUxvY2F0aW9uX2kpCnN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF0KIyAzCmJvcnJvd0NvdW50X2kgPC0gbnJvdyhzdWJzYW1wbGVfaSkKYGBgCgpgYGB7cn0KYWxsQm9ycm93Q291bnQgPC0gdmVjdG9yKCJudW1lcmljIiwxOCkKYGBgCgpgYGB7cn0KIyAwCmFsbEJvcnJvd0NvdW50IDwtIHZlY3RvcigibnVtZXJpYyIsMTgpCmk8LTEKICAjIDEKICBzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIAogICMgMgogIG51bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlPC13aGljaChsaWJyYXJ5RGF0YSTmm7jnsY3ppKjol4/lnLA9PXN0b3JhZ2VMb2NhdGlvbl9pKQogIHN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF0KICAjIDMKICBib3Jyb3dDb3VudF9pIDwtIG5yb3coc3Vic2FtcGxlX2kpCiAgIyA0CiAgYWxsQm9ycm93Q291bnRbW2ldXTwtYm9ycm93Q291bnRfaQpgYGAKCmBgYHtyfQpmb3IoaSBpbiBjKDE6MTgpKXsKICAjIDEKICBzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIAogICMgMgogIG51bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlPC13aGljaChsaWJyYXJ5RGF0YSTmm7jnsY3ppKjol4/lnLA9PXN0b3JhZ2VMb2NhdGlvbl9pKQogIHN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF0KICAjIDMKICBib3Jyb3dDb3VudF9pIDwtIG5yb3coc3Vic2FtcGxlX2kpCiAgIyA0CiAgYWxsQm9ycm93Q291bnRbW2ldXTwtYm9ycm93Q291bnRfaSAgCn0KYGBgCmBgYHtyfQoKYGBgCgoK</div>
 
 
 
