@@ -108,3 +108,31 @@ libraryData %>%
   ) ->libraryData
 ```
 
+```{r}
+libraryData %>%
+  group_by(學院,入學年) %>%
+  summarise(
+    borrowCount=length(學號)
+  ) %>%
+  ungroup-> result2
+result2
+```
+
+```{r}
+libraryData %>%
+  filter(入學年==102)
+ ```
+ ## 第一次進圖書館
+ ```{r}
+libraryData %>%
+  mutate(
+      借閱時間=ymd_hms(借閱時間,tz="Asia/Taipei")
+  ) %>%
+  group_by(學號) %>%
+  summarise(
+    第一次借書=min(借閱時間)
+  ) %>%
+  ungroup -> result3
+result3
+```
+
