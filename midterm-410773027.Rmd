@@ -1,10 +1,23 @@
 ---
 title: "資料科學程式設計（一）期中考"
 output:
-  html_document:
-    self_contained: false
+  html_notebook: default
 date: '2018-11-14'
+params:
+  birthday: 2000-05-30
+  id: 410773027
+  name: 邱乙恩
 ---
+# 電子書
+
+課程電子書： https://bookdown.org/tpemartin/ntpu-programming-for-data-science/
+
+R for Data Science: https://r4ds.had.co.nz/
+
+Dplyr minicourse: https://bookdown.org/PoMingChen/Dplyr_minicourse/
+
+曾意儒，資料科學與R： https://yijutseng.github.io/DataScienceRBook/index.html
+
 
 
 # 電子書
