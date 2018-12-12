@@ -264,6 +264,8 @@ allBorrowCount &lt;- vector(&quot;numeric&quot;,18)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<div class="section level2">
+<h2>不同學院借書量</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEk5a246ZmiICU+JSBhcy5mYWN0b3IgJT4lIGxldmVscyAtPmNvbGxlZ2VcbiMwXG5jb2xsZWdlQm9ycm93Q291bnQ8LXZlY3RvcihcIm51bWVyaWNcIixsZW5ndGgoY29sbGVnZSkpXG5mb3IoaSBpbiBjKDE6bGVuZ3RoKGNvbGxlZ2UpKSl7XG4gICMxXG4gIGNvbGxlZ2VfaSA8LSBjb2xsZWdlW2ldXG4gICMyXG4gIG51bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlIDwtd2hpY2gobGlicmFyeURhdGEk5a246ZmiPT1jb2xsZWdlX2kpXG4gIGNvbGxlZ2VzdWJzYW1wbGVfaSA8LWxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF1cbiAgIzNcbiAgY29sbGVnZUJvcnJvd0NvdW50X2kgPC1ucm93KGNvbGxlZ2VzdWJzYW1wbGVfaSlcbiAgIzRcbiAgY29sbGVnZUJvcnJvd0NvdW50W1tpXV0gPC1jb2xsZWdlQm9ycm93Q291bnRfaVxuICBcbn1cbmBgYCJ9 -->
@@ -287,11 +289,58 @@ for(i in c(1:length(college))){
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEk5a246JmfICU+JSBhcy5mYWN0b3IgJT4lIGxldmVscyAtPiBzdHVkZW50XG4jMFxuc3R1ZGVudEJvcnJvdyA8LSB2ZWN0b3IoXCJudW1lcmljXCIsIGxlbmd0aChzdHVkZW50KSlcbmZvcihpIGluIGMoMTpsZW5ndGgoc3R1ZGVudCkpKXtcbiMxXG4gIHN0dWRlbnRfaSA8LSBzdHVkZW50W2ldXG4jMlxubnVtZXJpY2FsSW5kZXg8LSB3aGljaChsaWJyYXJ5RGF0YSTlrbjomZ8gPT0gc3R1ZGVudF9pKVxuc3R1ZGVudFN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4LF1cbiMzXG5zdHVkZW50Qm9ycm93X2kgPC0gbnJvdyhzdHVkZW50U3Vic2FtcGxlX2kpXG4jNFxuc3R1ZGVudEJvcnJvd1tbaV1dIDwtIHN0dWRlbnRCb3Jyb3dfaVxufVxuYGBgIn0= -->
+<pre class="r"><code>libraryData$學號 %&gt;% as.factor %&gt;% levels -&gt; student
+#0
+studentBorrow &lt;- vector(&quot;numeric&quot;, length(student))
+for(i in c(1:length(student))){
+#1
+  student_i &lt;- student[i]
+#2
+numericalIndex&lt;- which(libraryData$學號 == student_i)
+studentSubsample_i &lt;- libraryData[numericalIndex,]
+#3
+studentBorrow_i &lt;- nrow(studentSubsample_i)
+#4
+studentBorrow[[i]] &lt;- studentBorrow_i
+}</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEgJT4lXG4gIGdyb3VwX2J5KOabuOexjemkqOiXj+WcsCkgJT4lXG4gIHN1bW1hcmlzZShcbiAgICBib3Jyb3dDb3VudD1sZW5ndGgo5a246JmfKVxuICApIC0+IHJlc3VsdFxucmVzdWx0XG5gYGAifQ== -->
+<pre class="r"><code>libraryData %&gt;%
+  group_by(書籍館藏地) %&gt;%
+  summarise(
+    borrowCount=length(學號)
+  ) -&gt; result
+result</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6MTh9LCJyZGYiOiJINHNJQUFBQUFBQUFBMjFUeTI3VFFCUWQyMGxMRWtnYTJnVWJKTVFHV0RSU1gyR05RRjRqMkhUcnBpNUVHTHR5SEdDWkVGVnBCRkdMYUJ3YUFnV3BxUkFsandxMURZdCtBbndGTTdFbHhDYzAzTEhISkk2eU9KN3hQWGZPZmN5ZEIvZVc1OFBMWVlRUWo0UWdoM2dCdGdFZVBod0tvQkJkWHlBa1REc09TTGdFNjJXSGRQNlI0dzBJQWlZQWs0QUxBSHFRaWtZQUZ3SDBYQlFRQTB3QjRxNk9MOUNFSWorVGxRenpBRFpIclROekltNTNjS3RvbTY5dytSUjNObkU1TitCSVpSZDNEOG5tdGwzeGMxSGdqdk4ycmtZT0MrUnJtMWtqYzZKMVlGcjVzNEVqbUhxbEgvaW80dE9GZzFiekhYbTVZYlZ5b3pHdC9DazVhZU55elRvNDgzSFh4M0UzY2VtWW1CMzZiVFJ2RFdYK3VvaGJOYnhWc0hJRjhyNDdVSW5QaTFiMUF6R0xrQk5WR1JBTDR1OXVreEoxMDNkaVpsRWsxWWE5OTNZTUYxOFU4YjQ1aG9ndWlhVCtqWHo2RE5WYjFTM1BmVWwwVTdLK0Y0bTVPNlNUWkoyenpSTDVlRExVdjZTSUcxV2Y5QlhTZWRQYjJRTnRzUGx2d1hmandaUWlaYndML3o4R2ExTEswSFRZbmJQQmdWRUkzWWIxSjh6VVF3aElCL0FPT1A2QmVmc0YrNnUwOWM1QWN2ZHZ3TG9OZ2p0c3lEZzJsTmNBU1RlODBCK0pHRjZWRENteHBrdFA1ZEVFVmJCNUNmSnNybU5RYSsrb2JPOS9nYmJoZW9mNVJsWTBYZGVlMzlXeXFqRWlFd0o3d3BPaUZmSFFLZFR2OS8rNlZmcWNKN1YxSTYycDRNcFBzNWMxbkN5bmp4aGlXWlZLcjg2bUhtZlZKN01MN09YUndoRUx4N0ZYNisxNU4yVEFhMFRRYTcyc1BrcXJzbGU4SXEzSUN2dUpRZ2xPQllsMVBRMEZzczZCTlpNd05FUHkvTUlwVGZFczdnMmUvd01mT0xsUFl3UUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["書籍館藏地"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["borrowCount"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1F寰宇開卷專區","2":"2359"},{"1":"1F教師成長專區","2":"205"},{"1":"1F流通櫃檯","2":"2643"},{"1":"1F視聽區","2":"2834"},{"1":"1F特展區","2":"65"},{"1":"1F通識悅讀專區","2":"1772"},{"1":"1F職涯博覽專區","2":"1998"},{"1":"1F職涯博覽專區(創新創業)","2":"29"},{"1":"1F指定參考書區","2":"34"},{"1":"2F藝文展覽區","2":"2"},{"1":"3F中文圖書區","2":"86055"},{"1":"4F日韓文圖書區","2":"144"},{"1":"4F外文圖書區","2":"4244"},{"1":"5F本校特藏","2":"17"},{"1":"5F參考資料區","2":"1"},{"1":"6F視聽閉架區","2":"7"},{"1":"6F套書區","2":"32"},{"1":"民生校區流通櫃檯","2":"54"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[18]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeURhdGEgJT4lXG4gIG11dGF0ZShcbiAgICDlrbjns7s9c3RyX3N1YijlrbjomZ8sNSw2IClcbiAgICAjI+ebuOeVtuaWvGxpYnJhcnlEYXRhJOWtuOezuzwtc3RyX3N1YihsaWJyYXJ5RGF0YSTlrbjomZ8sNSw2KVxuICApIC0+bGlicmFyeURhdGFcbmBgYCJ9 -->
+<pre class="r"><code>libraryData %&gt;%
+  mutate(
+    學系=str_sub(學號,5,6 )
+    ##相當於libraryData$學系&lt;-str_sub(libraryData$學號,5,6)
+  ) -&gt;libraryData</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMi0xMiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeURhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vZ2l0aHViLWRhdGEvbWFzdGVyL2xpYnJhcnkxMDBfMTAyLmNzdiIpCmBgYAoKYGBge3J9CmxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCAlPiUKICBhcy5mYWN0b3IgJT4lCiAgbGV2ZWxzIC0+IHN0b3JhZ2VMb2NhdGlvbnMKYGBgCgpgYGB7cn0KbGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywIDwtCiAgYXMuZmFjdG9yKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCkKbGV2ZWxzKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCkgLT4gc3RvcmFnZUxvY2F0aW9ucwpgYGAKCmBgYHtyfQppPC0yCiMgMQpzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIAojIDIKbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGU8LXdoaWNoKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsD09c3RvcmFnZUxvY2F0aW9uX2kpCnN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF0KIyAzCmJvcnJvd0NvdW50X2kgPC0gbnJvdyhzdWJzYW1wbGVfaSkKYGBgCiAKYGBge3J9CiMgMAphbGxCb3Jyb3dDb3VudCA8LSB2ZWN0b3IoIm51bWVyaWMiLDE4KQpgYGAKIApgYGB7cn0KZm9yKGkgaW4gYygxOjE4KSl7CiAgIyAxCiAgc3RvcmFnZUxvY2F0aW9uX2kgPC0gc3RvcmFnZUxvY2F0aW9uc1tpXSAKICAjIDIKICBudW1lcmljYWxJbmRleEZvclN1YnNhbXBsZTwtd2hpY2gobGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywPT1zdG9yYWdlTG9jYXRpb25faSkKICBzdWJzYW1wbGVfaSA8LSBsaWJyYXJ5RGF0YVtudW1lcmljYWxJbmRleEZvclN1YnNhbXBsZSxdCiAgIyAzCiAgYm9ycm93Q291bnRfaSA8LSBucm93KHN1YnNhbXBsZV9pKQogICMgNAogIGFsbEJvcnJvd0NvdW50W1tpXV08LWJvcnJvd0NvdW50X2kgIAp9CmBgYAogCmBgYHtyfQpuYW1lcyhhbGxCb3Jyb3dDb3VudCkgPC0gc3RvcmFnZUxvY2F0aW9ucwpgYGAKCmBgYHtyfQpsaWJyYXJ5RGF0YSTlrbjpmaIgJT4lIGFzLmZhY3RvciAlPiUgbGV2ZWxzIC0+Y29sbGVnZQoKIzAKY29sbGVnZUJvcnJvd0NvdW50PC12ZWN0b3IoIm51bWVyaWMiLGxlbmd0aChjb2xsZWdlKSkKZm9yKGkgaW4gYygxOmxlbmd0aChjb2xsZWdlKSkpewogICMxCiAgY29sbGVnZV9pIDwtIGNvbGxlZ2VbaV0KICAjMgogIG51bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlIDwtd2hpY2gobGlicmFyeURhdGEk5a246ZmiPT1jb2xsZWdlX2kpCiAgY29sbGVnZXN1YnNhbXBsZV9pIDwtbGlicmFyeURhdGFbbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGUsXQogICMzCiAgY29sbGVnZUJvcnJvd0NvdW50X2kgPC1ucm93KGNvbGxlZ2VzdWJzYW1wbGVfaSkKICAjNAogIGNvbGxlZ2VCb3Jyb3dDb3VudFtbaV1dIDwtY29sbGVnZUJvcnJvd0NvdW50X2kKICAKfQpgYGAKCmBgYHtyfQoKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMi0xMiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeURhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vZ2l0aHViLWRhdGEvbWFzdGVyL2xpYnJhcnkxMDBfMTAyLmNzdiIpCmBgYAoKYGBge3J9CmxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCAlPiUKICBhcy5mYWN0b3IgJT4lCiAgbGV2ZWxzIC0+IHN0b3JhZ2VMb2NhdGlvbnMKYGBgCgpgYGB7cn0KbGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywIDwtCiAgYXMuZmFjdG9yKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCkKbGV2ZWxzKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsCkgLT4gc3RvcmFnZUxvY2F0aW9ucwpgYGAKCmBgYHtyfQppPC0yCiMgMQpzdG9yYWdlTG9jYXRpb25faSA8LSBzdG9yYWdlTG9jYXRpb25zW2ldIAojIDIKbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGU8LXdoaWNoKGxpYnJhcnlEYXRhJOabuOexjemkqOiXj+WcsD09c3RvcmFnZUxvY2F0aW9uX2kpCnN1YnNhbXBsZV9pIDwtIGxpYnJhcnlEYXRhW251bWVyaWNhbEluZGV4Rm9yU3Vic2FtcGxlLF0KIyAzCmJvcnJvd0NvdW50X2kgPC0gbnJvdyhzdWJzYW1wbGVfaSkKYGBgCiAKYGBge3J9CiMgMAphbGxCb3Jyb3dDb3VudCA8LSB2ZWN0b3IoIm51bWVyaWMiLDE4KQpgYGAKIApgYGB7cn0KZm9yKGkgaW4gYygxOjE4KSl7CiAgIyAxCiAgc3RvcmFnZUxvY2F0aW9uX2kgPC0gc3RvcmFnZUxvY2F0aW9uc1tpXSAKICAjIDIKICBudW1lcmljYWxJbmRleEZvclN1YnNhbXBsZTwtd2hpY2gobGlicmFyeURhdGEk5pu457GN6aSo6JeP5ZywPT1zdG9yYWdlTG9jYXRpb25faSkKICBzdWJzYW1wbGVfaSA8LSBsaWJyYXJ5RGF0YVtudW1lcmljYWxJbmRleEZvclN1YnNhbXBsZSxdCiAgIyAzCiAgYm9ycm93Q291bnRfaSA8LSBucm93KHN1YnNhbXBsZV9pKQogICMgNAogIGFsbEJvcnJvd0NvdW50W1tpXV08LWJvcnJvd0NvdW50X2kgIAp9CmBgYAogCmBgYHtyfQpuYW1lcyhhbGxCb3Jyb3dDb3VudCkgPC0gc3RvcmFnZUxvY2F0aW9ucwpgYGAKIyPkuI3lkIzlrbjpmaLlgJ/mm7jph48KYGBge3J9CmxpYnJhcnlEYXRhJOWtuOmZoiAlPiUgYXMuZmFjdG9yICU+JSBsZXZlbHMgLT5jb2xsZWdlCgojMApjb2xsZWdlQm9ycm93Q291bnQ8LXZlY3RvcigibnVtZXJpYyIsbGVuZ3RoKGNvbGxlZ2UpKQpmb3IoaSBpbiBjKDE6bGVuZ3RoKGNvbGxlZ2UpKSl7CiAgIzEKICBjb2xsZWdlX2kgPC0gY29sbGVnZVtpXQogICMyCiAgbnVtZXJpY2FsSW5kZXhGb3JTdWJzYW1wbGUgPC13aGljaChsaWJyYXJ5RGF0YSTlrbjpmaI9PWNvbGxlZ2VfaSkKICBjb2xsZWdlc3Vic2FtcGxlX2kgPC1saWJyYXJ5RGF0YVtudW1lcmljYWxJbmRleEZvclN1YnNhbXBsZSxdCiAgIzMKICBjb2xsZWdlQm9ycm93Q291bnRfaSA8LW5yb3coY29sbGVnZXN1YnNhbXBsZV9pKQogICM0CiAgY29sbGVnZUJvcnJvd0NvdW50W1tpXV0gPC1jb2xsZWdlQm9ycm93Q291bnRfaQogIAp9CmBgYAoKYGBge3J9CmxpYnJhcnlEYXRhJOWtuOiZnyAlPiUgYXMuZmFjdG9yICU+JSBsZXZlbHMgLT4gc3R1ZGVudApsaWJyYXJ5RGF0YSTlrbjpmaIgJT4lIHVuaXF1ZSAtPnN0dWRlbnQKIzAKc3R1ZGVudEJvcnJvdyA8LSB2ZWN0b3IoIm51bWVyaWMiLCBsZW5ndGgoc3R1ZGVudCkpCmZvcihpIGluIGMoMTpsZW5ndGgoc3R1ZGVudCkpKXsKIzEKICBzdHVkZW50X2kgPC0gc3R1ZGVudFtpXQojMgpudW1lcmljYWxJbmRleDwtIHdoaWNoKGxpYnJhcnlEYXRhJOWtuOiZnyA9PSBzdHVkZW50X2kpCnN0dWRlbnRTdWJzYW1wbGVfaSA8LSBsaWJyYXJ5RGF0YVtudW1lcmljYWxJbmRleCxdCiMzCnN0dWRlbnRCb3Jyb3dfaSA8LSBucm93KHN0dWRlbnRTdWJzYW1wbGVfaSkKIzQKc3R1ZGVudEJvcnJvd1tbaV1dIDwtIHN0dWRlbnRCb3Jyb3dfaQp9CgpgYGAKCmBgYHtyfQpsaWJyYXJ5RGF0YSAlPiUKICBncm91cF9ieSjmm7jnsY3ppKjol4/lnLApICU+JQogIHN1bW1hcmlzZSgKICAgIGJvcnJvd0NvdW50PWxlbmd0aCjlrbjomZ8pCiAgKSAtPiByZXN1bHQKcmVzdWx0CmBgYAoKYGBge3J9CmxpYnJhcnlEYXRhICU+JQogIG11dGF0ZSgKICAgIOWtuOezuz1zdHJfc3ViKOWtuOiZnyw1LDYgKQogICAgIyPnm7jnlbbmlrxsaWJyYXJ5RGF0YSTlrbjns7s8LXN0cl9zdWIobGlicmFyeURhdGEk5a246JmfLDUsNikKICApIC0+bGlicmFyeURhdGEKYGBgCgo=</div>
 
 
 

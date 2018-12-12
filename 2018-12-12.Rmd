@@ -52,7 +52,7 @@ for(i in c(1:18)){
 ```{r}
 names(allBorrowCount) <- storageLocations
 ```
-
+##不同學院借書量
 ```{r}
 libraryData$學院 %>% as.factor %>% levels ->college
 
@@ -73,6 +73,38 @@ for(i in c(1:length(college))){
 ```
 
 ```{r}
+libraryData$學號 %>% as.factor %>% levels -> student
+libraryData$學院 %>% unique ->student
+#0
+studentBorrow <- vector("numeric", length(student))
+for(i in c(1:length(student))){
+#1
+  student_i <- student[i]
+#2
+numericalIndex<- which(libraryData$學號 == student_i)
+studentSubsample_i <- libraryData[numericalIndex,]
+#3
+studentBorrow_i <- nrow(studentSubsample_i)
+#4
+studentBorrow[[i]] <- studentBorrow_i
+}
 
+```
+
+```{r}
+libraryData %>%
+  group_by(書籍館藏地) %>%
+  summarise(
+    borrowCount=length(學號)
+  ) -> result
+result
+```
+
+```{r}
+libraryData %>%
+  mutate(
+    學系=str_sub(學號,5,6 )
+    ##相當於libraryData$學系<-str_sub(libraryData$學號,5,6)
+  ) ->libraryData
 ```
 
