@@ -192,8 +192,118 @@ libraryData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/git
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYTwtYygxOjEwKVxudHlwZW9mKGEpXG5gYGAifQ== -->
+<pre class="r"><code>a&lt;-c(1:10)
+typeof(a)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiaW50ZWdlclwiXG4ifQ== -->
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYjwtbGlzdChcImFcIixcImJcIiwxOjEwKVxudHlwZW9mKGIpXG5gYGAifQ== -->
+<pre class="r"><code>b&lt;-list(&quot;a&quot;,&quot;b&quot;,1:10)
+typeof(b)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwibGlzdFwiXG4ifQ== -->
+<pre><code>[1] &quot;list&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYjI8LWxpc3QoXCJhXCIsXCJiXCIsMToxMCxcbiAgICAgICAgbGlzdChcbiAgICAgICAgICBcIk1yIFNtaXRoXCIsXG4gICAgICAgICAgZGF0YS5mcmFtZShcbiAgICAgICAgICAgIHYxPWMoMSwyKSxcbiAgICAgICAgICAgIHYyPWMoXCJhYVwiLFwiYmJcIiksXG4gICAgICAgICAgICBzdHJpbmdzQXNGYWN0b3JzID0gRlxuICAgICAgICAgIClcbiAgICAgICAgKSlcbmBgYCJ9 -->
+<pre class="r"><code>b2&lt;-list(&quot;a&quot;,&quot;b&quot;,1:10,
+        list(
+          &quot;Mr Smith&quot;,
+          data.frame(
+            v1=c(1,2),
+            v2=c(&quot;aa&quot;,&quot;bb&quot;),
+            stringsAsFactors = F
+          )
+        ))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmZpbG1Wb3RpbmdEYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9jb3Vyc2UtMTA3LTEtcHJvZ3JhbW1pbmctZm9yLWRhdGEtc2NpZW5jZS9tYXN0ZXIvZGF0YS8lRTclQUMlQUMlRTQlQjglODklRTUlQjElODYlRTclQjYlOTMlRTYlQkYlOUYlRTYlOTIlQUQlRTUlQUUlQTIlRTclQUIlQjYlRTglQjMlQkQlRTUlOEYlODMlRTglQjMlQkQlRTQlQkQlOUMlRTUlOTMlODElRTYlOEElOTUlRTclQTUlQTglRTclQjUlOTAlRTYlOUUlOUMlRTYlQTglQTMlRTYlOUMlQUMlMjAtJTIwU2hlZXQxLmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>library(readr)
+filmVotingData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/%E7%AC%AC%E4%B8%89%E5%B1%86%E7%B6%93%E6%BF%9F%E6%92%AD%E5%AE%A2%E7%AB%B6%E8%B3%BD%E5%8F%83%E8%B3%BD%E4%BD%9C%E5%93%81%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C%E6%A8%A3%E6%9C%AC%20-%20Sheet1.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmlsbVZvdGluZ0RhdGEk6KuL6YG45pOH5L2g5pyA5Zac5q2h55qE5b2x54mH5LqM6YOoICU+JVxuICBzdHJfc3BsaXQoXCIsICg/IShieSkpXCIpIC0+IGZpbG1Wb3RpbmdSZXN1bHRcbiNmaWxtVm90aW5nUmVzdWx0XG5gYGAifQ== -->
+<pre class="r"><code>filmVotingData$請選擇你最喜歡的影片二部 %&gt;%
+  str_split(&quot;, (?!(by))&quot;) -&gt; filmVotingResult
+#filmVotingResult</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxhc3RpY0NvbnRhaW5lciA8LSBsaXN0KFxuICBncmVlbkJveD1jKFwicGFwZXJcIixcInNjaXNzb3JcIiksICAgICAjIGxvY2F0aW9uIDFcbiAgcmVkQm94PWMoMUwsM0wsMi41KSwgICAgICAgICAgICAgICAjIGxvY2F0aW9uIDJcbiAgYmx1ZUJveD1jKFRSVUUsRkFMU0UsVFJVRSxUUlVFKSAgICAjIGxvY2F0aW9uIDNcbilcbmBgYCJ9 -->
+<pre class="r"><code>plasticContainer &lt;- list(
+  greenBox=c(&quot;paper&quot;,&quot;scissor&quot;),     # location 1
+  redBox=c(1L,3L,2.5),               # location 2
+  blueBox=c(TRUE,FALSE,TRUE,TRUE)    # location 3
+)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxhc3RpY0NvbnRhaW5lcltjKFwiZ3JlZW5Cb3hcIixcInJlZEJveFwiKV0gIyBvciBwbGFzdGljQ29udGFpbmVyW2MoMSwyKV1cbmBgYCJ9 -->
+<pre class="r"><code>plasticContainer[c(&quot;greenBox&quot;,&quot;redBox&quot;)] # or plasticContainer[c(1,2)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJGdyZWVuQm94XG5bMV0gXCJwYXBlclwiICAgXCJzY2lzc29yXCJcblxuJHJlZEJveFxuWzFdIDEuMCAzLjAgMi41XG4ifQ== -->
+<pre><code>$greenBox
+[1] &quot;paper&quot;   &quot;scissor&quot;
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMi0xOSIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShyZWFkcik7IGxpYnJhcnkoZHBseXIpOyBsaWJyYXJ5KHN0cmluZ3IpOyBsaWJyYXJ5KGx1YnJpZGF0ZSkKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeURhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vZ2l0aHViLWRhdGEvbWFzdGVyL2xpYnJhcnkxMDBfMTAyLmNzdiIpCmBgYAoK</div>
+$redBox
+[1] 1.0 3.0 2.5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxhc3RpY0NvbnRhaW5lcltjKFwiZ3JlZW5Cb3hcIildICMgb3IgcGxhc3RpY0NvbnRhaW5lcltjKDEsMildXG5gYGAifQ== -->
+<pre class="r"><code>plasticContainer[c(&quot;greenBox&quot;)] # or plasticContainer[c(1,2)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJGdyZWVuQm94XG5bMV0gXCJwYXBlclwiICAgXCJzY2lzc29yXCJcbiJ9 -->
+<pre><code>$greenBox
+[1] &quot;paper&quot;   &quot;scissor&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3MocGxhc3RpY0NvbnRhaW5lcilcbmBgYCJ9 -->
+<pre class="r"><code>class(plasticContainer)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwibGlzdFwiXG4ifQ== -->
+<pre><code>[1] &quot;list&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2xhc3MocGxhc3RpY0NvbnRhaW5lcltjKFwiZ3JlZW5ib3hcIildKVxuYGBgIn0= -->
+<pre class="r"><code>class(plasticContainer[c(&quot;greenbox&quot;)])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwibGlzdFwiXG4ifQ== -->
+<pre><code>[1] &quot;list&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOC0xMi0xOSIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShyZWFkcik7IGxpYnJhcnkoZHBseXIpOyBsaWJyYXJ5KHN0cmluZ3IpOyBsaWJyYXJ5KGx1YnJpZGF0ZSkKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeURhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vZ2l0aHViLWRhdGEvbWFzdGVyL2xpYnJhcnkxMDBfMTAyLmNzdiIpCmBgYAoKYGBge3J9CmE8LWMoMToxMCkKdHlwZW9mKGEpCmBgYAoKYGBge3J9CmI8LWxpc3QoImEiLCJiIiwxOjEwKQp0eXBlb2YoYikKYGBgCgpgYGB7cn0KYjI8LWxpc3QoImEiLCJiIiwxOjEwLAogICAgICAgIGxpc3QoCiAgICAgICAgICAiTXIgU21pdGgiLAogICAgICAgICAgZGF0YS5mcmFtZSgKICAgICAgICAgICAgdjE9YygxLDIpLAogICAgICAgICAgICB2Mj1jKCJhYSIsImJiIiksCiAgICAgICAgICAgIHN0cmluZ3NBc0ZhY3RvcnMgPSBGCiAgICAgICAgICApCiAgICAgICAgKSkKYGBgCgpgYGB7cn0KbGlicmFyeShyZWFkcikKZmlsbVZvdGluZ0RhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vY291cnNlLTEwNy0xLXByb2dyYW1taW5nLWZvci1kYXRhLXNjaWVuY2UvbWFzdGVyL2RhdGEvJUU3JUFDJUFDJUU0JUI4JTg5JUU1JUIxJTg2JUU3JUI2JTkzJUU2JUJGJTlGJUU2JTkyJUFEJUU1JUFFJUEyJUU3JUFCJUI2JUU4JUIzJUJEJUU1JThGJTgzJUU4JUIzJUJEJUU0JUJEJTlDJUU1JTkzJTgxJUU2JThBJTk1JUU3JUE1JUE4JUU3JUI1JTkwJUU2JTlFJTlDJUU2JUE4JUEzJUU2JTlDJUFDJTIwLSUyMFNoZWV0MS5jc3YiKQpgYGAKCmBgYHtyfQpmaWxtVm90aW5nRGF0YSToq4vpgbjmk4fkvaDmnIDllpzmraHnmoTlvbHniYfkuozpg6ggJT4lCiAgc3RyX3NwbGl0KCIsICg/IShieSkpIikgLT4gZmlsbVZvdGluZ1Jlc3VsdAojZmlsbVZvdGluZ1Jlc3VsdApgYGAKCmBgYHtyfQpwbGFzdGljQ29udGFpbmVyIDwtIGxpc3QoCiAgZ3JlZW5Cb3g9YygicGFwZXIiLCJzY2lzc29yIiksICAgICAjIGxvY2F0aW9uIDEKICByZWRCb3g9YygxTCwzTCwyLjUpLCAgICAgICAgICAgICAgICMgbG9jYXRpb24gMgogIGJsdWVCb3g9YyhUUlVFLEZBTFNFLFRSVUUsVFJVRSkgICAgIyBsb2NhdGlvbiAzCikKYGBgCgpgYGB7cn0KcGxhc3RpY0NvbnRhaW5lcltjKCJncmVlbkJveCIsInJlZEJveCIpXSAjIG9yIHBsYXN0aWNDb250YWluZXJbYygxLDIpXQpgYGAKCmBgYHtyfQpwbGFzdGljQ29udGFpbmVyW2MoImdyZWVuQm94IildICMgb3IgcGxhc3RpY0NvbnRhaW5lcltjKDEsMildCmBgYAoKYGBge3J9CmNsYXNzKHBsYXN0aWNDb250YWluZXIpCmBgYAoKYGBge3J9CmNsYXNzKHBsYXN0aWNDb250YWluZXJbYygiZ3JlZW5ib3giKV0pCmBgYAoK</div>
 
 
 
