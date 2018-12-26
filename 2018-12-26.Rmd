@@ -92,3 +92,32 @@ for(i in seq_along(符合條件學號)){
 creditResults[[200]]
 ```
 
+```{r}
+library(readr)
+library(tidyr)
+libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/libraryData2.csv")
+libraryData %>%
+  group_by(學院) %>%
+  nest(.key="各院借閱資料") ->
+  libraryDataNested
+```
+
+```{r}
+libraryData %>%
+  filter(學院=="人文學院")
+libraryData %>%
+  group_by(學院)%>%
+  nest->nestLibraryData
+
+nestLibraryData %>%
+  filter(學院=="人文學院") %>%
+  .$data
+```
+
+```{r}
+libraryData %>%
+  group_by(學院) %>%
+  nest(.key="各院借閱資料") ->
+  libraryDataNested
+```
+
