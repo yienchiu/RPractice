@@ -1,0 +1,46 @@
+---
+title: "2018-12-26"
+output: html_notebook
+---
+```{r}
+library(readr); library(dplyr); library(stringr); library(lubridate)
+```
+
+```{r}
+install.packages("plotly")
+```
+
+```{r}
+plasticContainer <- list(
+  greenBox=c("paper","scissor"),     # location 1
+  redBox=c(1L,3L,2.5),               # location 2
+  blueBox=c(TRUE,FALSE,TRUE,TRUE)    # location 3
+)
+```
+
+```{r}
+download.file("https://github.com/tpemartin/github-data/blob/master/plotly_4070_neda.Rda?raw=true",destfile = "plotly_4070_neda.Rda")
+load("plotly_4070_neda.Rda")
+library(plotly)
+plotly_4070_neda
+```
+
+```{r}
+plasticContainer[c("greenBox")] # or plasticContainer[c(1,2)]
+plasticContainer["greenBox"] # or plasticContainer[c(1,2)]
+```
+
+```{r}
+plasticContainer[["greenBox"]] # or plasticContainer[[1]]
+```
+
+```{r}
+plasticContainer["greenBox"][[1]][1]
+plasticContainer[["greenBox"]][1]
+```
+
+```{r}
+plotly_4070_neda$x$layout$shapes[[1]]$opacity<-0.8
+plotly_4070_neda
+```
+

@@ -136,3 +136,29 @@ libraryData %>%
 result3
 ```
 
+```{r}
+hwGrades <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/hwGrades.csv")
+na2Zero<-function(x){
+ ifelse(is.na(x),0,x)
+}
+na2Zero(NA)
+hwGrades %>%
+  mutate(
+   hw1=na2Zero(hw1),
+   hw2=na2Zero(hw2),
+   Exercise3=na2Zero(Exercise3)
+  )->hwGrades
+```
+
+```{r}
+rowMeans(hwGrades)
+```
+
+```{r}
+x <- cbind(x1 = 3, x2 = c(4:1, 2:5))
+rowSums(x)
+colSums(x)
+rowMeans(x)
+```
+
+
