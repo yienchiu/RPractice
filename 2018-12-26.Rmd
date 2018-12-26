@@ -44,3 +44,51 @@ plotly_4070_neda$x$layout$shapes[[1]]$opacity<-0.8
 plotly_4070_neda
 ```
 
+```{r}
+library(readr)
+transcriptData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcript100_102.csv",
+                  col_types = cols(
+                    學期成績="n"
+                  ))
+
+totalCredits<-function(x){
+  transcriptData[transcriptData$學號==x,]->subsample 
+  subsample %>%
+    mutate(
+      及格=(學期成績>=60)
+    ) %>%
+    summarise(
+      學號=學號[1],
+      總修習學分數=sum(學分數),
+      總實得學分數=sum(學分數[及格])
+    )  
+}
+```
+
+```{r}
+transcriptData %>%
+  filter(學屆==100,str_sub(學號,5,6)=="P1") -> subsample
+subsample$學號 %>% unique -> 符合條件學號
+```
+
+```{r}
+transcriptData->subsample
+subsample %>%unique->符合條件學號
+```
+
+```{r}
+seq_along(符合條件學號)
+```
+
+```{r}
+creditResults<-vector("list",length(符合條件學號))
+
+for(i in seq_along(符合條件學號)){
+  creditResults[[i]] <- totalCredits(符合條件學號[i])
+}
+```
+
+```{r}
+creditResults[[200]]
+```
+
