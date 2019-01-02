@@ -92,6 +92,13 @@ seq_along(allStudentID)->x
 x
 ```
 map(c(1,2,......2803),function(i))
+```{r}
+i<-2
+totalCreditOfStudent_i<-function(i){
+  allStudentID[i]%>%totalCredits
+}
+map(seq_along(allStudentID),totalCreditOfStudent_i)->answerList
+```
 
 ## 1.6 通識科目總類
 
@@ -103,3 +110,43 @@ transcriptData[logIndex2,]->subsample2
 unique(subsample2$科目名稱)->通識科目總表
 通識科目總表
 ```
+
+
+##lazy evaluation
+```{r}
+b<-3
+examplefun<-function(a){
+  a+b
+}
+examplefun(10)
+```
+
+```{r}
+b<-3
+examplefun2<-function(a,b){
+  a+b
+}
+examplefun2(10,b)
+
+b<-c("aa","cc")
+examplefun2(10,b)
+```
+
+```{r}
+b<-c("aa","cc")
+examplefun(10)
+```
+
+```{r}
+library(codetools)
+
+```
+
+##Challenge
+在transcriptData創造新logic變數**每週一第六節有課**
+```{r}
+libraryData%>%
+  group_by(學號,讀者年級)%>%
+  summarise(年借閱總冊數=n())->libraryData
+```
+
