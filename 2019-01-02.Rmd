@@ -2,6 +2,14 @@
 title: "2019-01-02"
 output: html_notebook
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr); library(stringr); library(lubridate); library(purrr)
+```
+
+# 1. 成績資料分析
+
+資料引入：
 ```{r}
 library(readr)
 transcriptData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcript100_102.csv",
@@ -10,3 +18,88 @@ transcriptData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-d
                   ))
 ```
 
+此資料為台北大學100-102學年入學學生之去識別化成績資料（入學年為資料中的**學屆**欄位）。
+
+## 1.1 單一學號子樣本
+取出學號edfeQ7fb8的子樣本：
+
+```{r ans11}
+transcriptData %>%
+  filter(學號=="edfeQ7fb8")
+```
+
+## 1.2 總學分數
+我們可以透過以下步驟計算他的「總修習學分數」及「總實得學分數」：
+
+```{r}
+subsample$學期成績 >= 60 -> subsample$及格 # 1
+總修習學分數=sum(subsample$學分數) # 2
+總實得學分數=sum(subsample$學分數[subsample$及格]) #3
+```
+
+請用dplyr函數改寫以上三個步驟：使用`mutate()`完成#1，接著用`summarise()`完成#2及#3
+```{r ans12}
+subsample %>%
+ mutate(及格=(學期成績>=60))->subsample
+subsample %>%
+  summarise(
+    總修習學分數=(sum(subsample$學分數)), 
+    總實得學分數=(sum(subsample$學分數[subsample$及格]))
+  )
+
+```
+## 1.3 summarise應用
+
+上述`summarise()`的最後輸出只會有「總修習學分數」及「總實得學分數」，若為方便讀者閱讀想讓最後輸出還有「學號」,我們可以在`summarise()`裡再加一行`學號=...`（...請自行判斷其程式內容）。
+
+重寫上一題，但讓summarise輸出「學號」、「總修習學分數」、「總實得學分數」三項值。
+
+```{r ans13}
+subsample %>%
+  summarise(
+    總修習學分數=(sum(subsample$學分數)), 
+    總實得學分數=(sum(subsample$學分數[subsample$及格])),
+    學號=(min(subsample$學號))
+  )
+```
+
+## 1.4 學分數計算函數
+
+設計一個學分數計算函數稱之為totalCredits，當我們給它學號字串，它便會回傳給我們「學號」、「總修習學分數」、「總實得學分數」三項值。以上題為例,`totalCredits("edfeQ7fb8")`會回傳上題答案值。
+
+```{r ans14}
+totalCredits<-function(x){
+  (transcriptData$學號=="x")->logIndex
+   transcriptData[logIndex,]->subsample
+   總修習學分數=(sum(subsample$學分數))
+   總實得學分數=(sum(subsample$學分數[subsample$及格]))
+   學號=(min(subsample$學號))
+}
+```
+
+
+## 1.5 取出系別代號
+
+學號的第5-6碼為此學生系別, 請在transcriptData新增**系別**欄位。
+```{r ans15}
+transcriptData %>%
+  mutate(系別=(str_sub(學號,5,6)))->transcriptData
+
+```
+map(x,function(x[i]))
+```{r}
+seq_along(allStudentID)->x
+x
+```
+map(c(1,2,......2803),function(i))
+
+## 1.6 通識科目總類
+
+找出此樣本中100學年第1學期學生所選通識科目有那幾種。最後一行程式請存在**通識科目總表**物件(class為character)裡，裡頭是「不重覆」的科目名稱。
+（hint: 由於每個科目可以有很多學生修，取出每位學生修的通識會有不少重覆，此時可以用`unique()`函數去掉重複的部份即是完整的科目種類。）
+```{r ans16}
+(transcriptData$學年=="100"&transcriptData$學期=="1"&transcriptData$`必選修類別（必∕選∕通）`=="通")->logIndex2
+transcriptData[logIndex2,]->subsample2
+unique(subsample2$科目名稱)->通識科目總表
+通識科目總表
+```

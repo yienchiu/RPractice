@@ -177,6 +177,11 @@ $(document).ready(function () {
 
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-text-begin -->
+<div class="section level1">
+<h1>1. 成績資料分析</h1>
+<p>資料引入：</p>
+<!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbnRyYW5zY3JpcHREYXRhIDwtIHJlYWRfY3N2KFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RwZW1hcnRpbi9naXRodWItZGF0YS9tYXN0ZXIvdHJhbnNjcmlwdDEwMF8xMDIuY3N2XCIsXG4gICAgICAgICAgICAgICAgICBjb2xfdHlwZXMgPSBjb2xzKFxuICAgICAgICAgICAgICAgICAgICDlrbjmnJ/miJDnuL49XCJuXCJcbiAgICAgICAgICAgICAgICAgICkpXG5gYGAifQ== -->
 <pre class="r"><code>library(readr)
@@ -187,9 +192,120 @@ transcriptData &lt;- read_csv(&quot;https://raw.githubusercontent.com/tpemartin/
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>此資料為台北大學100-102學年入學學生之去識別化成績資料（入學年為資料中的<strong>學屆</strong>欄位）。</p>
+<div class="section level2">
+<h2>1.1 單一學號子樣本</h2>
+<p>取出學號edfeQ7fb8的子樣本：</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhbnNjcmlwdERhdGEgJT4lXG4gIGZpbHRlcijlrbjomZ89PVwiZWRmZVE3ZmI4XCIpXG5gYGAifQ== -->
+<pre class="r"><code>transcriptData %&gt;%
+  filter(學號==&quot;edfeQ7fb8&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div class="section level2">
+<h2>1.2 總學分數</h2>
+<p>我們可以透過以下步驟計算他的「總修習學分數」及「總實得學分數」：</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Vic2FtcGxlJOWtuOacn+aIkOe4viA+PSA2MCAtPiBzdWJzYW1wbGUk5Y+K5qC8ICMgMVxu57i95L+u57+S5a245YiG5pW4PXN1bShzdWJzYW1wbGUk5a245YiG5pW4KSAjIDJcbue4veWvpuW+l+WtuOWIhuaVuD1zdW0oc3Vic2FtcGxlJOWtuOWIhuaVuFtzdWJzYW1wbGUk5Y+K5qC8XSkgIzNcbmBgYCJ9 -->
+<pre class="r"><code>subsample$學期成績 &gt;= 60 -&gt; subsample$及格 # 1
+總修習學分數=sum(subsample$學分數) # 2
+總實得學分數=sum(subsample$學分數[subsample$及格]) #3</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>請用dplyr函數改寫以上三個步驟：使用<code>mutate()</code>完成#1，接著用<code>summarise()</code>完成#2及#3</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Vic2FtcGxlICU+JVxuIG11dGF0ZSjlj4rmoLw9KOWtuOacn+aIkOe4vj49NjApKS0+c3Vic2FtcGxlXG5zdWJzYW1wbGUgJT4lXG4gIHN1bW1hcmlzZShcbiAgICDnuL3kv67nv5LlrbjliIbmlbg9KHN1bShzdWJzYW1wbGUk5a245YiG5pW4KSksIFxuICAgIOe4veWvpuW+l+WtuOWIhuaVuD0oc3VtKHN1YnNhbXBsZSTlrbjliIbmlbhbc3Vic2FtcGxlJOWPiuagvF0pKVxuICApXG5cbmBgYCJ9 -->
+<pre class="r"><code>subsample %&gt;%
+ mutate(及格=(學期成績&gt;=60))-&gt;subsample
+subsample %&gt;%
+  summarise(
+    總修習學分數=(sum(subsample$學分數)), 
+    總實得學分數=(sum(subsample$學分數[subsample$及格]))
+  )
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="summarise" class="section level2">
+<h2>1.3 summarise應用</h2>
+<p>上述<code>summarise()</code>的最後輸出只會有「總修習學分數」及「總實得學分數」，若為方便讀者閱讀想讓最後輸出還有「學號」,我們可以在<code>summarise()</code>裡再加一行<code>學號=...</code>（…請自行判斷其程式內容）。</p>
+<p>重寫上一題，但讓summarise輸出「學號」、「總修習學分數」、「總實得學分數」三項值。</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Vic2FtcGxlICU+JVxuICBzdW1tYXJpc2UoXG4gICAg57i95L+u57+S5a245YiG5pW4PShzdW0oc3Vic2FtcGxlJOWtuOWIhuaVuCkpLCBcbiAgICDnuL3lr6blvpflrbjliIbmlbg9KHN1bShzdWJzYW1wbGUk5a245YiG5pW4W3N1YnNhbXBsZSTlj4rmoLxdKSksXG4gICAg5a246JmfPShtaW4oc3Vic2FtcGxlJOWtuOiZnykpXG4gIClcbmBgYCJ9 -->
+<pre class="r"><code>subsample %&gt;%
+  summarise(
+    總修習學分數=(sum(subsample$學分數)), 
+    總實得學分數=(sum(subsample$學分數[subsample$及格])),
+    學號=(min(subsample$學號))
+  )</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div class="section level2">
+<h2>1.4 學分數計算函數</h2>
+<p>設計一個學分數計算函數稱之為totalCredits，當我們給它學號字串，它便會回傳給我們「學號」、「總修習學分數」、「總實得學分數」三項值。以上題為例,<code>totalCredits(&quot;edfeQ7fb8&quot;)</code>會回傳上題答案值。</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudG90YWxDcmVkaXRzPC1mdW5jdGlvbih4KXtcbiAgKHRyYW5zY3JpcHREYXRhJOWtuOiZnz09XCJ4XCIpLT5sb2dJbmRleFxuICAgdHJhbnNjcmlwdERhdGFbbG9nSW5kZXgsXS0+c3Vic2FtcGxlXG4gICDnuL3kv67nv5LlrbjliIbmlbg9KHN1bShzdWJzYW1wbGUk5a245YiG5pW4KSlcbiAgIOe4veWvpuW+l+WtuOWIhuaVuD0oc3VtKHN1YnNhbXBsZSTlrbjliIbmlbhbc3Vic2FtcGxlJOWPiuagvF0pKVxuICAg5a246JmfPShtaW4oc3Vic2FtcGxlJOWtuOiZnykpXG59XG5gYGAifQ== -->
+<pre class="r"><code>totalCredits&lt;-function(x){
+  (transcriptData$學號==&quot;x&quot;)-&gt;logIndex
+   transcriptData[logIndex,]-&gt;subsample
+   總修習學分數=(sum(subsample$學分數))
+   總實得學分數=(sum(subsample$學分數[subsample$及格]))
+   學號=(min(subsample$學號))
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div class="section level2">
+<h2>1.5 取出系別代號</h2>
+<p>學號的第5-6碼為此學生系別, 請在transcriptData新增<strong>系別</strong>欄位。</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhbnNjcmlwdERhdGEgJT4lXG4gIG11dGF0ZSjns7vliKU9KHN0cl9zdWIo5a246JmfLDUsNikpKS0+dHJhbnNjcmlwdERhdGFcblxuYGBgIn0= -->
+<pre class="r"><code>transcriptData %&gt;%
+  mutate(系別=(str_sub(學號,5,6)))-&gt;transcriptData
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>map(x,function(x[i]))</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2VxX2Fsb25nKGFsbFN0dWRlbnRJRCktPnhcbnhcbmBgYCJ9 -->
+<pre class="r"><code>seq_along(allStudentID)-&gt;x
+x</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>map(c(1,2,……2803),function(i))</p>
+</div>
+<div class="section level2">
+<h2>1.6 通識科目總類</h2>
+<p>找出此樣本中100學年第1學期學生所選通識科目有那幾種。最後一行程式請存在<strong>通識科目總表</strong>物件(class為character)裡，裡頭是「不重覆」的科目名稱。 （hint: 由於每個科目可以有很多學生修，取出每位學生修的通識會有不少重覆，此時可以用<code>unique()</code>函數去掉重複的部份即是完整的科目種類。）</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuKHRyYW5zY3JpcHREYXRhJOWtuOW5tD09XCIxMDBcIiZ0cmFuc2NyaXB0RGF0YSTlrbjmnJ89PVwiMVwiJnRyYW5zY3JpcHREYXRhJGDlv4Xpgbjkv67poZ7liKXvvIjlv4XiiJXpgbjiiJXpgJrvvIlgPT1cIumAmlwiKS0+bG9nSW5kZXgyXG50cmFuc2NyaXB0RGF0YVtsb2dJbmRleDIsXS0+c3Vic2FtcGxlMlxudW5pcXVlKHN1YnNhbXBsZTIk56eR55uu5ZCN56ixKS0+6YCa6K2Y56eR55uu57i96KGoXG7pgJrorZjnp5Hnm67nuL3ooahcbmBgYCJ9 -->
+<pre class="r"><code>(transcriptData$學年==&quot;100&quot;&amp;transcriptData$學期==&quot;1&quot;&amp;transcriptData$`必選修類別（必∕選∕通）`==&quot;通&quot;)-&gt;logIndex2
+transcriptData[logIndex2,]-&gt;subsample2
+unique(subsample2$科目名稱)-&gt;通識科目總表
+通識科目總表</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+</div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOS0wMS0wMiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KbGlicmFyeShyZWFkcikKdHJhbnNjcmlwdERhdGEgPC0gcmVhZF9jc3YoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS90cGVtYXJ0aW4vZ2l0aHViLWRhdGEvbWFzdGVyL3RyYW5zY3JpcHQxMDBfMTAyLmNzdiIsCiAgICAgICAgICAgICAgICAgIGNvbF90eXBlcyA9IGNvbHMoCiAgICAgICAgICAgICAgICAgICAg5a245pyf5oiQ57i+PSJuIgogICAgICAgICAgICAgICAgICApKQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiMjAxOS0wMS0wMiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQpsaWJyYXJ5KGRwbHlyKTsgbGlicmFyeShzdHJpbmdyKTsgbGlicmFyeShsdWJyaWRhdGUpOyBsaWJyYXJ5KHB1cnJyKQpgYGAKCiMgMS4g5oiQ57i+6LOH5paZ5YiG5p6QCgros4fmlpnlvJXlhaXvvJoKYGBge3J9CmxpYnJhcnkocmVhZHIpCnRyYW5zY3JpcHREYXRhIDwtIHJlYWRfY3N2KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vdHBlbWFydGluL2dpdGh1Yi1kYXRhL21hc3Rlci90cmFuc2NyaXB0MTAwXzEwMi5jc3YiLAogICAgICAgICAgICAgICAgICBjb2xfdHlwZXMgPSBjb2xzKAogICAgICAgICAgICAgICAgICAgIOWtuOacn+aIkOe4vj0ibiIKICAgICAgICAgICAgICAgICAgKSkKYGBgCgrmraTos4fmlpnngrrlj7DljJflpKflrbgxMDAtMTAy5a245bm05YWl5a245a2455Sf5LmL5Y676K2Y5Yil5YyW5oiQ57i+6LOH5paZ77yI5YWl5a245bm054K66LOH5paZ5Lit55qEKirlrbjlsYYqKuashOS9je+8ieOAggoKIyMgMS4xIOWWruS4gOWtuOiZn+WtkOaoo+acrArlj5blh7rlrbjomZ9lZGZlUTdmYjjnmoTlrZDmqKPmnKzvvJoKCmBgYHtyIGFuczExfQp0cmFuc2NyaXB0RGF0YSAlPiUKICBmaWx0ZXIo5a246JmfPT0iZWRmZVE3ZmI4IikKYGBgCgojIyAxLjIg57i95a245YiG5pW4CuaIkeWAkeWPr+S7pemAj+mBjuS7peS4i+atpempn+ioiOeul+S7lueahOOAjOe4veS/rue/kuWtuOWIhuaVuOOAjeWPiuOAjOe4veWvpuW+l+WtuOWIhuaVuOOAje+8mgoKYGBge3J9CnN1YnNhbXBsZSTlrbjmnJ/miJDnuL4gPj0gNjAgLT4gc3Vic2FtcGxlJOWPiuagvCAjIDEK57i95L+u57+S5a245YiG5pW4PXN1bShzdWJzYW1wbGUk5a245YiG5pW4KSAjIDIK57i95a+m5b6X5a245YiG5pW4PXN1bShzdWJzYW1wbGUk5a245YiG5pW4W3N1YnNhbXBsZSTlj4rmoLxdKSAjMwpgYGAKCuiri+eUqGRwbHly5Ye95pW45pS55a+r5Lul5LiK5LiJ5YCL5q2l6amf77ya5L2/55SoYG11dGF0ZSgpYOWujOaIkCMx77yM5o6l6JGX55SoYHN1bW1hcmlzZSgpYOWujOaIkCMy5Y+KIzMKYGBge3IgYW5zMTJ9CnN1YnNhbXBsZSAlPiUKIG11dGF0ZSjlj4rmoLw9KOWtuOacn+aIkOe4vj49NjApKS0+c3Vic2FtcGxlCnN1YnNhbXBsZSAlPiUKICBzdW1tYXJpc2UoCiAgICDnuL3kv67nv5LlrbjliIbmlbg9KHN1bShzdWJzYW1wbGUk5a245YiG5pW4KSksIAogICAg57i95a+m5b6X5a245YiG5pW4PShzdW0oc3Vic2FtcGxlJOWtuOWIhuaVuFtzdWJzYW1wbGUk5Y+K5qC8XSkpCiAgKQoKYGBgCiMjIDEuMyBzdW1tYXJpc2Xmh4nnlKgKCuS4iui/sGBzdW1tYXJpc2UoKWDnmoTmnIDlvozovLjlh7rlj6rmnIPmnInjgIznuL3kv67nv5LlrbjliIbmlbjjgI3lj4rjgIznuL3lr6blvpflrbjliIbmlbjjgI3vvIzoi6Xngrrmlrnkvr/oroDogIXplrHoroDmg7PorpPmnIDlvozovLjlh7rpgoTmnInjgIzlrbjomZ/jgI0s5oiR5YCR5Y+v5Lul5ZyoYHN1bW1hcmlzZSgpYOijoeWGjeWKoOS4gOihjGDlrbjomZ89Li4uYO+8iC4uLuiri+iHquihjOWIpOaWt+WFtueoi+W8j+WFp+Wuue+8ieOAggoK6YeN5a+r5LiK5LiA6aGM77yM5L2G6K6Tc3VtbWFyaXNl6Ly45Ye644CM5a246Jmf44CN44CB44CM57i95L+u57+S5a245YiG5pW444CN44CB44CM57i95a+m5b6X5a245YiG5pW444CN5LiJ6aCF5YC844CCCgpgYGB7ciBhbnMxM30Kc3Vic2FtcGxlICU+JQogIHN1bW1hcmlzZSgKICAgIOe4veS/rue/kuWtuOWIhuaVuD0oc3VtKHN1YnNhbXBsZSTlrbjliIbmlbgpKSwgCiAgICDnuL3lr6blvpflrbjliIbmlbg9KHN1bShzdWJzYW1wbGUk5a245YiG5pW4W3N1YnNhbXBsZSTlj4rmoLxdKSksCiAgICDlrbjomZ89KG1pbihzdWJzYW1wbGUk5a246JmfKSkKICApCmBgYAoKIyMgMS40IOWtuOWIhuaVuOioiOeul+WHveaVuAoK6Kit6KiI5LiA5YCL5a245YiG5pW46KiI566X5Ye95pW456ix5LmL54K6dG90YWxDcmVkaXRz77yM55W25oiR5YCR57Wm5a6D5a246Jmf5a2X5Liy77yM5a6D5L6/5pyD5Zue5YKz57Wm5oiR5YCR44CM5a246Jmf44CN44CB44CM57i95L+u57+S5a245YiG5pW444CN44CB44CM57i95a+m5b6X5a245YiG5pW444CN5LiJ6aCF5YC844CC5Lul5LiK6aGM54K65L6LLGB0b3RhbENyZWRpdHMoImVkZmVRN2ZiOCIpYOacg+WbnuWCs+S4iumhjOetlOahiOWAvOOAggoKYGBge3IgYW5zMTR9CnRvdGFsQ3JlZGl0czwtZnVuY3Rpb24oeCl7CiAgKHRyYW5zY3JpcHREYXRhJOWtuOiZnz09IngiKS0+bG9nSW5kZXgKICAgdHJhbnNjcmlwdERhdGFbbG9nSW5kZXgsXS0+c3Vic2FtcGxlCiAgIOe4veS/rue/kuWtuOWIhuaVuD0oc3VtKHN1YnNhbXBsZSTlrbjliIbmlbgpKQogICDnuL3lr6blvpflrbjliIbmlbg9KHN1bShzdWJzYW1wbGUk5a245YiG5pW4W3N1YnNhbXBsZSTlj4rmoLxdKSkKICAg5a246JmfPShtaW4oc3Vic2FtcGxlJOWtuOiZnykpCn0KYGBgCgoKIyMgMS41IOWPluWHuuezu+WIpeS7o+iZnwoK5a246Jmf55qE56ysNS0256K854K65q2k5a2455Sf57O75YilLCDoq4vlnKh0cmFuc2NyaXB0RGF0YeaWsOWinioq57O75YilKirmrITkvY3jgIIKYGBge3IgYW5zMTV9CnRyYW5zY3JpcHREYXRhICU+JQogIG11dGF0ZSjns7vliKU9KHN0cl9zdWIo5a246JmfLDUsNikpKS0+dHJhbnNjcmlwdERhdGEKCmBgYAptYXAoeCxmdW5jdGlvbih4W2ldKSkKYGBge3J9CnNlcV9hbG9uZyhhbGxTdHVkZW50SUQpLT54CngKYGBgCm1hcChjKDEsMiwuLi4uLi4yODAzKSxmdW5jdGlvbihpKSkKCiMjIDEuNiDpgJrorZjnp5Hnm67nuL3poZ4KCuaJvuWHuuatpOaoo+acrOS4rTEwMOWtuOW5tOesrDHlrbjmnJ/lrbjnlJ/miYDpgbjpgJrorZjnp5Hnm67mnInpgqPlub7nqK7jgILmnIDlvozkuIDooYznqIvlvI/oq4vlrZjlnKgqKumAmuitmOenkeebrue4veihqCoq54mp5Lu2KGNsYXNz54K6Y2hhcmFjdGVyKeijoe+8jOijoemgreaYr+OAjOS4jemHjeimhuOAjeeahOenkeebruWQjeeoseOAggrvvIhoaW50OiDnlLHmlrzmr4/lgIvnp5Hnm67lj6/ku6XmnInlvojlpJrlrbjnlJ/kv67vvIzlj5blh7rmr4/kvY3lrbjnlJ/kv67nmoTpgJrorZjmnIPmnInkuI3lsJHph43opobvvIzmraTmmYLlj6/ku6XnlKhgdW5pcXVlKClg5Ye95pW45Y675o6J6YeN6KSH55qE6YOo5Lu95Y2z5piv5a6M5pW055qE56eR55uu56iu6aGe44CC77yJCmBgYHtyIGFuczE2fQoodHJhbnNjcmlwdERhdGEk5a245bm0PT0iMTAwIiZ0cmFuc2NyaXB0RGF0YSTlrbjmnJ89PSIxIiZ0cmFuc2NyaXB0RGF0YSRg5b+F6YG45L+u6aGe5Yil77yI5b+F4oiV6YG44oiV6YCa77yJYD09IumAmiIpLT5sb2dJbmRleDIKdHJhbnNjcmlwdERhdGFbbG9nSW5kZXgyLF0tPnN1YnNhbXBsZTIKdW5pcXVlKHN1YnNhbXBsZTIk56eR55uu5ZCN56ixKS0+6YCa6K2Y56eR55uu57i96KGoCumAmuitmOenkeebrue4veihqApgYGA=</div>
 
 
 
