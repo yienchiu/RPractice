@@ -1,0 +1,12 @@
+---
+title: "2019-01-02"
+output: html_notebook
+---
+```{r}
+library(readr)
+transcriptData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcript100_102.csv",
+                  col_types = cols(
+                    學期成績="n"
+                  ))
+```
+
